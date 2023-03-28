@@ -6,8 +6,8 @@ public class UIResAdjuster : MonoBehaviour
     //[SerializeField] private List<GameObject> UIElements;
     private float scaleValueY;
     private float scaleValueX;
-    private float baseScaleY = 1334.0f;
-    private float baseScaleX = 750.0f;
+    private float baseScaleY = 750.0f;
+    private float baseScaleX = 1334.0f;
 
 
     // Start is called before the first frame update

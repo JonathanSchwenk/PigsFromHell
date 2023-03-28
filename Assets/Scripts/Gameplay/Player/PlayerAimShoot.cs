@@ -10,12 +10,14 @@ public class PlayerAimShoot : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject rightFirePoint;
     [SerializeField] GameObject leftFirePoint;
+    [SerializeField] GameObject knifeDamagerCollider;
 
 
     private float angle;
     private Vector3 directionPoint;
-    private GameObject currentWeaponRight;
-    private GameObject currentWeaponLeft;
+    //private GameObject currentWeaponRight;
+    //private GameObject currentWeaponLeft;
+    private string currentWeaponRight;
     private float bulletForce;
     private float firerateTime;
     private float fireRateCounter;
@@ -38,6 +40,7 @@ public class PlayerAimShoot : MonoBehaviour
         }
 
         //currentWeaponRight = rightHand.transform.GetChild(16).gameObject; // repeat for left when I get to that 
+        //currentWeaponRight = "Knife";
         // Get this from save
         // Activate child (all weapons should start inactive)
 
@@ -51,7 +54,7 @@ public class PlayerAimShoot : MonoBehaviour
         // Number of shots (Mag size) 
         // This will be set based on the weapon
         magSize = 8;
-        shotsInMag = 50; // change to magsize
+        shotsInMag = magSize;
     }
 
     // Update is called once per frame
@@ -80,33 +83,44 @@ public class PlayerAimShoot : MonoBehaviour
                     //Reload(); User must click reload button for now (If I want to change then I can refrence the PlayerReload script and call a public function)
                 }
             }
-        } else {
-            if (movementJoystick.Horizontal == 0 || movementJoystick.Vertical == 0) { 
-                if (animator.GetBool("Reloading") == false) {
-                    animator.SetBool("Idle", true);
-                }
-            }
-        }
+        } 
     }
 
 
     private void Shoot() {
-        // Make the FirePoint the last child in each weapon (Try this first, if it doesn't work then use find i guess)
+        // If thte weapon is a gun then set animation and spawn bullets, else spawn knife 
+        if (currentWeaponRight != "Knife") {
+            // Make the FirePoint the last child in each weapon (Try this first, if it doesn't work then use find i guess)
 
-        // Shoot animation
-        if (movementJoystick.Horizontal == 0 || movementJoystick.Vertical == 0) { 
+            // Shoot animation
+            if (movementJoystick.Horizontal == 0 || movementJoystick.Vertical == 0) { 
+                animator.SetTrigger("Shoot");
+                animator.SetBool("Idle", false);
+            }
+
+            //Transform firePoint = currentWeaponRight.transform.GetChild(currentWeaponRight.transform.childCount - 1); // -1 bc i think childcount will be IndexOutBounds
+            // Will add some logic to see which type of projectile should be fired
+            // Will have to change the rotation of the spawn object for the direction the players facing (Can do this later with projectiles that aren't circles)
+            GameObject projectile = objectPooler.SpawnFromPool("DefaultBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+            projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+
+            // Lower shots in mag
+            shotsInMag -= 1;
+        } else {
+            // Shoot animation
             animator.SetTrigger("Shoot");
             animator.SetBool("Idle", false);
-            animator.SetBool("Reloading", false);
+
+            // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
+            StartCoroutine(KnifeDamageCollider());
         }
+    }
 
-        //Transform firePoint = currentWeaponRight.transform.GetChild(currentWeaponRight.transform.childCount - 1); // -1 bc i think childcount will be IndexOutBounds
-        // Will add some logic to see which type of projectile should be fired
-        // Will have to change the rotation of the spawn object for the direction the players facing (Can do this later with projectiles that aren't circles)
-        GameObject projectile = objectPooler.SpawnFromPool("DefaultBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
-        projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
 
-        // Lower shots in mag
-        shotsInMag -= 1;
+
+    IEnumerator KnifeDamageCollider() {
+        knifeDamagerCollider.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        knifeDamagerCollider.SetActive(false);
     }
 }

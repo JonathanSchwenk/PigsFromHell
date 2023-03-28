@@ -12,6 +12,7 @@ public class DefaultBullet : MonoBehaviour
     {
         initTime = Time.time;
         timeBeforeDespawn = 5.0f;
+
     }
 
     // Update is called once per frame
@@ -35,5 +36,16 @@ public class DefaultBullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    
+    /*
+    // I think that since these are tiggers they dont collide with other objects so its fine and bullets wont hit other bullets
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.collider.tag == "DefaultBullet") {
+            //gameObject.SetActive(false);
+            Physics.IgnoreCollision(other.collider, gameObject.GetComponent<Collider>());
+        }
+    }
+    */
 
 }

@@ -37,11 +37,8 @@ public class PlayerMove : MonoBehaviour
         if (movementJoystick.Horizontal != 0 || movementJoystick.Vertical != 0) { 
             animator.SetBool("Idle", false);
             animator.SetBool("RunningFWD", true);
-            animator.SetBool("Reloading", false);
         } else {
-            if (animator.GetBool("Reloading") == false) {
-                animator.SetBool("Idle", true);
-            }
+            animator.SetBool("Idle", true);
             animator.SetBool("RunningFWD", false);
         }
     }

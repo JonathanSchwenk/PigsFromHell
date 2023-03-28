@@ -11,45 +11,34 @@ public class PlayerReload : MonoBehaviour
     private int ammoCap; // max bullets the player can hold 
     private int magSize;
     private int shotsInMag;
-    private int animationTimesFinished;
+    private string currentWeaponRight;
 
 
     // Start is called before the first frame update
     void Start()
     {
         magSize = 8;
-        shotsInMag = 50; // change to magsize
+        shotsInMag = 7;
 
-        // reload helper
-        animationTimesFinished = 0;
+
+        //currentWeaponRight = "Knife";
+        // Get this from save
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetBool("Reloading") == true) {
-            Reload();
-        }
+
     }
 
 
     public void Reload() {
-        animator.SetBool("Reloading", true);
-        animator.SetBool("Idle", false);
-
-        // Reload differently based on weapon
-        // if weapon num == certain numbers then reload one at a time, else, reload whole mag
-
-        // Need to do reload cancel for single bullet reload guns so you can reload 4 shots and then shoot and dont have to wait for all 8
-        // for now reload one at a time
-
-        // Checks to see if animation has finished, if yes then add a bullet
-        if ((int)(animator.GetCurrentAnimatorStateInfo(0).normalizedTime) - animationTimesFinished == 1) { 
-            shotsInMag += 1;
-            print("add bullet");
-            animationTimesFinished = (int)(animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        }
-
-        // if mag == full then stop reloading animation
+        // if the current weapon isn't a knife then reload the gun, else do nothing
+        // And check to make sure that the mag isnt full before reloading
+        if (currentWeaponRight != "Knife" && shotsInMag < magSize) {
+            shotsInMag = magSize;
+            print("Reloaded");
+            print(shotsInMag);
+        } 
     }
 }
