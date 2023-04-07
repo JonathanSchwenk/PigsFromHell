@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefaultBullet : MonoBehaviour
+public class Rocket : MonoBehaviour
 {
     private float initTime;
     private float timeBeforeDespawn;
+    public float damage = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,6 @@ public class DefaultBullet : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Enviornment") {
             gameObject.SetActive(false);
@@ -36,16 +36,4 @@ public class DefaultBullet : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-    
-    /*
-    // I think that since these are tiggers they dont collide with other objects so its fine and bullets wont hit other bullets
-
-    private void OnCollisionEnter(Collision other) {
-        if (other.collider.tag == "DefaultBullet") {
-            //gameObject.SetActive(false);
-            Physics.IgnoreCollision(other.collider, gameObject.GetComponent<Collider>());
-        }
-    }
-    */
-
 }

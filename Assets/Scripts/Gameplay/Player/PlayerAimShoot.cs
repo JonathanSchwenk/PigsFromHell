@@ -101,7 +101,7 @@ public class PlayerAimShoot : MonoBehaviour
             //Transform firePoint = currentWeaponRight.transform.GetChild(currentWeaponRight.transform.childCount - 1); // -1 bc i think childcount will be IndexOutBounds
             // Will add some logic to see which type of projectile should be fired
             // Will have to change the rotation of the spawn object for the direction the players facing (Can do this later with projectiles that aren't circles)
-            GameObject projectile = objectPooler.SpawnFromPool("DefaultBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+            GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
             projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
 
             // Lower shots in mag

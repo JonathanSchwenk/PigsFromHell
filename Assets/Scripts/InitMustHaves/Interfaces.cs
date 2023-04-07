@@ -21,6 +21,7 @@ public interface IObjectPooler {
 
 public interface ISaveManager {
     SaveData saveData {get; set;}
+    Action<int>OnSave {get; set;}
 
     void Save();
     void Load();

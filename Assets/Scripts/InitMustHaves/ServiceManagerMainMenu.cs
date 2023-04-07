@@ -5,7 +5,7 @@ using Dorkbots.ServiceLocatorTools;
 
 public class ServiceManagerMenu : MonoBehaviour
 {
-    /*
+    
     public SaveManager saveManager;
     //public ObjectPooler objectPooler;
     //public GameManager gameManager;
@@ -15,10 +15,14 @@ public class ServiceManagerMenu : MonoBehaviour
         // If there is no SaveManager service registered, create one, else, do nothing
         if (ServiceLocator.IsRegistered<ISaveManager>()) {
             Debug.Log("A SaveManager already exists");
+            // Loading save here because this script gets executed early which is where I need to load so Im trying here.
+            saveManager.Load();
         } else {
             Debug.Log("SaveManager not found, creating one");
             ServiceLocator.Register<ISaveManager>(saveManager);
 
+            // Loading save here because this script gets executed early which is where I need to load so Im trying here.
+            saveManager.Load();
         }
 
 
@@ -37,6 +41,6 @@ public class ServiceManagerMenu : MonoBehaviour
             ServiceLocator.Unregister<ISaveManager>();
         }
     }
-    */
+    
 
 }

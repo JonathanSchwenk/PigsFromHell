@@ -6,7 +6,13 @@ TagManager:
   tags:
   - Enviornment
   - Enemy
-  - DefaultBullet
+  - LargeBullet
+  - MediumBullet
+  - SmallBullet
+  - Rocket
+  - Arrow
+  - Fire
+  - RailGunBolt
   layers:
   - Default
   - TransparentFX
