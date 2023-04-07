@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
 
 
     private Vector3 movement;
+    
 
 
     // Start is called before the first frame update
