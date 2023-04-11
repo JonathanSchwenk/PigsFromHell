@@ -34,17 +34,16 @@ public class CurrentEquiptedWeapons : MonoBehaviour
     }
 
     private void SaveManagerOnSave(int num) {
-        print("envoked action");
-        gunName.text = saveManager.saveData.currentWeapons[primaryOrSecondary];
-        gunImage.sprite = imagesForUI.transform.Find(saveManager.saveData.currentWeapons[primaryOrSecondary]).GetComponent<Image>().sprite;
+        gunName.text = saveManager.saveData.currentWeapons[primaryOrSecondary].name;
+        gunImage.sprite = imagesForUI.transform.Find(saveManager.saveData.currentWeapons[primaryOrSecondary].name).GetComponent<Image>().sprite;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gunName.text = saveManager.saveData.currentWeapons[primaryOrSecondary];
-        gunImage.sprite = imagesForUI.transform.Find(saveManager.saveData.currentWeapons[primaryOrSecondary]).GetComponent<Image>().sprite;
+        gunName.text = saveManager.saveData.currentWeapons[primaryOrSecondary].name;
+        gunImage.sprite = imagesForUI.transform.Find(saveManager.saveData.currentWeapons[primaryOrSecondary].name).GetComponent<Image>().sprite;
 
     }
 

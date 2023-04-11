@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dorkbots.ServiceLocatorTools;
 
 public class PlayerReload : MonoBehaviour
 {
@@ -11,18 +12,55 @@ public class PlayerReload : MonoBehaviour
     private int ammoCap; // max bullets the player can hold 
     private int magSize;
     private int shotsInMag;
+
+
     private string currentWeaponRight;
+
+
+    private ISaveManager saveManager;
+
+
+    private void Awake() {
+        saveManager = ServiceLocator.Resolve<ISaveManager>();
+
+        if (saveManager != null) {
+            saveManager.OnSave += SaveManagerOnSave;
+        } else {
+            print("No save manager");
+        }
+    }
+    private void OnDestroy() {
+        if (saveManager != null) {
+            saveManager.OnSave -= SaveManagerOnSave;
+        } else {
+            print("No save manager");
+        }
+    }
+
+    private void SaveManagerOnSave(int num) {
+        // This happens everytime you save, I think it is fine, want just for when you change weapons. 
+        // Could add something else like a bool to check if I wanna actually do something here.
+
+        // This is fine for getting a new weapon but not for switching.
+
+        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
+
+        ammoCap = activeWeapon.totalAmmo;
+        totalAmmo = activeWeapon.reserveAmmo;
+        magSize = activeWeapon.magSize;
+        shotsInMag = activeWeapon.bulletsInMag;
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        magSize = 8;
-        shotsInMag = 7;
+        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
 
-
-        //currentWeaponRight = "Knife";
-        // Get this from save
+        ammoCap = activeWeapon.totalAmmo;
+        totalAmmo = activeWeapon.reserveAmmo;
+        magSize = activeWeapon.magSize;
+        shotsInMag = activeWeapon.bulletsInMag;
     }
 
     // Update is called once per frame
@@ -36,10 +74,17 @@ public class PlayerReload : MonoBehaviour
     public void Reload() {
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
-        if (currentWeaponRight != "Knife" && shotsInMag < magSize) {
-            shotsInMag = magSize;
-            print("Reloaded");
-            print(shotsInMag);
+        if (currentWeaponRight != "Knife" && shotsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
+            print("Reloading");
+            
+            if (saveManager.saveData.activeWeapon.reserveAmmo > magSize) {
+                saveManager.saveData.activeWeapon.bulletsInMag = magSize;
+                saveManager.saveData.activeWeapon.reserveAmmo -= magSize;
+            } else {
+                saveManager.saveData.activeWeapon.bulletsInMag = saveManager.saveData.activeWeapon.reserveAmmo;
+                saveManager.saveData.activeWeapon.reserveAmmo = 0;
+            }
+            
         } 
     }
 }

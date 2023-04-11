@@ -50,7 +50,7 @@ public class CharacterCanvasManager : MonoBehaviour
     //}
 
 
-
+/*
     public void PrimaryGunButtonChangeGun(GameObject gun) {
         //print(gun.GetComponent<TextMeshProUGUI>().text);
 
@@ -65,4 +65,5 @@ public class CharacterCanvasManager : MonoBehaviour
         weaponCard.transform.GetChild(2).GetComponent<Image>().color = Color.black;
         
     }
+*/
 }

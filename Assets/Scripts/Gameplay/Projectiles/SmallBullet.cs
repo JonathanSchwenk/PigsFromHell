@@ -5,37 +5,37 @@ using UnityEngine;
 public class SmallBullet : MonoBehaviour
 {
     
-    private float initTime;
-    private float timeBeforeDespawn;
-    public float damage = 0.25f;
+    public int health = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        initTime = Time.time;
-        timeBeforeDespawn = 5.0f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-            Wait an amount of time before despawning / doing something (Could be used for range of weapons or damage fall off)
-        */
-        float diffInTime = Time.time - initTime;
-        if (diffInTime > timeBeforeDespawn) {
-            gameObject.SetActive(false);
-        }
+
     }
 
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Enviornment") {
-            gameObject.SetActive(false);
+            health -= 1;
+            print(health);
+            if (health < 1) {
+                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+                gameObject.SetActive(false);
+            }
         }
         if (other.tag == "Enemy") {
-            gameObject.SetActive(false);
+            health -= 1;
+            print(health);
+            if (health < 1) {
+                gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -21,12 +21,53 @@ public class PlayerAimShoot : MonoBehaviour
     private float bulletForce;
     private float firerateTime;
     private float fireRateCounter;
+
+    [SerializeField] PlayerReload playerReloadScript;
+
     private int totalAmmo;
     private int magSize;
     private int shotsInMag;
 
 
     private IObjectPooler objectPooler;
+    private ISaveManager saveManager;
+
+
+    private void Awake() {
+        saveManager = ServiceLocator.Resolve<ISaveManager>();
+
+        if (saveManager != null) {
+            saveManager.OnSave += SaveManagerOnSave;
+        } else {
+            print("No save manager");
+        }
+    }
+    private void OnDestroy() {
+        if (saveManager != null) {
+            saveManager.OnSave -= SaveManagerOnSave;
+        } else {
+            print("No save manager");
+        }
+    }
+
+    private void SaveManagerOnSave(int num) {
+        // This happens everytime you save, I think it is fine, want just for when you change weapons. 
+        // Could add something else like a bool to check if I wanna actually do something here.
+
+        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
+
+        bulletForce = activeWeapon.bulletForce;
+        firerateTime = activeWeapon.fireRate;
+        fireRateCounter = firerateTime; // Might get rid of this. I feel that a slight delay is good for the user to aim.
+        magSize = activeWeapon.magSize;
+        if (activeWeapon.reserveAmmo > magSize) {
+            shotsInMag = magSize;
+        } else {
+            shotsInMag = activeWeapon.reserveAmmo;
+        }
+
+        
+    }
 
 
     // Start is called before the first frame update
@@ -39,23 +80,20 @@ public class PlayerAimShoot : MonoBehaviour
             print("ERROR service has not been registered yet");
         }
 
-        //currentWeaponRight = rightHand.transform.GetChild(16).gameObject; // repeat for left when I get to that 
-        //currentWeaponRight = "Knife";
-        // Get this from save
-        // Activate child (all weapons should start inactive)
+        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
 
-        //Bullet force changes based off weapon
-        bulletForce = 10.0f;
+        bulletForce = activeWeapon.bulletForce;
+        firerateTime = activeWeapon.fireRate;
+        fireRateCounter = firerateTime; // Might get rid of this. I feel that a slight delay is good for the user to aim.
+        magSize = activeWeapon.magSize;
+        if (activeWeapon.reserveAmmo > magSize) {
+            shotsInMag = magSize;
+        } else {
+            shotsInMag = activeWeapon.reserveAmmo;
+        }
 
-        // Firerate will change depending on the weapon
-        firerateTime = 0.5f; // this is for hunting rife
-        fireRateCounter = firerateTime;
-
-        // Number of shots (Mag size) 
-        // This will be set based on the weapon
-        magSize = 8;
-        shotsInMag = magSize;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -78,10 +116,7 @@ public class PlayerAimShoot : MonoBehaviour
                     Shoot();
                     // Resets fire rate
                     fireRateCounter = 0;
-                } else {
-                    // Reload
-                    //Reload(); User must click reload button for now (If I want to change then I can refrence the PlayerReload script and call a public function)
-                }
+                } 
             }
         } 
     }
@@ -98,11 +133,60 @@ public class PlayerAimShoot : MonoBehaviour
                 animator.SetBool("Idle", false);
             }
 
-            //Transform firePoint = currentWeaponRight.transform.GetChild(currentWeaponRight.transform.childCount - 1); // -1 bc i think childcount will be IndexOutBounds
-            // Will add some logic to see which type of projectile should be fired
-            // Will have to change the rotation of the spawn object for the direction the players facing (Can do this later with projectiles that aren't circles)
-            GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+
+            // Spawn Bullets
+
+            // Large Bullets (Hunting Rifle, Sniper)
+            if (saveManager.saveData.activeWeapon.name == "Hunting Rifle" || saveManager.saveData.activeWeapon.name == "Sniper") { 
+                GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+            }
+            // Medium bullets (Pistol, Assault Rifle)
+            else if (saveManager.saveData.activeWeapon.name == "Pistol" || saveManager.saveData.activeWeapon.name == "Assault Rifle") {
+                GameObject projectile = objectPooler.SpawnFromPool("MediumBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+            }
+            // Small Bullets (HMG, SMG, Shotgun, Mini Gun)
+            else if (saveManager.saveData.activeWeapon.name == "HMG" || saveManager.saveData.activeWeapon.name == "SMG" ||
+            saveManager.saveData.activeWeapon.name == "Shotgun" || saveManager.saveData.activeWeapon.name == "Mini Gun") {
+                if (saveManager.saveData.activeWeapon.name == "Shotgun") {
+                    for (int i = 0; i < 10; i++) { // 10 pellets in shotgun
+                        float maxSpread = 1.0f;
+                        Vector3 dir = transform.forward + new Vector3(rightFirePoint.transform.forward.x + Random.Range(-maxSpread,maxSpread), rightFirePoint.transform.forward.y, rightFirePoint.transform.forward.z + Random.Range(-maxSpread,maxSpread));
+                        GameObject projectile = objectPooler.SpawnFromPool("SmallBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+                        projectile.GetComponent<Rigidbody>().AddForce((rightFirePoint.transform.forward + dir) * 2, ForceMode.Impulse);
+                    }
+                } else {
+                    GameObject projectile = objectPooler.SpawnFromPool("SmallBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+                    projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                }
+            }
+            // Flame Thrower
+            else if (saveManager.saveData.activeWeapon.name == "Flame Thrower") {
+                GameObject projectile = objectPooler.SpawnFromPool("FireBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+            }
+            // CrossBow
+            else if (saveManager.saveData.activeWeapon.name == "Cross Bow") {
+                GameObject projectile = objectPooler.SpawnFromPool("Arrow", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+            }
+            // RPG
+            else if (saveManager.saveData.activeWeapon.name == "RPG") {
+                GameObject projectile = objectPooler.SpawnFromPool("Rocket", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+            }
+            // Rail Gun
+            else if (saveManager.saveData.activeWeapon.name == "Rail Gun") {
+                GameObject projectile = objectPooler.SpawnFromPool("RailGunBolt", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+
+                GameObject boltEffect = objectPooler.SpawnFromPool("BoltEffect", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
+                StartCoroutine(RailGunEffect(boltEffect));
+            }
+
+
 
             // Lower shots in mag
             shotsInMag -= 1;
@@ -118,9 +202,14 @@ public class PlayerAimShoot : MonoBehaviour
 
 
 
+
     IEnumerator KnifeDamageCollider() {
         knifeDamagerCollider.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         knifeDamagerCollider.SetActive(false);
+    }
+    IEnumerator RailGunEffect(GameObject boltEffect) {
+        yield return new WaitForSeconds(1.5f);
+        boltEffect.SetActive(false);
     }
 }
