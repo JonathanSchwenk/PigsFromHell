@@ -14,7 +14,7 @@ public class PlayerReload : MonoBehaviour
     private int shotsInMag;
 
 
-    private string currentWeaponRight;
+    private WeaponData activeWeapon;
 
 
     private ISaveManager saveManager;
@@ -28,6 +28,8 @@ public class PlayerReload : MonoBehaviour
         } else {
             print("No save manager");
         }
+
+        activeWeapon = saveManager.saveData.activeWeapon;
     }
     private void OnDestroy() {
         if (saveManager != null) {
@@ -43,8 +45,6 @@ public class PlayerReload : MonoBehaviour
 
         // This is fine for getting a new weapon but not for switching.
 
-        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
-
         ammoCap = activeWeapon.totalAmmo;
         totalAmmo = activeWeapon.reserveAmmo;
         magSize = activeWeapon.magSize;
@@ -55,7 +55,7 @@ public class PlayerReload : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = saveManager.saveData.activeWeapon;
 
         ammoCap = activeWeapon.totalAmmo;
         totalAmmo = activeWeapon.reserveAmmo;
@@ -66,7 +66,7 @@ public class PlayerReload : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        shotsInMag = activeWeapon.bulletsInMag;
     }
     
 
@@ -74,17 +74,17 @@ public class PlayerReload : MonoBehaviour
     public void Reload() {
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
-        if (currentWeaponRight != "Knife" && shotsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
+        if (activeWeapon.name != "Knife" && shotsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
             print("Reloading");
             
             if (saveManager.saveData.activeWeapon.reserveAmmo > magSize) {
                 saveManager.saveData.activeWeapon.bulletsInMag = magSize;
-                saveManager.saveData.activeWeapon.reserveAmmo -= magSize;
+                saveManager.saveData.activeWeapon.reserveAmmo -= (magSize - shotsInMag);
             } else {
                 saveManager.saveData.activeWeapon.bulletsInMag = saveManager.saveData.activeWeapon.reserveAmmo;
                 saveManager.saveData.activeWeapon.reserveAmmo = 0;
             }
-            
+            saveManager.Save();
         } 
     }
 }

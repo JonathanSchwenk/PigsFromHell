@@ -8,9 +8,8 @@ public class PlayerAimShoot : MonoBehaviour
     [SerializeField] private FloatingJoystick movementJoystick;
     [SerializeField] private FloatingJoystick aimShootJoystick;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject rightFirePoint;
-    [SerializeField] GameObject leftFirePoint;
     [SerializeField] GameObject knifeDamagerCollider;
+    [SerializeField] GameObject rightFirePoint;
 
 
     private float angle;
@@ -27,6 +26,7 @@ public class PlayerAimShoot : MonoBehaviour
     private int totalAmmo;
     private int magSize;
     private int shotsInMag;
+    private WeaponData activeWeapon;
 
 
     private IObjectPooler objectPooler;
@@ -41,6 +41,8 @@ public class PlayerAimShoot : MonoBehaviour
         } else {
             print("No save manager");
         }
+
+        activeWeapon = new WeaponData();
     }
     private void OnDestroy() {
         if (saveManager != null) {
@@ -54,7 +56,7 @@ public class PlayerAimShoot : MonoBehaviour
         // This happens everytime you save, I think it is fine, want just for when you change weapons. 
         // Could add something else like a bool to check if I wanna actually do something here.
 
-        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = saveManager.saveData.activeWeapon;
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
@@ -66,7 +68,7 @@ public class PlayerAimShoot : MonoBehaviour
             shotsInMag = activeWeapon.reserveAmmo;
         }
 
-        
+        rightFirePoint.transform.localPosition = activeWeapon.firePointPos;
     }
 
 
@@ -80,7 +82,7 @@ public class PlayerAimShoot : MonoBehaviour
             print("ERROR service has not been registered yet");
         }
 
-        WeaponData activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = saveManager.saveData.activeWeapon;
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
@@ -91,6 +93,8 @@ public class PlayerAimShoot : MonoBehaviour
         } else {
             shotsInMag = activeWeapon.reserveAmmo;
         }
+
+        rightFirePoint.transform.localPosition = activeWeapon.firePointPos;
 
     }
 
@@ -190,6 +194,7 @@ public class PlayerAimShoot : MonoBehaviour
 
             // Lower shots in mag
             shotsInMag -= 1;
+            activeWeapon.bulletsInMag -= 1;
         } else {
             // Shoot animation
             animator.SetTrigger("Shoot");
