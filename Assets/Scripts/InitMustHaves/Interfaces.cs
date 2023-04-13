@@ -6,9 +6,11 @@ using System;
 public interface IGameManager {
     GameState State {get; set;}
     void UpdateGameState(GameState state);
+    void UpdateRound();
     Action<GameState>OnGameStateChanged {get; set;}
     Action<int>OnRoundChanged {get; set;}
     int RoundNum {get; set;}
+    int points {get; set;}
 
 }
 

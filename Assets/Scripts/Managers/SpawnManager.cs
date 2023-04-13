@@ -68,24 +68,13 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
     }
 
 
-
-
-// in update if I call gameManager.UpdateRound(), then above gets called with new updated round num that is set in the GameManager
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gameManager = ServiceLocator.Resolve<IGameManager>();
-
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        // if bank value == 0 and there are no enemies left then rounds over, and update the UI and values in game manager
+        if (bankValue == 0 & numEnemies == 0) {
+            gameManager.UpdateRound();
+        }
     }
 
 

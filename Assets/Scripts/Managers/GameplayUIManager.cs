@@ -15,21 +15,28 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject bulletsInMagText;
     [SerializeField] private GameObject totalReserveAmmoText;
 
+    [SerializeField] private GameObject roundText;
+    [SerializeField] private GameObject pointsText;
+
 
     private WeaponData activeWeapon;
 
 
     private ISaveManager saveManager;
+    private IGameManager gameManager;
 
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
         } else {
             print("No save manager");
         }
+
+        gameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
 
         activeWeapon = saveManager.saveData.activeWeapon;
     }
@@ -39,11 +46,24 @@ public class GameplayUIManager : MonoBehaviour
         } else {
             print("No save manager");
         }
+
+        gameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
     }
 
     private void SaveManagerOnSave(int num) {
+        // Not sure if I need this since its in the update 
         bulletsInMagText.GetComponent<TextMeshProUGUI>().text = activeWeapon.bulletsInMag.ToString();
         totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = activeWeapon.reserveAmmo.ToString();
+    }
+
+    private void GameManagerOnGameStateChanged(GameState state) { 
+        if (state == GameState.GameOver) {
+            // This will be changed to a game over UI and not pause UI
+            Time.timeScale = 0;
+            pauseUI.SetActive(true);
+            playerControlsUI.SetActive(false);
+            gameInfoUI.SetActive(false);
+        } 
     }
 
 
@@ -63,6 +83,9 @@ public class GameplayUIManager : MonoBehaviour
     {
         bulletsInMagText.GetComponent<TextMeshProUGUI>().text = activeWeapon.bulletsInMag.ToString();
         totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = activeWeapon.reserveAmmo.ToString();
+
+        roundText.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        pointsText.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
     }
 
 

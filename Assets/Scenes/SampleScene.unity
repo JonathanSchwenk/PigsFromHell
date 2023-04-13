@@ -2087,7 +2087,7 @@ GameObject:
   - component: {fileID: 819562944}
   - component: {fileID: 819562943}
   m_Layer: 0
-  m_Name: RoundNumValue
+  m_Name: PointsNumValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2524,6 +2524,8 @@ MonoBehaviour:
   gameInfoUI: {fileID: 1875985079}
   bulletsInMagText: {fileID: 168742064}
   totalReserveAmmoText: {fileID: 1451288178}
+  roundText: {fileID: 282424521}
+  pointsText: {fileID: 819562941}
 --- !u!4 &990259323
 Transform:
   m_ObjectHideFlags: 0
@@ -5242,7 +5244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654439779861879979, guid: dfd3e0e1f8481472e82b2f6294862a43, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

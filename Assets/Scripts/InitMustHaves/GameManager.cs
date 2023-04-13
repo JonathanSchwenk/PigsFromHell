@@ -8,9 +8,8 @@ public class GameManager : MonoBehaviour, IGameManager
     public GameState State {get; set;}
     public Action<GameState>OnGameStateChanged {get; set;}
     public Action<int>OnRoundChanged {get; set;}
-
-
     public int RoundNum {get; set;}
+    public int points {get; set;}
 
 
 

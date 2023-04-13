@@ -12,11 +12,15 @@ public class Player : MonoBehaviour
     private float timeToWaitBeforeRecovery;
     private float timeToWaitBeforeRecoveryCounter;
 
+    private IGameManager gameManager;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = ServiceLocator.Resolve<IGameManager>();
+
         // Player Health (These will be set from the game manager and savemanager depending on armor...)
         health = 5;
         maxHealth = 5;
@@ -63,6 +67,7 @@ public class Player : MonoBehaviour
     private void OnCollisionStay(Collision other) {
         if (other.collider.tag == "Enemy") {
             if (other.collider.gameObject.GetComponent<EnemyAnimationScript>().DealDamage() == true) {
+                print("Players Health: " + health);
                 // Deals damage
                 health -= 1;
                 timeToWaitBeforeRecoveryCounter = 0;
@@ -70,6 +75,7 @@ public class Player : MonoBehaviour
                 if (health <= 0) {
                     // dead
                     print("Player died, Game Over");
+                    gameManager.UpdateGameState(GameState.GameOver);
                 }
             }
         }
