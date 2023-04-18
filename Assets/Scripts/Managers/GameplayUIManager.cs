@@ -19,8 +19,6 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject pointsText;
 
 
-    private WeaponData activeWeapon;
-
 
     private ISaveManager saveManager;
     private IGameManager gameManager;
@@ -37,8 +35,6 @@ public class GameplayUIManager : MonoBehaviour
         }
 
         gameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
-
-        activeWeapon = saveManager.saveData.activeWeapon;
     }
     private void OnDestroy() {
         if (saveManager != null) {
@@ -52,8 +48,9 @@ public class GameplayUIManager : MonoBehaviour
 
     private void SaveManagerOnSave(int num) {
         // Not sure if I need this since its in the update 
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = activeWeapon.reserveAmmo.ToString();
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
+
     }
 
     private void GameManagerOnGameStateChanged(GameState state) { 
@@ -74,15 +71,16 @@ public class GameplayUIManager : MonoBehaviour
         // This can prob be in the game manager or something else
         Time.timeScale = 1;
 
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = activeWeapon.reserveAmmo.ToString();
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = activeWeapon.reserveAmmo.ToString();
+
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
 
         roundText.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
         pointsText.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();

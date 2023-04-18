@@ -42,6 +42,7 @@ public class PlayerReload : MonoBehaviour
     private void SaveManagerOnSave(int num) {
         // This happens everytime you save, I think it is fine, want just for when you change weapons. 
         // Could add something else like a bool to check if I wanna actually do something here.
+        activeWeapon = saveManager.saveData.activeWeapon;
 
         // This is fine for getting a new weapon but not for switching.
 
@@ -49,6 +50,8 @@ public class PlayerReload : MonoBehaviour
         totalAmmo = activeWeapon.reserveAmmo;
         magSize = activeWeapon.magSize;
         shotsInMag = activeWeapon.bulletsInMag;
+
+        //print(saveManager.saveData.activeWeapon.name);
     }
 
 
@@ -66,7 +69,7 @@ public class PlayerReload : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shotsInMag = activeWeapon.bulletsInMag;
+        shotsInMag = saveManager.saveData.activeWeapon.bulletsInMag;
     }
     
 
@@ -74,7 +77,7 @@ public class PlayerReload : MonoBehaviour
     public void Reload() {
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
-        if (activeWeapon.name != "Knife" && shotsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
+        if (activeWeapon.name != "Knife" && saveManager.saveData.activeWeapon.bulletsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
             print("Reloading");
             
             if (saveManager.saveData.activeWeapon.reserveAmmo > magSize) {

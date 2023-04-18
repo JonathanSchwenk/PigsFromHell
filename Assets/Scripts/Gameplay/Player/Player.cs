@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private GameObject damageIndecator;
+
+
     private int health;
     private int maxHealth;
     private float healthRecoveryRate;
@@ -37,12 +41,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DamageIndecator();
+
         if (health < maxHealth) {
             timeToWaitBeforeRecoveryCounter += 1 * Time.deltaTime;
             if (timeToWaitBeforeRecoveryCounter >= timeToWaitBeforeRecovery) {
                 RecoverHealth();
             }
         }
+
+
     }
 
 
@@ -52,6 +60,7 @@ public class Player : MonoBehaviour
             timeToWaitBeforeRecoveryCounter = 0;
             //print("Player damaged");
 
+            
             // Sets the enemies script animation counter to the current times ran
             // This basically resets it to start at whatever the actual number of times thet animation finished
             // Resets the counter so if the contact breaks and starts again, it will still damage accoridingly
@@ -92,6 +101,57 @@ public class Player : MonoBehaviour
                 healthRecoveryCounter = 0;
             }
         }
+    }
+
+
+    private void DamageIndecator() {
+        if (health == 5) {
+            damageIndecator.transform.GetChild(0).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(1).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(2).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(3).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(4).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(5).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
+        } else if (health == 4) {
+            damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(1).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(2).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(3).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(4).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(5).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
+        } else if (health == 3) {
+            damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(2).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(3).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(4).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(5).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
+        } else if (health == 2) {
+            damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(2).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(3).gameObject.SetActive(false);
+            damageIndecator.transform.GetChild(4).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(5).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(6).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
+        } else if (health == 1) {
+            damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(2).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(3).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(4).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(5).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(6).gameObject.SetActive(true);
+            damageIndecator.transform.GetChild(7).gameObject.SetActive(true);
+        }
+        
     }
 
 }

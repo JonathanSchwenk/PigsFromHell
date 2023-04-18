@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
 
-public class InitWeaponData : MonoBehaviour
+public class InitInGameWeapons : MonoBehaviour
 {
 
     private ISaveManager saveManager;
@@ -11,59 +11,37 @@ public class InitWeaponData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (ServiceLocator.IsRegistered<ISaveManager>()) {
-            saveManager = ServiceLocator.Resolve<ISaveManager>();
-        } else {
-            print("ERROR: no save manager found");
+        saveManager = ServiceLocator.Resolve<ISaveManager>();
+
+        // Resetting the bullets and ammo for the current weapons in case they got saved as something different after the game ended. 
+
+        //InitTotalWeapons();
+
+        // Normal guns
+        for (int i = 0; i < saveManager.saveData.currentWeapons.Length; i++) {
+            for (int j = 0; j < saveManager.saveData.totalNormalWeapons.Length; j++) {
+                if (saveManager.saveData.currentWeapons[i].name == saveManager.saveData.totalNormalWeapons[j].name) {
+                    saveManager.saveData.currentWeapons[i] = saveManager.saveData.totalNormalWeapons[j];
+                    //print(saveManager.saveData.currentWeapons[i].reserveAmmo);
+                }
+            }
         }
 
-        // Could do a logic bool here to check to see if its alreadly been init. I dont think theres much harm in init everytime because its just
-        // overwriting the same data with itself. IDK if this is costly for time/memory.
-
-        //print(saveManager.saveData.totalNormalWeapons);
-        //print(saveManager.saveData.currentWeapons);
-        //print(saveManager.saveData.activeWeapon.name);
-
-
-        if (saveManager.saveData.totalNormalWeapons[0] == null) {
-            saveManager.saveData.totalNormalWeapons = new WeaponData[8];
-            saveManager.saveData.totalSpecialWeapons = new WeaponData[5];
-
-            InitTotalWeapons();
-        } else {
-            InitTotalWeapons();
+        // Special guns
+        for (int i = 0; i < saveManager.saveData.currentWeapons.Length; i++) {
+            for (int j = 0; j < saveManager.saveData.totalSpecialWeapons.Length; j++) {
+                if (saveManager.saveData.currentWeapons[i].name == saveManager.saveData.totalSpecialWeapons[j].name) {
+                    saveManager.saveData.currentWeapons[i] = saveManager.saveData.totalSpecialWeapons[j];
+                }
+            }
         }
 
-
-        // Inits current weapons for the first time
-        if (saveManager.saveData.currentWeapons[0] == null) {
-            saveManager.saveData.currentWeapons = new WeaponData[4];
-            saveManager.saveData.currentWeapons[0] = saveManager.saveData.totalNormalWeapons[0];
-            saveManager.saveData.currentWeapons[1] = saveManager.saveData.totalNormalWeapons[1];
-            saveManager.saveData.currentWeapons[2] = saveManager.saveData.totalNormalWeapons[7];
-            saveManager.saveData.currentWeapons[3] = saveManager.saveData.totalNormalWeapons[0];
-        }
-
-        // Inits active weapon for the first time
-        if (saveManager.saveData.activeWeapon.name == null) {
-            saveManager.saveData.activeWeapon = new WeaponData();
-            saveManager.saveData.activeWeapon = saveManager.saveData.currentWeapons[0];
-        } 
-
-        // Inits unlocked weapons for the first time
-        if (saveManager.saveData.unlockedWeapons.Count == 0) {
-            //saveManager.saveData.unlockedWeapons = new ArrayList();
-            print("From Unlocked Weapons");
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[0]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[1]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[2]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[3]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[7]);
-        }
+        saveManager.saveData.activeWeapon = saveManager.saveData.currentWeapons[0];
 
         saveManager.Save();
-
+        
     }
+
 
     private void InitTotalWeapons() {
         // Normal Guns

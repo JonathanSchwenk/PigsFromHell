@@ -16,7 +16,6 @@ public class PlayerAimShoot : MonoBehaviour
     private Vector3 directionPoint;
     //private GameObject currentWeaponRight;
     //private GameObject currentWeaponLeft;
-    private string currentWeaponRight;
     private float bulletForce;
     private float firerateTime;
     private float fireRateCounter;
@@ -115,7 +114,7 @@ public class PlayerAimShoot : MonoBehaviour
             directionPoint.z = aimShootJoystick.Vertical;
             // shoot here
             if (fireRateCounter >= firerateTime) {
-                if (shotsInMag > 0) {
+                if (shotsInMag > 0 || shotsInMag < 0) {
                     // Shoot actual projectile
                     Shoot();
                     // Resets fire rate
@@ -128,7 +127,7 @@ public class PlayerAimShoot : MonoBehaviour
 
     private void Shoot() {
         // If thte weapon is a gun then set animation and spawn bullets, else spawn knife 
-        if (currentWeaponRight != "Knife") {
+        if (saveManager.saveData.activeWeapon.name != "Knife") {
             // Make the FirePoint the last child in each weapon (Try this first, if it doesn't work then use find i guess)
 
             // Shoot animation
