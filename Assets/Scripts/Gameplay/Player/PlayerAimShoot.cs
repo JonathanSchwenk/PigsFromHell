@@ -30,10 +30,12 @@ public class PlayerAimShoot : MonoBehaviour
 
     private IObjectPooler objectPooler;
     private ISaveManager saveManager;
+    private IGameManager gameManager;
 
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -55,7 +57,7 @@ public class PlayerAimShoot : MonoBehaviour
         // This happens everytime you save, I think it is fine, want just for when you change weapons. 
         // Could add something else like a bool to check if I wanna actually do something here.
 
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
@@ -74,6 +76,7 @@ public class PlayerAimShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // Null check for service debugging
         if (ServiceLocator.IsRegistered<IObjectPooler>()) {
             objectPooler = ServiceLocator.Resolve<IObjectPooler>();
@@ -81,7 +84,7 @@ public class PlayerAimShoot : MonoBehaviour
             print("ERROR service has not been registered yet");
         }
 
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
@@ -127,7 +130,7 @@ public class PlayerAimShoot : MonoBehaviour
 
     private void Shoot() {
         // If thte weapon is a gun then set animation and spawn bullets, else spawn knife 
-        if (saveManager.saveData.activeWeapon.name != "Knife") {
+        if (gameManager.activeWeapon.name != "Knife") {
             // Make the FirePoint the last child in each weapon (Try this first, if it doesn't work then use find i guess)
 
             // Shoot animation
@@ -140,19 +143,19 @@ public class PlayerAimShoot : MonoBehaviour
             // Spawn Bullets
 
             // Large Bullets (Hunting Rifle, Sniper)
-            if (saveManager.saveData.activeWeapon.name == "Hunting Rifle" || saveManager.saveData.activeWeapon.name == "Sniper") { 
+            if (gameManager.activeWeapon.name == "Hunting Rifle" || gameManager.activeWeapon.name == "Sniper") { 
                 GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
             }
             // Medium bullets (Pistol, Assault Rifle)
-            else if (saveManager.saveData.activeWeapon.name == "Pistol" || saveManager.saveData.activeWeapon.name == "Assault Rifle") {
+            else if (gameManager.activeWeapon.name == "Pistol" || gameManager.activeWeapon.name == "Assault Rifle") {
                 GameObject projectile = objectPooler.SpawnFromPool("MediumBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
             }
             // Small Bullets (HMG, SMG, Shotgun, Mini Gun)
-            else if (saveManager.saveData.activeWeapon.name == "HMG" || saveManager.saveData.activeWeapon.name == "SMG" ||
-            saveManager.saveData.activeWeapon.name == "Shotgun" || saveManager.saveData.activeWeapon.name == "Mini Gun") {
-                if (saveManager.saveData.activeWeapon.name == "Shotgun") {
+            else if (gameManager.activeWeapon.name == "HMG" || gameManager.activeWeapon.name == "SMG" ||
+            gameManager.activeWeapon.name == "Shotgun" || gameManager.activeWeapon.name == "Mini Gun") {
+                if (gameManager.activeWeapon.name == "Shotgun") {
                     for (int i = 0; i < 10; i++) { // 10 pellets in shotgun
                         float maxSpread = 1.0f;
                         Vector3 dir = transform.forward + new Vector3(rightFirePoint.transform.forward.x + Random.Range(-maxSpread,maxSpread), rightFirePoint.transform.forward.y, rightFirePoint.transform.forward.z + Random.Range(-maxSpread,maxSpread));
@@ -165,22 +168,22 @@ public class PlayerAimShoot : MonoBehaviour
                 }
             }
             // Flame Thrower
-            else if (saveManager.saveData.activeWeapon.name == "Flame Thrower") {
+            else if (gameManager.activeWeapon.name == "Flame Thrower") {
                 GameObject projectile = objectPooler.SpawnFromPool("FireBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
             }
             // CrossBow
-            else if (saveManager.saveData.activeWeapon.name == "Cross Bow") {
+            else if (gameManager.activeWeapon.name == "Cross Bow") {
                 GameObject projectile = objectPooler.SpawnFromPool("Arrow", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
             }
             // RPG
-            else if (saveManager.saveData.activeWeapon.name == "RPG") {
+            else if (gameManager.activeWeapon.name == "RPG") {
                 GameObject projectile = objectPooler.SpawnFromPool("Rocket", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
             }
             // Rail Gun
-            else if (saveManager.saveData.activeWeapon.name == "Rail Gun") {
+            else if (gameManager.activeWeapon.name == "Rail Gun") {
                 GameObject projectile = objectPooler.SpawnFromPool("RailGunBolt", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
 

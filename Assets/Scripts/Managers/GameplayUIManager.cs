@@ -48,8 +48,8 @@ public class GameplayUIManager : MonoBehaviour
 
     private void SaveManagerOnSave(int num) {
         // Not sure if I need this since its in the update 
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
 
     }
 
@@ -71,16 +71,16 @@ public class GameplayUIManager : MonoBehaviour
         // This can prob be in the game manager or something else
         Time.timeScale = 1;
 
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.bulletsInMag.ToString();
-        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = saveManager.saveData.activeWeapon.reserveAmmo.ToString();
+        bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
+        totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
 
         roundText.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
         pointsText.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();

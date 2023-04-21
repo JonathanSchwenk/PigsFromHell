@@ -26,14 +26,20 @@ public class WeaponCardButton : MonoBehaviour
 
 
     public void PrimaryGunButtonChangeGun(GameObject gunTextGO) {
-        //print(gun.GetComponent<TextMeshProUGUI>().text);
 
-        // if the weapon is unlocked then set the primary current weapon to the gun, if not, go to a new UI canvas and give the option to unlock the gun
+        if (gunTextGO.GetComponent<TextMeshProUGUI>().text != saveManager.saveData.currentWeapons[0].name &&
+        gunTextGO.GetComponent<TextMeshProUGUI>().text != saveManager.saveData.currentWeapons[1].name) {
 
-        // If the text/name == something, then crrentWeapon and active weapon = for loop to find right data structure in list of weapons and set it
+            ChangeGunHelper(gunTextGO);
+        }
 
-        //print("Button Pressed for: " + gunTextGO.GetComponent<TextMeshProUGUI>().text);
 
+        saveManager.Save();
+        
+    }
+
+
+    private void ChangeGunHelper(GameObject gunTextGO) {
         // Normal Weapons
         // Loops through unlocked weapons
         for (int j = 0; j < saveManager.saveData.unlockedWeapons.Count; j++) {
@@ -71,10 +77,6 @@ public class WeaponCardButton : MonoBehaviour
                 }
             }
         }
-
-
-        saveManager.Save();
-        
     }
     
 }

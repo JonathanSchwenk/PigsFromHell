@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
 
-public class PlayerSkinWeaponMenu : MonoBehaviour
+public class PlayerSkinWeaponGameplay : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject rightHand;
@@ -12,9 +12,11 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
 
 
     private ISaveManager saveManager;
+    private IGameManager gameManager;
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -40,11 +42,9 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
             }
         }
 
-        //print(saveManager.saveData.activeWeapon.name);
-
         // Weapon
         for (int i = 0; i < rightHand.transform.childCount; i++) {
-            if (rightHand.transform.GetChild(i).name == saveManager.saveData.activeWeapon.name) {
+            if (rightHand.transform.GetChild(i).name == gameManager.activeWeapon.name) {
                 rightHand.transform.GetChild(i).gameObject.SetActive(true);
             } else {
                 rightHand.transform.GetChild(i).gameObject.SetActive(false);
@@ -52,7 +52,7 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
         }
 
         // Animator
-        animator.runtimeAnimatorController = animatorPool.transform.Find(saveManager.saveData.activeWeapon.name).GetComponent<Animator>().runtimeAnimatorController;
+        animator.runtimeAnimatorController = animatorPool.transform.Find(gameManager.activeWeapon.name).GetComponent<Animator>().runtimeAnimatorController;
 
     }
 
@@ -61,6 +61,8 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
         // Skin
         for (int i = 0; i < skinPool.transform.childCount; i++) {
             if (skinPool.transform.GetChild(i).name == saveManager.saveData.currentSkin) {
@@ -72,7 +74,7 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
 
         // Weapon
         for (int i = 0; i < rightHand.transform.childCount; i++) {
-            if (rightHand.transform.GetChild(i).name == saveManager.saveData.activeWeapon.name) { 
+            if (rightHand.transform.GetChild(i).name == gameManager.activeWeapon.name) { 
                 rightHand.transform.GetChild(i).gameObject.SetActive(true);
             } else {
                 rightHand.transform.GetChild(i).gameObject.SetActive(false);
@@ -80,7 +82,7 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
         }
 
         // Animator
-        animator.runtimeAnimatorController = animatorPool.transform.Find(saveManager.saveData.activeWeapon.name).GetComponent<Animator>().runtimeAnimatorController;
+        animator.runtimeAnimatorController = animatorPool.transform.Find(gameManager.activeWeapon.name).GetComponent<Animator>().runtimeAnimatorController;
 
     }
 

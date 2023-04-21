@@ -9,7 +9,7 @@ public class SaveData
     public int coins = 0;
 
     public WeaponData[] currentWeapons = new WeaponData[4];
-    public WeaponData activeWeapon = new WeaponData();
+    public WeaponData activeWeapon = new WeaponData(); 
     public String currentSkin = "BasicMale";
 
     public List<WeaponData> unlockedWeapons = new List<WeaponData>();

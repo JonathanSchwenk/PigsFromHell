@@ -18,10 +18,12 @@ public class PlayerReload : MonoBehaviour
 
 
     private ISaveManager saveManager;
+    private IGameManager gameManager;
 
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -42,7 +44,7 @@ public class PlayerReload : MonoBehaviour
     private void SaveManagerOnSave(int num) {
         // This happens everytime you save, I think it is fine, want just for when you change weapons. 
         // Could add something else like a bool to check if I wanna actually do something here.
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         // This is fine for getting a new weapon but not for switching.
 
@@ -58,7 +60,7 @@ public class PlayerReload : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         ammoCap = activeWeapon.totalAmmo;
         totalAmmo = activeWeapon.reserveAmmo;
@@ -69,7 +71,7 @@ public class PlayerReload : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shotsInMag = saveManager.saveData.activeWeapon.bulletsInMag;
+        shotsInMag = gameManager.activeWeapon.bulletsInMag;
     }
     
 
@@ -77,17 +79,16 @@ public class PlayerReload : MonoBehaviour
     public void Reload() {
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
-        if (activeWeapon.name != "Knife" && saveManager.saveData.activeWeapon.bulletsInMag < magSize && saveManager.saveData.activeWeapon.reserveAmmo > 1) {
-            print("Reloading");
+        if (activeWeapon.name != "Knife" && gameManager.activeWeapon.bulletsInMag < magSize && gameManager.activeWeapon.reserveAmmo > 1) {
             
-            if (saveManager.saveData.activeWeapon.reserveAmmo > magSize) {
-                saveManager.saveData.activeWeapon.bulletsInMag = magSize;
-                saveManager.saveData.activeWeapon.reserveAmmo -= (magSize - shotsInMag);
+            if (gameManager.activeWeapon.reserveAmmo > magSize) {
+                gameManager.activeWeapon.bulletsInMag = magSize;
+                gameManager.activeWeapon.reserveAmmo -= (magSize - shotsInMag);
             } else {
-                saveManager.saveData.activeWeapon.bulletsInMag = saveManager.saveData.activeWeapon.reserveAmmo;
-                saveManager.saveData.activeWeapon.reserveAmmo = 0;
+                gameManager.activeWeapon.bulletsInMag = gameManager.activeWeapon.reserveAmmo;
+                gameManager.activeWeapon.reserveAmmo = 0;
             }
-            saveManager.Save();
+            saveManager.Save(); // Might not need save here
         } 
     }
 }

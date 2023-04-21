@@ -23,7 +23,6 @@ public class SmallBullet : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Enviornment") {
             health -= 1;
-            print(health);
             if (health < 1) {
                 gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
                 gameObject.SetActive(false);
@@ -31,7 +30,6 @@ public class SmallBullet : MonoBehaviour
         }
         if (other.tag == "Enemy") {
             health -= 1;
-            print(health);
             if (health < 1) {
                 gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
                 gameObject.SetActive(false);

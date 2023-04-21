@@ -1495,7 +1495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &399912805676895670
 Transform:
   m_ObjectHideFlags: 0
@@ -2235,6 +2235,7 @@ GameObject:
   - component: {fileID: 5910395179562565465}
   - component: {fileID: 8056773287591344180}
   - component: {fileID: 1574864681389156797}
+  - component: {fileID: 7728653347166437173}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2261,7 +2262,7 @@ Transform:
   - {fileID: 2662573938551221662}
   - {fileID: 7233140355830445954}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3643484439737321987
 Animator:
@@ -2273,7 +2274,7 @@ Animator:
   m_GameObject: {fileID: 1175102335887140847}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 9f078227c6f09b54392514bfaa25c741, type: 3}
-  m_Controller: {fileID: 9100000, guid: b942d771b5bd4a44785c76ac1f042ead, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3f8837f7e1eb98c4aac43f9c8545b9ca, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2344,6 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e193955c3d14e0e892b3a6351edb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndecator: {fileID: 0}
 --- !u!114 &5838365860803082794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,9 +2376,8 @@ MonoBehaviour:
   movementJoystick: {fileID: 0}
   aimShootJoystick: {fileID: 0}
   animator: {fileID: 3643484439737321987}
-  rightFirePoint: {fileID: 3805832962972340306}
-  leftFirePoint: {fileID: 1737736159192517701}
   knifeDamagerCollider: {fileID: 7602535532287197246}
+  rightFirePoint: {fileID: 3805832962972340306}
   playerReloadScript: {fileID: 5910395179562565465}
 --- !u!114 &5910395179562565465
 MonoBehaviour:
@@ -2460,9 +2461,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175102335887140847}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82c34570b469b4af7b7d4bc7e7cb6a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3643484439737321987}
+  rightHand: {fileID: 6626562617670455039}
+  animatorPool: {fileID: 2297997606671960511}
+  skinPool: {fileID: 393214822185617359}
+--- !u!114 &7728653347166437173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175102335887140847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f1e823c8aa649f99dd2e51b0a09ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3643484439737321987}
@@ -5507,7 +5524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3805832962972340306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.315, y: 0.625, z: 0.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8388,7 +8405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8155651321564267349
 Transform:
   m_ObjectHideFlags: 0

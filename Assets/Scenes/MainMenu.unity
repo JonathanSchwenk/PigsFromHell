@@ -6013,6 +6013,10 @@ PrefabInstance:
       propertyPath: skinPool
       value: 
       objectReference: {fileID: 706779172}
+    - target: {fileID: 1574864681389156797, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3161782155238579868, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -6020,6 +6024,10 @@ PrefabInstance:
     - target: {fileID: 3648217665303225660, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3648217665303225660, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+      propertyPath: playerReloadScript
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5337919959644470501, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
       propertyPath: m_Enabled
@@ -6033,11 +6041,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7728653347166437173, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8056773287591344180, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7728653347166437173, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+    - {fileID: 5910395179562565465, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+    - {fileID: 3648217665303225660, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+    - {fileID: 5838365860803082794, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+    - {fileID: 5337919959644470501, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
+    - {fileID: 8056773287591344180, guid: d2b82674e92fc40c98cf7b47acc293f8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22723,9 +22741,8 @@ MonoBehaviour:
   movementJoystick: {fileID: 0}
   aimShootJoystick: {fileID: 0}
   animator: {fileID: 3643484438819861008}
-  rightFirePoint: {fileID: 3805832962826692673}
-  leftFirePoint: {fileID: 1737736158448989270}
   knifeDamagerCollider: {fileID: 7602535532080543789}
+  rightFirePoint: {fileID: 3805832962826692673}
   playerReloadScript: {fileID: 0}
 --- !u!4 &3681208461176718161
 Transform:
@@ -24819,6 +24836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e193955c3d14e0e892b3a6351edb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageIndecator: {fileID: 0}
 --- !u!4 &5339546499380328737
 Transform:
   m_ObjectHideFlags: 0
@@ -25676,8 +25694,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3643484438819861008}
-  magSize: 0
-  shotsInMag: 0
 --- !u!108 &5910395179422992203
 Light:
   m_ObjectHideFlags: 0

@@ -11,6 +11,9 @@ public interface IGameManager {
     Action<int>OnRoundChanged {get; set;}
     int RoundNum {get; set;}
     int points {get; set;}
+    GameObject activeBuyObject {get; set;}
+    WeaponData[] currentWeapons {get; set;}
+    WeaponData activeWeapon {get; set;}
 
 }
 

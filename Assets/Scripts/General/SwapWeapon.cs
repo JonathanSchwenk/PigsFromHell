@@ -12,10 +12,12 @@ public class SwapWeapon : MonoBehaviour
 
 
     private ISaveManager saveManager;
+    private IGameManager gameManager;
     private WeaponData activeWeapon;
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -34,7 +36,7 @@ public class SwapWeapon : MonoBehaviour
     }
 
     private void SaveManagerOnSave(int num) {
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         for (int i = 0; i < weaponImages.transform.childCount; i++) {
             if (activeWeapon.name == weaponImages.transform.GetChild(i).name) {
@@ -46,7 +48,7 @@ public class SwapWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeWeapon = saveManager.saveData.activeWeapon;
+        activeWeapon = gameManager.activeWeapon;
 
         for (int i = 0; i < weaponImages.transform.childCount; i++) {
             if (activeWeapon.name == weaponImages.transform.GetChild(i).name) {
@@ -64,13 +66,14 @@ public class SwapWeapon : MonoBehaviour
 
     public void SwitchWeapon() {
         //print(activeWeapon.name);
-        //print(saveManager.saveData.currentWeapons[0].name);
-        if (activeWeapon.name == saveManager.saveData.currentWeapons[0].name) {
-            saveManager.saveData.activeWeapon = saveManager.saveData.currentWeapons[1];
-        } else if (activeWeapon.name == saveManager.saveData.currentWeapons[1].name) {
-            saveManager.saveData.activeWeapon = saveManager.saveData.currentWeapons[2];
-        } else if (activeWeapon.name == saveManager.saveData.currentWeapons[2].name) {
-            saveManager.saveData.activeWeapon = saveManager.saveData.currentWeapons[0];
+        //print(gameManager.currentWeapons[0].name);
+        // Issue when both guns are the same, same name so never moves (Could and prob will prevent this by only letting you get the weapon once and it just refills bullets)
+        if (activeWeapon.name == gameManager.currentWeapons[0].name) {
+            gameManager.activeWeapon = gameManager.currentWeapons[1];
+        } else if (activeWeapon.name == gameManager.currentWeapons[1].name) {
+            gameManager.activeWeapon = gameManager.currentWeapons[2];
+        } else if (activeWeapon.name == gameManager.currentWeapons[2].name) {
+            gameManager.activeWeapon = gameManager.currentWeapons[0];
         }
 
 
