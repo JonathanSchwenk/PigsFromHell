@@ -20,6 +20,7 @@ public class WeaponData
 
     public int bulletsInMag;
     public int reserveAmmo;
+    public int starValue;
 
 /*
     public WeaponData(string inputName, Vector3 inputFirePointPos, float inputFireRate, float inputMovementSpeed, int inputBulletForce, int inputMagSize, int inputTotalAmmo, int inputImpact, float inputDamage) {

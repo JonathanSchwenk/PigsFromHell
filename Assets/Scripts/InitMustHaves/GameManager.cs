@@ -36,13 +36,15 @@ public class GameManager : MonoBehaviour, IGameManager
         RoundNum = 0; // 0 for actual game
         UpdateRound();
 
-        // Weapons get set
-
+        // CurrentWeapons get set as well as the active weapon
         currentWeapons = new WeaponData[3];
         InitCurWeapons();
 
         activeWeapon = new WeaponData();
         InitActiveWeapon();
+
+        // Sets the active to the current primary at the start to refrence the pointer so their connected 
+        activeWeapon = currentWeapons[0];
     }
 
     // Update game state function
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour, IGameManager
         currentWeapons[0].damage = saveManager.saveData.currentWeapons[0].damage;
         currentWeapons[0].bulletsInMag = saveManager.saveData.currentWeapons[0].bulletsInMag;
         currentWeapons[0].reserveAmmo = saveManager.saveData.currentWeapons[0].reserveAmmo;
+        currentWeapons[0].starValue = saveManager.saveData.currentWeapons[0].starValue;
 
         currentWeapons[1] = new WeaponData();
         currentWeapons[1].name = saveManager.saveData.currentWeapons[1].name;
@@ -109,6 +112,7 @@ public class GameManager : MonoBehaviour, IGameManager
         currentWeapons[1].damage = saveManager.saveData.currentWeapons[1].damage;
         currentWeapons[1].bulletsInMag = saveManager.saveData.currentWeapons[1].bulletsInMag;
         currentWeapons[1].reserveAmmo = saveManager.saveData.currentWeapons[1].reserveAmmo;
+        currentWeapons[1].starValue = saveManager.saveData.currentWeapons[1].starValue;
 
         currentWeapons[2] = new WeaponData();
         currentWeapons[2].name = saveManager.saveData.currentWeapons[2].name;
@@ -122,6 +126,7 @@ public class GameManager : MonoBehaviour, IGameManager
         currentWeapons[2].damage = saveManager.saveData.currentWeapons[2].damage;
         currentWeapons[2].bulletsInMag = saveManager.saveData.currentWeapons[2].bulletsInMag;
         currentWeapons[2].reserveAmmo = saveManager.saveData.currentWeapons[2].reserveAmmo;
+        currentWeapons[2].starValue = saveManager.saveData.currentWeapons[2].starValue;
     }
 
 
@@ -137,6 +142,7 @@ public class GameManager : MonoBehaviour, IGameManager
         activeWeapon.damage = saveManager.saveData.activeWeapon.damage;
         activeWeapon.bulletsInMag = saveManager.saveData.activeWeapon.bulletsInMag;
         activeWeapon.reserveAmmo = saveManager.saveData.activeWeapon.reserveAmmo;
+        activeWeapon.starValue = saveManager.saveData.activeWeapon.starValue;
     }
 }
 

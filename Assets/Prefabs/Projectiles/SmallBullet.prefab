@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5707981433912814445}
   - component: {fileID: 4873198289964138448}
   - component: {fileID: 42350125032323207}
-  - component: {fileID: 7639124666832883758}
+  - component: {fileID: 6893455790780303483}
   m_Layer: 0
   m_Name: SmallBullet
   m_TagString: SmallBullet
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7639124666832883758
+--- !u!114 &6893455790780303483
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 383396756685548798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c3cf3015c6b49989ee8e9953a985dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bf51a032899547e5a8559d5e9d5c75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.25
+  impact: 1
+  damage: 1

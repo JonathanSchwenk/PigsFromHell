@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1831857600035793404}
   - component: {fileID: 6141377662818842303}
   - component: {fileID: 2433980237799007646}
-  - component: {fileID: 6075320338905015498}
+  - component: {fileID: 1283187197317381231}
   m_Layer: 0
   m_Name: LargeBullet
   m_TagString: DefaultBullet
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6075320338905015498
+--- !u!114 &1283187197317381231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2535647899589478601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be83df0c958d6415582245db8299246c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bf51a032899547e5a8559d5e9d5c75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impact: 1
   damage: 1

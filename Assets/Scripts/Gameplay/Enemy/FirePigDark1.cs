@@ -25,28 +25,13 @@ public class FirePigDark1 : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        
-        // Normal weapons
-        if (other.tag == "LargeBullet") {
-            health -= 1;
-            gameManager.points += 1;
-            if (health <= 0) {
-                gameObject.SetActive(false);
-                spawnManager.numEnemies -= 1;
-                gameManager.points += pointValue;
-            }
-        }
-        if (other.tag == "MediumBullet") {
-            health -= 0.5f;
-            gameManager.points += 1;
-            if (health <= 0) {
-                gameObject.SetActive(false);
-                spawnManager.numEnemies -= 1;
-                gameManager.points += pointValue;
-            }
-        }
-        if (other.tag == "SmallBullet") {
-            health -= 0.25f;
+
+        // If it gets hit, deal the damage and if the pig dies then do the corresponding stuff
+        // Need to know what script to get
+
+        // Normal Weapons
+        if (other.tag == "LargeBullet" || other.tag == "MediumBullet" || other.tag == "SmallBullet") {
+            health -= other.GetComponent<Bullet>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);
@@ -55,9 +40,10 @@ public class FirePigDark1 : MonoBehaviour
             }
         }
 
+
         // Special weapons Rocket Arrow Fire RailGunBolt
         if (other.tag == "Rocket") {
-            health -= 1f;
+            health -= other.GetComponent<Rocket>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);
@@ -66,7 +52,7 @@ public class FirePigDark1 : MonoBehaviour
             }
         }
         if (other.tag == "Arrow") {
-            health -= 1f;
+            health -= other.GetComponent<Arrow>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);
@@ -75,7 +61,7 @@ public class FirePigDark1 : MonoBehaviour
             }
         }
         if (other.tag == "Fire") {
-            health -= 0.05f;
+            health -= other.GetComponent<FireBullet>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);
@@ -84,7 +70,7 @@ public class FirePigDark1 : MonoBehaviour
             }
         }
         if (other.tag == "RailGunBolt") {
-            health -= 1f;
+            health -= other.GetComponent<RailGunBolt>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);
@@ -102,7 +88,7 @@ public class FirePigDark1 : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Fire") {
-            health -= 0.05f;
+            health -= other.GetComponent<FireBullet>().damage;
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);

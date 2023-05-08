@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7366614999121046546}
   - component: {fileID: 8602985616023367729}
   - component: {fileID: 5673946911356399779}
-  - component: {fileID: 9038399543840396178}
+  - component: {fileID: 8876747704377780399}
   m_Layer: 0
   m_Name: MediumBullet
   m_TagString: MediumBullet
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5194726911221158043
 MeshFilter:
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9038399543840396178
+--- !u!114 &8876747704377780399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,7 +143,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7431866935440523498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce0b913983e7f422980eaef7f59db558, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bf51a032899547e5a8559d5e9d5c75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.5
+  impact: 1
+  damage: 1

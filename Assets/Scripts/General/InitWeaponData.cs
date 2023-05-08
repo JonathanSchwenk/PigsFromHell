@@ -79,6 +79,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[0].damage = 1;
         saveManager.saveData.totalNormalWeapons[0].bulletsInMag = 10;
         saveManager.saveData.totalNormalWeapons[0].reserveAmmo = 100;
+        saveManager.saveData.totalNormalWeapons[0].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[1] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[1].name = "Pistol";
@@ -92,6 +93,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[1].damage = 0.5f;
         saveManager.saveData.totalNormalWeapons[1].bulletsInMag = 12;
         saveManager.saveData.totalNormalWeapons[1].reserveAmmo = 120;
+        saveManager.saveData.totalNormalWeapons[1].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[2] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[2].name = "Assault Rifle";
@@ -105,6 +107,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[2].damage = 0.5f;
         saveManager.saveData.totalNormalWeapons[2].bulletsInMag = 40;
         saveManager.saveData.totalNormalWeapons[2].reserveAmmo = 400;
+        saveManager.saveData.totalNormalWeapons[2].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[3] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[3].name = "HMG";
@@ -118,6 +121,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[3].damage = 0.25f;
         saveManager.saveData.totalNormalWeapons[3].bulletsInMag = 25;
         saveManager.saveData.totalNormalWeapons[3].reserveAmmo = 250;
+        saveManager.saveData.totalNormalWeapons[3].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[4] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[4].name = "SMG";
@@ -131,6 +135,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[4].damage = 0.25f;
         saveManager.saveData.totalNormalWeapons[4].bulletsInMag = 30;
         saveManager.saveData.totalNormalWeapons[4].reserveAmmo = 300;
+        saveManager.saveData.totalNormalWeapons[4].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[5] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[5].name = "Sniper";
@@ -144,6 +149,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[5].damage = 1;
         saveManager.saveData.totalNormalWeapons[5].bulletsInMag = 10;
         saveManager.saveData.totalNormalWeapons[5].reserveAmmo = 100;
+        saveManager.saveData.totalNormalWeapons[5].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[6] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[6].name = "Shotgun";
@@ -157,11 +163,12 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[6].damage = 0.25f;
         saveManager.saveData.totalNormalWeapons[6].bulletsInMag = 8;
         saveManager.saveData.totalNormalWeapons[6].reserveAmmo = 80;
+        saveManager.saveData.totalNormalWeapons[6].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[7] = new WeaponData();
         saveManager.saveData.totalNormalWeapons[7].name = "Knife";
         saveManager.saveData.totalNormalWeapons[7].firePointPos = new Vector3(0f, 0f, 0f);
-        saveManager.saveData.totalNormalWeapons[7].fireRate = 0.3f;
+        saveManager.saveData.totalNormalWeapons[7].fireRate = 1f;
         saveManager.saveData.totalNormalWeapons[7].movementSpeed = 3f;
         saveManager.saveData.totalNormalWeapons[7].bulletForce =  -1;
         saveManager.saveData.totalNormalWeapons[7].magSize = -1;
@@ -170,6 +177,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[7].damage = -1f;
         saveManager.saveData.totalNormalWeapons[7].bulletsInMag = -1;
         saveManager.saveData.totalNormalWeapons[7].reserveAmmo = -1;
+        saveManager.saveData.totalNormalWeapons[7].starValue = 1;
         
 
         // Special Guns
@@ -185,6 +193,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[0].damage = 0.5f;
         saveManager.saveData.totalSpecialWeapons[0].bulletsInMag = 100;
         saveManager.saveData.totalSpecialWeapons[0].reserveAmmo = 800;
+        saveManager.saveData.totalSpecialWeapons[0].starValue = 1;
 
         saveManager.saveData.totalSpecialWeapons[1] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[1].name = "Rail Gun";
@@ -198,6 +207,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[1].damage = 1f;
         saveManager.saveData.totalSpecialWeapons[1].bulletsInMag =2;
         saveManager.saveData.totalSpecialWeapons[1].reserveAmmo = 16;
+        saveManager.saveData.totalSpecialWeapons[1].starValue = 1;
 
         saveManager.saveData.totalSpecialWeapons[2] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[2].name = "Cross Bow";
@@ -211,6 +221,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[2].damage = 1f;
         saveManager.saveData.totalSpecialWeapons[2].bulletsInMag = 2;
         saveManager.saveData.totalSpecialWeapons[2].reserveAmmo = -1;
+        saveManager.saveData.totalSpecialWeapons[2].starValue = 1;
 
         saveManager.saveData.totalSpecialWeapons[3] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[3].name = "RPG";
@@ -224,6 +235,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[3].damage = 1f;
         saveManager.saveData.totalSpecialWeapons[3].bulletsInMag = 2;
         saveManager.saveData.totalSpecialWeapons[3].reserveAmmo = 16;
+        saveManager.saveData.totalSpecialWeapons[3].starValue = 1;
 
         saveManager.saveData.totalSpecialWeapons[4] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[4].name = "Mini Gun";
@@ -237,6 +249,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[4].damage = 0.25f;
         saveManager.saveData.totalSpecialWeapons[4].bulletsInMag = 200;
         saveManager.saveData.totalSpecialWeapons[4].reserveAmmo = 1600;
+        saveManager.saveData.totalSpecialWeapons[4].starValue = 1;
     }
 
 }

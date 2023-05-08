@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RailGunBolt : MonoBehaviour
 {
-    public int health = 0;
+    public int impact = 1;
+    public float damage = 1;
 
 
 

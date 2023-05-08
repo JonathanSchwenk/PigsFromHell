@@ -17,6 +17,7 @@ public class GameplayUIManager : MonoBehaviour
 
     [SerializeField] private GameObject roundText;
     [SerializeField] private GameObject pointsText;
+    [SerializeField] private GameObject starValue;
 
 
 
@@ -51,6 +52,28 @@ public class GameplayUIManager : MonoBehaviour
         bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
         totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
 
+        if (gameManager.activeWeapon.starValue == 1) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(false);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 2) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 3) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(true);
+        }
+
     }
 
     private void GameManagerOnGameStateChanged(GameState state) { 
@@ -73,6 +96,28 @@ public class GameplayUIManager : MonoBehaviour
 
         bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
         totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
+
+        if (gameManager.activeWeapon.starValue == 1) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(false);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 2) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 3) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -84,6 +129,28 @@ public class GameplayUIManager : MonoBehaviour
 
         roundText.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
         pointsText.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
+
+        if (gameManager.activeWeapon.starValue == 1) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(false);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 2) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(false);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else if (gameManager.activeWeapon.starValue == 3) {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(false);
+        } else {
+            starValue.transform.GetChild(0).gameObject.SetActive(true);
+            starValue.transform.GetChild(1).gameObject.SetActive(true);
+            starValue.transform.GetChild(2).gameObject.SetActive(true);
+            starValue.transform.GetChild(3).gameObject.SetActive(true);
+        }
     }
 
 

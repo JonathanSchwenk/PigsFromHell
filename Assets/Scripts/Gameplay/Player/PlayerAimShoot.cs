@@ -146,11 +146,13 @@ public class PlayerAimShoot : MonoBehaviour
             if (gameManager.activeWeapon.name == "Hunting Rifle" || gameManager.activeWeapon.name == "Sniper") { 
                 GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "Bullet");
             }
             // Medium bullets (Pistol, Assault Rifle)
             else if (gameManager.activeWeapon.name == "Pistol" || gameManager.activeWeapon.name == "Assault Rifle") {
                 GameObject projectile = objectPooler.SpawnFromPool("MediumBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "Bullet");
             }
             // Small Bullets (HMG, SMG, Shotgun, Mini Gun)
             else if (gameManager.activeWeapon.name == "HMG" || gameManager.activeWeapon.name == "SMG" ||
@@ -161,31 +163,37 @@ public class PlayerAimShoot : MonoBehaviour
                         Vector3 dir = transform.forward + new Vector3(rightFirePoint.transform.forward.x + Random.Range(-maxSpread,maxSpread), rightFirePoint.transform.forward.y, rightFirePoint.transform.forward.z + Random.Range(-maxSpread,maxSpread));
                         GameObject projectile = objectPooler.SpawnFromPool("SmallBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                         projectile.GetComponent<Rigidbody>().AddForce((rightFirePoint.transform.forward + dir) * 2, ForceMode.Impulse);
+                        AccessBullets(projectile, "Bullet");
                     }
                 } else {
                     GameObject projectile = objectPooler.SpawnFromPool("SmallBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                     projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                    AccessBullets(projectile, "Bullet");
                 }
             }
             // Flame Thrower
             else if (gameManager.activeWeapon.name == "Flame Thrower") {
                 GameObject projectile = objectPooler.SpawnFromPool("FireBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "Fire");
             }
             // CrossBow
             else if (gameManager.activeWeapon.name == "Cross Bow") {
                 GameObject projectile = objectPooler.SpawnFromPool("Arrow", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "Arrow");
             }
             // RPG
             else if (gameManager.activeWeapon.name == "RPG") {
                 GameObject projectile = objectPooler.SpawnFromPool("Rocket", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "Rocket");
             }
             // Rail Gun
             else if (gameManager.activeWeapon.name == "Rail Gun") {
                 GameObject projectile = objectPooler.SpawnFromPool("RailGunBolt", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "RailGunBolt");
 
                 GameObject boltEffect = objectPooler.SpawnFromPool("BoltEffect", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
@@ -218,5 +226,28 @@ public class PlayerAimShoot : MonoBehaviour
     IEnumerator RailGunEffect(GameObject boltEffect) {
         yield return new WaitForSeconds(1.5f);
         boltEffect.SetActive(false);
+    }
+
+
+    // use this function above when spawning bullets and then go into each pigs script and change how they get damaged then test
+    private void AccessBullets(GameObject go, string projectileType) {
+        // repeat for all bullets
+        if (projectileType == "Bullet") {
+            go.GetComponent<Bullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.GetComponent<Bullet>().impact = gameManager.activeWeapon.impact;
+        } else if (projectileType == "Fire") {
+            go.GetComponent<FireBullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.GetComponent<FireBullet>().impact = gameManager.activeWeapon.impact;
+        } else if (projectileType == "Arrow") {
+            go.GetComponent<Arrow>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.GetComponent<Arrow>().impact = gameManager.activeWeapon.impact;
+        } else if (projectileType == "Rocket") {
+            go.GetComponent<Rocket>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.GetComponent<Rocket>().impact = gameManager.activeWeapon.impact;
+        } else if (projectileType == "RailGunBolt") {
+            go.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
+        }
+        
     }
 }

@@ -5,7 +5,8 @@ using Dorkbots.ServiceLocatorTools;
 
 public class Rocket : MonoBehaviour
 {
-    public int health = 1;
+    public int impact = 1;
+    public float damage = 1;
     private IObjectPooler objectPooler;
 
     // Start is called before the first frame update
@@ -53,8 +54,8 @@ public class Rocket : MonoBehaviour
     IEnumerator GroundFireCollider(GameObject explosion, GameObject projectile) {
         yield return new WaitForSeconds(2.5f);
         explosion.SetActive(false);
-        health -= 1;
-        if (health < 1) {
+        impact -= 1;
+        if (impact < 1) {
             projectile.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
             projectile.SetActive(false);
         }

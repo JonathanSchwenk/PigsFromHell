@@ -324,7 +324,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2128866212456052000}
-  - component: {fileID: 6356569211204919074}
   m_Layer: 0
   m_Name: BuyGun
   m_TagString: Untagged
@@ -347,24 +346,8 @@ Transform:
   - {fileID: 3109828093576906851}
   - {fileID: 4753805194737281665}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &6356569211204919074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616473235436961365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1becf5762ad3a442aab65628df2c5646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunName: {fileID: 972282195186376253}
-  cost: {fileID: 4244750153472841326}
-  target: {fileID: 0}
-  buyButton: {fileID: 0}
 --- !u!1 &7985962515200427972
 GameObject:
   m_ObjectHideFlags: 0
