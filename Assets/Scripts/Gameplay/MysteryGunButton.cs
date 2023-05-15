@@ -6,7 +6,7 @@ using Dorkbots.ServiceLocatorTools;
 public class MysteryGunButton : MonoBehaviour
 {
 
-    [SerializeField] private GameObject gunsList; // Will be gotten from the activebuying game onject inbthe game manager
+    private GameObject gunsList; // Will be gotten from the activebuying game onject inbthe game manager
 
 
     private int randomGun;
@@ -47,6 +47,8 @@ public class MysteryGunButton : MonoBehaviour
 
 
     public void BuyMysteryGun() {
+
+        gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
 
         if (gameManager.points < cost) { // Change back to >
             StartCoroutine(WaitForNextGun(0.2f, 0));

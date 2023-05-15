@@ -31,6 +31,17 @@ public class SkinCardButton : MonoBehaviour
         if (saveManager.saveData.unlockedSkins.Contains(skinNameObject.GetComponent<TextMeshProUGUI>().text)) {
             saveManager.saveData.currentSkin = skinNameObject.GetComponent<TextMeshProUGUI>().text;
             saveManager.Save();
+        } else {
+            // open UI
+            // Getting canvases
+            GameObject buySkinsCanvas = GameObject.Find("Canvases").gameObject.transform.Find("BuySkinsCanvas").gameObject.transform.GetChild(0).gameObject; 
+            GameObject characterCanvas = GameObject.Find("CharacterCanvas").gameObject;
+
+            // Setting buy canvas to active
+            buySkinsCanvas.SetActive(true);
+            characterCanvas.SetActive(false);
+
+
         }
     }
 }

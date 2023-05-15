@@ -104,6 +104,8 @@ public class SkinCardInScrollView : MonoBehaviour
         // sets the background to show if its unlocked or not 
         if (!saveManager.saveData.unlockedSkins.Contains(saveManager.saveData.totalSkins[i])) {
             go.transform.GetChild(3).GetComponent<Image>().color = Color.black;
+        } else {
+            go.transform.GetChild(3).GetComponent<Image>().color = Color.white;
         }
         
     }

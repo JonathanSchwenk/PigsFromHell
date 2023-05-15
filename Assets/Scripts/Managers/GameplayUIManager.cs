@@ -15,8 +15,10 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject bulletsInMagText;
     [SerializeField] private GameObject totalReserveAmmoText;
 
-    [SerializeField] private GameObject roundText;
-    [SerializeField] private GameObject pointsText;
+    [SerializeField] private GameObject roundTextPlaying;
+    [SerializeField] private GameObject pointsTextPlaying;
+    [SerializeField] private GameObject roundTextPaused;
+    [SerializeField] private GameObject pointsTextPaused;
     [SerializeField] private GameObject starValue;
 
 
@@ -127,8 +129,10 @@ public class GameplayUIManager : MonoBehaviour
         bulletsInMagText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.bulletsInMag.ToString();
         totalReserveAmmoText.GetComponent<TextMeshProUGUI>().text = gameManager.activeWeapon.reserveAmmo.ToString();
 
-        roundText.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
-        pointsText.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
+        roundTextPlaying.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        pointsTextPlaying.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
+        roundTextPaused.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        pointsTextPaused.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
 
         if (gameManager.activeWeapon.starValue == 1) {
             starValue.transform.GetChild(0).gameObject.SetActive(true);

@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class CharacterCanvasManager : MonoBehaviour
 {
 
+    [SerializeField] private GameObject priNormWeapons;
+    [SerializeField] private GameObject priSpecWeapons;
+    [SerializeField] private GameObject secNormWeapons;
+    [SerializeField] private GameObject secSpecWeapons;
 
     private ISaveManager saveManager;
 
@@ -31,39 +35,29 @@ public class CharacterCanvasManager : MonoBehaviour
     void Start()
     {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
-        //saveManager.Load(); // IDK if I want this load here
-
-        //print(saveManager.saveData.currentWeapons[0]);
-        //print(saveManager.saveData.currentWeapons[1]);
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
-
-    //private void SaveManagerOnSave(int num) {
-
-    //}
-
-
-/*
-    public void PrimaryGunButtonChangeGun(GameObject gun) {
-        //print(gun.GetComponent<TextMeshProUGUI>().text);
-
-        // if the weapon is unlocked then set the primary current weapon to the gun, if not, go to a new UI canvas and give the option to unlock the gun
-
-        if (saveManager.saveData.unlockedWeapons.Contains(gun.GetComponent<TextMeshProUGUI>().text)) {
-            saveManager.saveData.currentWeapons[0] = gun.GetComponent<TextMeshProUGUI>().text;
-            saveManager.Save();
+    public void ChangeWeaponTypeNormal(int primaryOrSecondary) {
+        if (primaryOrSecondary == 0) {
+            priNormWeapons.gameObject.SetActive(true);
+            priSpecWeapons.gameObject.SetActive(false);
+        } else {
+            secNormWeapons.gameObject.SetActive(true);
+            secSpecWeapons.gameObject.SetActive(false);
         }
     }
-    public void PrimaryGunButtonChangeColor(GameObject weaponCard) {
-        weaponCard.transform.GetChild(2).GetComponent<Image>().color = Color.black;
-        
+
+    public void ChangeWeaponTypeSpecial(int primaryOrSecondary) {
+        if (primaryOrSecondary == 0) {
+            priNormWeapons.gameObject.SetActive(false);
+            priSpecWeapons.gameObject.SetActive(true);
+        } else {
+            secNormWeapons.gameObject.SetActive(false);
+            secSpecWeapons.gameObject.SetActive(true);
+        }
     }
-*/
+
 }

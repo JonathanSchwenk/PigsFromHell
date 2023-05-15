@@ -19,5 +19,5 @@ public class SaveData
     public WeaponData[] totalSpecialWeapons = new WeaponData[5];
 
     public String[] totalSkins = {"BasicFemale", "BasicMale", "Cowboy", "Hero", "Hoodie", "Jester", "Knight", "Ninja", "Robber", "Soldier"};
-    public ArrayList unlockedSkins= new ArrayList(){"BasicFemale", "BasicMale"};
+    public ArrayList unlockedSkins = new ArrayList(){"BasicFemale", "BasicMale"};
 }
