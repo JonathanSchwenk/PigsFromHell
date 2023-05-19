@@ -39,3 +39,7 @@ public interface ISpawnManager {
     bool canSpawn {get; set;}
 }
 
+public interface IAudioManager {
+    void Play(string name);
+}
+

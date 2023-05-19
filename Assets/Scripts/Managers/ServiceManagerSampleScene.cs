@@ -9,6 +9,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
     public ObjectPooler objectPooler;
     public GameManager gameManager;
     public SpawnManager spawnManager;
+    public AudioManager audioManager;
 
 
     private void Awake() {
@@ -23,6 +24,16 @@ public class ServiceManagerSampleScene : MonoBehaviour
             ServiceLocator.Register<ISaveManager>(saveManager);
             // Loading save here because this script gets executed early which is where I need to load so Im trying here.
             saveManager.Load();
+        }
+
+        // I want to make the audio manager in the menu but this is for testing and debugging so theres not two of them
+
+        // If there is no SaveManager service registered, create one, else, do nothing
+        if (ServiceLocator.IsRegistered<IAudioManager>()) {
+            Debug.Log("A AudioManager already exists");
+        } else {
+            Debug.Log("AudioManager not found, creating one");
+            ServiceLocator.Register<IAudioManager>(audioManager);
         }
         
 
@@ -43,6 +54,9 @@ public class ServiceManagerSampleScene : MonoBehaviour
     private void OnApplicationQuit() {
         if (ServiceLocator.IsRegistered<ISaveManager>()) {
             ServiceLocator.Unregister<ISaveManager>();
+        }
+        if (ServiceLocator.IsRegistered<IAudioManager>()) {
+            ServiceLocator.Unregister<IAudioManager>();
         }
     }
     

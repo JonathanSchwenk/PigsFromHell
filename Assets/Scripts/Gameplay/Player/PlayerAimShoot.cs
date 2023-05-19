@@ -10,6 +10,7 @@ public class PlayerAimShoot : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject knifeDamagerCollider;
     [SerializeField] GameObject rightFirePoint;
+    
 
 
     private float angle;
@@ -31,11 +32,13 @@ public class PlayerAimShoot : MonoBehaviour
     private IObjectPooler objectPooler;
     private ISaveManager saveManager;
     private IGameManager gameManager;
+    private IAudioManager audioManager;
 
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -138,6 +141,9 @@ public class PlayerAimShoot : MonoBehaviour
                 animator.SetTrigger("Shoot");
                 animator.SetBool("Idle", false);
             }
+
+            // Test sounds
+            audioManager.Play("PistolShoot");
 
 
             // Spawn Bullets
