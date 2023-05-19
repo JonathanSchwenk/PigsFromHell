@@ -16,6 +16,12 @@ public class GameManager : MonoBehaviour, IGameManager
 
 
 
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject gameplayUICanvas;
+    [SerializeField] private GameObject gameplayControlsCanvas;
+
+
+
     private ISaveManager saveManager;
 
 
@@ -79,7 +85,13 @@ public class GameManager : MonoBehaviour, IGameManager
     }
 
     private void HandelGameOverState() {
-        
+        // Stops the time
+        Time.timeScale = 0;
+
+        // Changes canvases
+        gameplayUICanvas.SetActive(false);
+        gameplayControlsCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
     } 
 
 

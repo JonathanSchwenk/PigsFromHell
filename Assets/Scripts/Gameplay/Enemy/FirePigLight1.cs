@@ -32,6 +32,7 @@ public class FirePigLight1 : MonoBehaviour
         // Normal Weapons
         if (other.tag == "LargeBullet" || other.tag == "MediumBullet" || other.tag == "SmallBullet") {
             health -= other.GetComponent<Bullet>().damage;
+            //print(health);
             gameManager.points += 1;
             if (health <= 0) {
                 gameObject.SetActive(false);

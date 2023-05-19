@@ -81,10 +81,10 @@ public class GameplayUIManager : MonoBehaviour
     private void GameManagerOnGameStateChanged(GameState state) { 
         if (state == GameState.GameOver) {
             // This will be changed to a game over UI and not pause UI
-            Time.timeScale = 0;
-            pauseUI.SetActive(true);
-            playerControlsUI.SetActive(false);
-            gameInfoUI.SetActive(false);
+            //Time.timeScale = 0;
+            //pauseUI.SetActive(true);
+            //playerControlsUI.SetActive(false);
+            //gameInfoUI.SetActive(false);
         } 
     }
 

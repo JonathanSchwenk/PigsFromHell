@@ -5,6 +5,7 @@ using Dorkbots.ServiceLocatorTools;
 
 public class MysteryGunButton : MonoBehaviour
 {
+    [SerializeField] private GameObject takeGunButton;
 
     private GameObject gunsList; // Will be gotten from the activebuying game onject inbthe game manager
 
@@ -79,7 +80,11 @@ public class MysteryGunButton : MonoBehaviour
 
         } else {
             // Stop on that gun and gets it
-            GetNewGun(saveManager.saveData.unlockedWeapons[randomGun].name);
+
+            // Change this to make it so at this point the buy button changes to a take gun button and when you click that button it does the below functions
+
+            takeGunButton.SetActive(true);
+            StartCoroutine(WaitToTakeGun(7.5f, 0)); 
         }
         // wait
         yield return new WaitForSeconds(waitTime);
@@ -89,8 +94,20 @@ public class MysteryGunButton : MonoBehaviour
         }
     }
 
+    IEnumerator WaitToTakeGun(float waitTime, int counter) {
+        // Wait some time
+        yield return new WaitForSeconds(waitTime);
 
-    private void GetNewGun(string gunName) {
+        // Set the take button to false, signaling that the timer ran out and you can no longer get the gun
+        takeGunButton.SetActive(false);
+    }
+
+
+
+
+
+    public void GetNewGun() {
+        string gunName = saveManager.saveData.unlockedWeapons[randomGun].name;
         // if you already have the gun it refills your gun, else if its also not a knife then it gives you the new gun
         // Primary
         if (gameManager.currentWeapons[0].name == gunName) {

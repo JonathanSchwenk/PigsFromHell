@@ -6,7 +6,9 @@ using Dorkbots.ServiceLocatorTools;
 public class MysteryGunObject : MonoBehaviour
 {
     [SerializeField] private GameObject target;
+    [SerializeField] private GameObject buttonParentObject;
     [SerializeField] private GameObject buyButton;
+    [SerializeField] private GameObject takeGunButton;
 
     private float minDist = 5;
     private float dist;
@@ -27,9 +29,15 @@ public class MysteryGunObject : MonoBehaviour
         if(dist < minDist)
         {
             gameManager.activeBuyObject = gameObject;
-            buyButton.SetActive(true);
+            buttonParentObject.SetActive(true);
+
+            if (takeGunButton.activeSelf == true) {
+                buyButton.SetActive(false);
+            } else {
+                buyButton.SetActive(true);
+            }
         } else {
-            buyButton.SetActive(false);
+            buttonParentObject.SetActive(false);
         }
     }
 }

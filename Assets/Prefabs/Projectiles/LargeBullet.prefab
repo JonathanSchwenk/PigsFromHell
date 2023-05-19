@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1283187197317381231}
   m_Layer: 0
   m_Name: LargeBullet
-  m_TagString: DefaultBullet
+  m_TagString: LargeBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

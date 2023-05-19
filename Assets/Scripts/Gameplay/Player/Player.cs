@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
             if (health <= 0) {
                 // dead
                 print("Player died, Game Over");
+                gameManager.UpdateGameState(GameState.GameOver);
             }
         }
     }
