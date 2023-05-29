@@ -142,20 +142,34 @@ public class PlayerAimShoot : MonoBehaviour
                 animator.SetBool("Idle", false);
             }
 
-            // Test sounds
-            audioManager.Play("PistolShoot");
-
 
             // Spawn Bullets
 
             // Large Bullets (Hunting Rifle, Sniper)
             if (gameManager.activeWeapon.name == "Hunting Rifle" || gameManager.activeWeapon.name == "Sniper") { 
+
+                if (gameManager.activeWeapon.name == "Hunting Rifle") {
+                    audioManager.PlaySFX("Hunting Rifle");
+                }
+                if (gameManager.activeWeapon.name == "Sniper") {
+                    audioManager.PlaySFX("Sniper");
+                }
+
                 GameObject projectile = objectPooler.SpawnFromPool("LargeBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "Bullet");
             }
             // Medium bullets (Pistol, Assault Rifle)
             else if (gameManager.activeWeapon.name == "Pistol" || gameManager.activeWeapon.name == "Assault Rifle") {
+
+                if (gameManager.activeWeapon.name == "Pistol") {
+                    audioManager.PlaySFX("Pistol");
+                }
+                if (gameManager.activeWeapon.name == "Assault Rifle") {
+                    audioManager.PlaySFX("Assault Rifle");
+                }
+                
+
                 GameObject projectile = objectPooler.SpawnFromPool("MediumBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "Bullet");
@@ -163,7 +177,20 @@ public class PlayerAimShoot : MonoBehaviour
             // Small Bullets (HMG, SMG, Shotgun, Mini Gun)
             else if (gameManager.activeWeapon.name == "HMG" || gameManager.activeWeapon.name == "SMG" ||
             gameManager.activeWeapon.name == "Shotgun" || gameManager.activeWeapon.name == "Mini Gun") {
+
+                if (gameManager.activeWeapon.name == "HMG") {
+                    audioManager.PlaySFX("HMG");
+                }
+                if (gameManager.activeWeapon.name == "SMG") {
+                    audioManager.PlaySFX("SMG");
+                }
+                if (gameManager.activeWeapon.name == "Mini Gun") {
+                    audioManager.PlaySFX("Mini Gun");
+                }
+
                 if (gameManager.activeWeapon.name == "Shotgun") {
+                    audioManager.PlaySFX("Shotgun");
+
                     for (int i = 0; i < 10; i++) { // 10 pellets in shotgun
                         float maxSpread = 1.0f;
                         Vector3 dir = transform.forward + new Vector3(rightFirePoint.transform.forward.x + Random.Range(-maxSpread,maxSpread), rightFirePoint.transform.forward.y, rightFirePoint.transform.forward.z + Random.Range(-maxSpread,maxSpread));
@@ -179,24 +206,32 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Flame Thrower
             else if (gameManager.activeWeapon.name == "Flame Thrower") {
+                audioManager.PlaySFX("Flame Thrower");
+
                 GameObject projectile = objectPooler.SpawnFromPool("FireBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), Quaternion.identity);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "Fire");
             }
             // CrossBow
             else if (gameManager.activeWeapon.name == "Cross Bow") {
+                audioManager.PlaySFX("Cross Bow");
+
                 GameObject projectile = objectPooler.SpawnFromPool("Arrow", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "Arrow");
             }
             // RPG
             else if (gameManager.activeWeapon.name == "RPG") {
+                audioManager.PlaySFX("RPG");
+
                 GameObject projectile = objectPooler.SpawnFromPool("Rocket", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "Rocket");
             }
             // Rail Gun
             else if (gameManager.activeWeapon.name == "Rail Gun") {
+                audioManager.PlaySFX("Rail Gun");
+
                 GameObject projectile = objectPooler.SpawnFromPool("RailGunBolt", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "RailGunBolt");

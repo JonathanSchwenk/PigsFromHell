@@ -30,7 +30,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
 
         // If there is no SaveManager service registered, create one, else, do nothing
         if (ServiceLocator.IsRegistered<IAudioManager>()) {
-            Debug.Log("A AudioManager already exists");
+            Debug.Log("An AudioManager already exists");
         } else {
             Debug.Log("AudioManager not found, creating one");
             ServiceLocator.Register<IAudioManager>(audioManager);

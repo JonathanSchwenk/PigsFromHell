@@ -20,4 +20,8 @@ public class SaveData
 
     public String[] totalSkins = {"BasicFemale", "BasicMale", "Cowboy", "Hero", "Hoodie", "Jester", "Knight", "Ninja", "Robber", "Soldier"};
     public ArrayList unlockedSkins = new ArrayList(){"BasicFemale", "BasicMale"};
+
+    public bool SFXOn = true;
+    public bool musicOn = true;
 }
+

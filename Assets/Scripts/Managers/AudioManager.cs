@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using Dorkbots.ServiceLocatorTools;
 
 public class AudioManager : MonoBehaviour, IAudioManager
 {
@@ -12,10 +13,25 @@ public class AudioManager : MonoBehaviour, IAudioManager
         for each scene.
     */
 
+    private ISaveManager saveManager;
+
     [SerializeField] private Sound[] sounds;
+
+
+    public static AudioManager instance;
 
     void Awake()
     {
+        if (instance == null) {
+            instance = this;
+        } else {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject); // Has to be the root gameObject
+
+
         foreach (Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -25,11 +41,34 @@ public class AudioManager : MonoBehaviour, IAudioManager
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
         }
+
+        saveManager = ServiceLocator.Resolve<ISaveManager>();
     }
 
-    public void Play(string name) {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
+    public void PlaySFX(string name) {
+        if (saveManager.saveData.SFXOn == true) {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+
+            if (s == null) {
+                print("Sound: " + name + " not found");
+                return;
+            }
+
+            s.source.Play();
+        }
+    }
+
+    public void PlayMusic(string name) {
+        if (saveManager.saveData.musicOn == true) {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+
+            if (s == null) {
+                print("Sound: " + name + " not found");
+                return;
+            }
+
+            s.source.Play();
+        }
     }
 
 }

@@ -25,7 +25,6 @@ public class UpgradeGunsButton : MonoBehaviour
         // Finds the active gun and upgrades its starValue
         if (gameManager.points < cost && gameManager.activeWeapon.starValue < 4) { // Change back to >
             gameManager.activeWeapon.starValue += gameManager.activeWeapon.starValue;
-            print(gameManager.activeWeapon.starValue);
 
             gameManager.points -= cost;
         }

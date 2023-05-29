@@ -4880,13 +4880,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677521212}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5253628337673412856}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &677521214
 MonoBehaviour:
@@ -4901,8 +4901,96 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: PistolShoot
-    clip: {fileID: 8300000, guid: e1e575b5365aba94fa943db4388223bd, type: 3}
+  - name: Pistol
+    clip: {fileID: 8300000, guid: d02b1b6cfe8b36642837556911c60938, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Hunting Rifle
+    clip: {fileID: 8300000, guid: d650fa96584041f4eab67054b48df717, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Assault Rifle
+    clip: {fileID: 8300000, guid: 06159b3c7c5bbc748bbccf3e2ef47342, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Sniper
+    clip: {fileID: 8300000, guid: c615408f5c517304680ab9b98db1306d, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HMG
+    clip: {fileID: 8300000, guid: 56a6141d3fd147f4e9860371923dad61, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SMG
+    clip: {fileID: 8300000, guid: 589aecb8702af804aa6e42dfde0d9dc9, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shotgun
+    clip: {fileID: 8300000, guid: 588cfdbccda7f66419de73fa605b0c67, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Flame Thrower
+    clip: {fileID: 8300000, guid: 0fedc16c9c8ffd84b9c1fecfb4c98fb0, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Cross Bow
+    clip: {fileID: 8300000, guid: cb031fbc6adbfa9488fbee287cc22302, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: RPG
+    clip: {fileID: 8300000, guid: 7d24ee45b6e4d4e4f973db50c33da650, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Rail Gun
+    clip: {fileID: 8300000, guid: 8bec873d343c1ef4daf8b398569dfe26, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Mini Gun
+    clip: {fileID: 8300000, guid: f272edb9babb33741b95e407780e5e5e, type: 3}
     volume: 1
     pitch: 0.8
     spacialBlend: 1
@@ -8670,6 +8758,7 @@ GameObject:
   - component: {fileID: 1458299948}
   - component: {fileID: 1458299947}
   - component: {fileID: 1458299946}
+  - component: {fileID: 1458299949}
   m_Layer: 0
   m_Name: GameOver
   m_TagString: Untagged
@@ -8766,6 +8855,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1458299949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458299944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598fe82c402e04b64b99f5698f31ec95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1480583556
 GameObject:
   m_ObjectHideFlags: 0
@@ -15166,6 +15267,7 @@ GameObject:
   - component: {fileID: 8988527625195967780}
   - component: {fileID: 6928749566078984860}
   - component: {fileID: 4468226149841993572}
+  - component: {fileID: 8988527625195967781}
   m_Layer: 0
   m_Name: PauseUI
   m_TagString: Untagged
@@ -16001,6 +16103,7 @@ GameObject:
   - component: {fileID: 1679004246056460523}
   - component: {fileID: 8802490812491537281}
   - component: {fileID: 8409163577625265756}
+  - component: {fileID: 8802490812491537282}
   m_Layer: 0
   m_Name: UICanvas
   m_TagString: Untagged
@@ -18427,7 +18530,6 @@ Transform:
   - {fileID: 233322752305982952}
   - {fileID: 2418410032548361815}
   - {fileID: 3718320336688858129}
-  - {fileID: 677521213}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19941,6 +20043,7 @@ GameObject:
   - component: {fileID: 5530623069058796233}
   - component: {fileID: 3039951287611366918}
   - component: {fileID: 8515152340356591335}
+  - component: {fileID: 8515152340356591336}
   m_Layer: 0
   m_Name: PlayerControlsCanvas
   m_TagString: Untagged
@@ -20956,6 +21059,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8515152340356591336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341242134287353535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598fe82c402e04b64b99f5698f31ec95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8540949029334377036
 GameObject:
   m_ObjectHideFlags: 0
@@ -21125,6 +21240,18 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &8802490812491537282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487913791140263627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598fe82c402e04b64b99f5698f31ec95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8805166871537698594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21301,6 +21428,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &8988527625195967781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502083223956488120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598fe82c402e04b64b99f5698f31ec95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8999074824010937566
 GameObject:
   m_ObjectHideFlags: 0

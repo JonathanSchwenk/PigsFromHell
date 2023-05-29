@@ -40,6 +40,7 @@ public interface ISpawnManager {
 }
 
 public interface IAudioManager {
-    void Play(string name);
+    void PlaySFX(string name);
+    void PlayMusic(string name);
 }
 
