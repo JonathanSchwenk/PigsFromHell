@@ -49,7 +49,12 @@ public class MysteryGunButton : MonoBehaviour
 
     public void BuyMysteryGun() {
 
+        // Gets guns list object from the game manager
+        // I do it this way because now the player moves from different buy stations it knows which one is within range
         gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
+
+        // Sets the is currently buying to true to signal that the buy button should turn off so you cant spam
+        gameManager.currentlyBuyingNewGun = true;
 
         if (gameManager.points < cost) { // Change back to >
             diceIcon.SetActive(false);
@@ -102,6 +107,9 @@ public class MysteryGunButton : MonoBehaviour
 
         // Set the take button to false, signaling that the timer ran out and you can no longer get the gun
         takeGunButton.SetActive(false);
+
+        // Sets the is currently buying to false to signal that the buy button should turn back on
+        gameManager.currentlyBuyingNewGun = false;
     }
 
 
@@ -148,8 +156,14 @@ public class MysteryGunButton : MonoBehaviour
         }
         gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
 
+        // Changes dice icon to be on to show that the process is over
         diceIcon.SetActive(true);
         gunsList.SetActive(false);
+
+        // Changes the button from take back to buy
+        takeGunButton.SetActive(false);
+        // Sets the is currently buying to false to signal that the buy button should turn back on
+        gameManager.currentlyBuyingNewGun = false;
     }
 
 

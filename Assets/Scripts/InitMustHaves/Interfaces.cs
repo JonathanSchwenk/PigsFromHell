@@ -12,6 +12,7 @@ public interface IGameManager {
     int RoundNum {get; set;}
     int points {get; set;}
     GameObject activeBuyObject {get; set;}
+    bool currentlyBuyingNewGun {get; set;}
     WeaponData[] currentWeapons {get; set;}
     WeaponData activeWeapon {get; set;}
 

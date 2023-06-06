@@ -79,6 +79,10 @@ public class BuyGunInMenu : MonoBehaviour
 
         saveManager.saveData.coins -= cost;
 
+        // Change canvases back
+        buyGunsCanvas.SetActive(false);
+        characterCanvas.SetActive(true);
+
         saveManager.Save();
     }
 

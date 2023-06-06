@@ -31,7 +31,7 @@ public class MysteryGunObject : MonoBehaviour
             gameManager.activeBuyObject = gameObject;
             buttonParentObject.SetActive(true);
 
-            if (takeGunButton.activeSelf == true) {
+            if (takeGunButton.activeSelf == true || gameManager.currentlyBuyingNewGun == true) {
                 buyButton.SetActive(false);
             } else {
                 buyButton.SetActive(true);

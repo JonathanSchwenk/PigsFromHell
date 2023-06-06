@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour, IGameManager
     public int RoundNum {get; set;}
     public int points {get; set;}
     public GameObject activeBuyObject {get; set;}
+    public bool currentlyBuyingNewGun {get; set;}
     public WeaponData[] currentWeapons {get; set;}
     public WeaponData activeWeapon {get; set;}
 

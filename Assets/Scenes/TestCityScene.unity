@@ -19222,6 +19222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   takeGunButton: {fileID: 1958124201}
+  buyGunButton: {fileID: 8134357826692008667}
   diceIcon: {fileID: 1223369180}
 --- !u!222 &6529579197508662900
 CanvasRenderer:

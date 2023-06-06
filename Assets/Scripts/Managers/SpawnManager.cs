@@ -53,7 +53,6 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
 
     private void GameManagerOnRoundChanged(int newRoundNum) {
         print("New Round");
-        print(newRoundNum);
 
         if (newRoundNum % 5 == 0) {
             bankMultiplier += 1;
@@ -71,6 +70,14 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
     // Update is called once per frame
     void Update()
     {
+        
+        /*
+            Issue: There are no crawlers so its impossible to wait inbetween rounds
+
+            Could start a coroutine here that delays this
+            Could do a button to start a new round
+        */
+
         // if bank value == 0 and there are no enemies left then rounds over, and update the UI and values in game manager
         if (bankValue == 0 & numEnemies == 0) {
             gameManager.UpdateRound();
