@@ -3,8 +3,9 @@ using System;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using Dorkbots.ServiceLocatorTools;
+using UnityEngine.SceneManagement;
 
-public class AdManager : MonoBehaviour
+public class AdManager : MonoBehaviour , IAdManager
 {
     private BannerView bannerView;
 
@@ -84,6 +85,10 @@ public class AdManager : MonoBehaviour
 
             saveManager.saveData.coins += coinsEarned;
 
+            saveManager.Save();
+
+            SceneManager.LoadScene("MainMenu");
+
             // Need to destroy the rewardedAd
             rewardedAd.Destroy();
         };
@@ -100,7 +105,7 @@ public class AdManager : MonoBehaviour
     }
 
     // Shows the rewarded ad
-    public void ShowRewardedAd() {
+    private void ShowRewardedAd() {
         if (rewardedAd.IsLoaded() == true) {
             rewardedAd.Show();
         } else {
@@ -160,4 +165,6 @@ public class AdManager : MonoBehaviour
 
 
 }
+
+
 

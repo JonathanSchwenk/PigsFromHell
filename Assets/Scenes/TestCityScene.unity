@@ -4856,147 +4856,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662187847}
   m_CullTransparentMesh: 1
---- !u!1 &677521212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 677521213}
-  - component: {fileID: 677521214}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &677521213
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677521212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &677521214
+--- !u!114 &677521214 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 439504364434890003, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+  m_PrefabInstance: {fileID: 5897451893103804689}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677521212}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f77abde11dee24ad288e0020b59aed20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - name: Pistol
-    clip: {fileID: 8300000, guid: d02b1b6cfe8b36642837556911c60938, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Hunting Rifle
-    clip: {fileID: 8300000, guid: d650fa96584041f4eab67054b48df717, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Assault Rifle
-    clip: {fileID: 8300000, guid: 06159b3c7c5bbc748bbccf3e2ef47342, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Sniper
-    clip: {fileID: 8300000, guid: c615408f5c517304680ab9b98db1306d, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: HMG
-    clip: {fileID: 8300000, guid: 56a6141d3fd147f4e9860371923dad61, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: SMG
-    clip: {fileID: 8300000, guid: 589aecb8702af804aa6e42dfde0d9dc9, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Shotgun
-    clip: {fileID: 8300000, guid: 588cfdbccda7f66419de73fa605b0c67, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Flame Thrower
-    clip: {fileID: 8300000, guid: 0fedc16c9c8ffd84b9c1fecfb4c98fb0, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Cross Bow
-    clip: {fileID: 8300000, guid: cb031fbc6adbfa9488fbee287cc22302, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: RPG
-    clip: {fileID: 8300000, guid: 7d24ee45b6e4d4e4f973db50c33da650, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Rail Gun
-    clip: {fileID: 8300000, guid: 8bec873d343c1ef4daf8b398569dfe26, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
-  - name: Mini Gun
-    clip: {fileID: 8300000, guid: f272edb9babb33741b95e407780e5e5e, type: 3}
-    volume: 1
-    pitch: 0.8
-    spacialBlend: 1
-    loop: 0
-    playOnAwake: 0
-    source: {fileID: 0}
 --- !u!1001 &686469772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7571,10 +7441,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryGun
       objectReference: {fileID: 0}
-    - target: {fileID: 566622258410752444, guid: dbeb14181d198475898b490332f55f5c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3803200596640166797, guid: dbeb14181d198475898b490332f55f5c, type: 3}
       propertyPath: target
       value: 
@@ -7643,6 +7509,11 @@ PrefabInstance:
 --- !u!4 &1223369179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5327064794573264970, guid: dbeb14181d198475898b490332f55f5c, type: 3}
+  m_PrefabInstance: {fileID: 1223369178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1223369180 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8862923865828431970, guid: dbeb14181d198475898b490332f55f5c, type: 3}
   m_PrefabInstance: {fileID: 1223369178}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242306695
@@ -14476,14 +14347,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821615378046873012}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
+  m_LocalPosition: {x: 0, y: 15, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4216927234349275724}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
 --- !u!114 &246186113750462157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16673,6 +16544,8 @@ MonoBehaviour:
   Speed: 5
   movementThresholdX: 8
   movementThresholdZ: 3.5
+  dampening: 1
+  offset: {x: 0, y: 15, z: -3.5}
 --- !u!114 &3267647553166680510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18939,6 +18812,67 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &5897451893103804689
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2469306761225803258, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
 --- !u!114 &5899518625022990442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19288,6 +19222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   takeGunButton: {fileID: 1958124201}
+  diceIcon: {fileID: 1223369180}
 --- !u!222 &6529579197508662900
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using Dorkbots.ServiceLocatorTools;
 public class MysteryGunButton : MonoBehaviour
 {
     [SerializeField] private GameObject takeGunButton;
-
+    [SerializeField] private GameObject diceIcon;
     private GameObject gunsList; // Will be gotten from the activebuying game onject inbthe game manager
 
 
@@ -52,6 +52,8 @@ public class MysteryGunButton : MonoBehaviour
         gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
 
         if (gameManager.points < cost) { // Change back to >
+            diceIcon.SetActive(false);
+            gunsList.SetActive(true);
             StartCoroutine(WaitForNextGun(0.2f, 0));
             gameManager.points -= cost;
         }
@@ -144,6 +146,10 @@ public class MysteryGunButton : MonoBehaviour
                 ChangeGunHelper(gunName);
             }
         }
+        gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
+
+        diceIcon.SetActive(true);
+        gunsList.SetActive(false);
     }
 
 

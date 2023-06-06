@@ -57,6 +57,12 @@ public class MoveCamera : MonoBehaviour
         
     }
 
+    private Vector3 velocity = Vector3.zero;
+
+    [SerializeField] private float dampening;
+    [SerializeField] private Vector3 offset;
+
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -74,12 +80,19 @@ public class MoveCamera : MonoBehaviour
         if (xDiff >= movementThresholdX) {
             moveTemp.x = player.transform.position.x;
             moveTemp.y = 15;
-            transform.position = Vector3.MoveTowards(transform.position, moveTemp, Speed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, moveTemp, Speed * Time.deltaTime);
         }
         if (zDiff >= movementThresholdZ) {
             moveTemp.z = player.transform.position.z;
             moveTemp.y = 15;
-            transform.position = Vector3.MoveTowards(transform.position, moveTemp, Speed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, moveTemp, Speed * Time.deltaTime);
         }
     }
+    */
+
+    private void FixedUpdate() {
+        Vector3 movePosition = player.transform.position + offset;
+        transform.position = Vector3.SmoothDamp(transform.position, movePosition, ref velocity, dampening);
+    }
 }
+

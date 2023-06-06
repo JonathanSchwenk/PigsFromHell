@@ -44,3 +44,7 @@ public interface IAudioManager {
     void PlayMusic(string name);
 }
 
+
+public interface IAdManager {
+    void LoadRewardedAd(int coinsEarned);
+}

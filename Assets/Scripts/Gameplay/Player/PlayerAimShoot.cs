@@ -64,7 +64,7 @@ public class PlayerAimShoot : MonoBehaviour
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
-        fireRateCounter = firerateTime; // Might get rid of this. I feel that a slight delay is good for the user to aim.
+        fireRateCounter = 0; //firerateTime; // Might get rid of this and change back to 0. I feel that a slight delay is good for the user to aim.
         magSize = activeWeapon.magSize;
         if (activeWeapon.reserveAmmo > magSize) {
             shotsInMag = magSize;
@@ -91,7 +91,7 @@ public class PlayerAimShoot : MonoBehaviour
 
         bulletForce = activeWeapon.bulletForce;
         firerateTime = activeWeapon.fireRate;
-        fireRateCounter = firerateTime; // Might get rid of this. I feel that a slight delay is good for the user to aim.
+        fireRateCounter = 0; //firerateTime; // Might get rid of this and change back to 0. I feel that a slight delay is good for the user to aim.
         magSize = activeWeapon.magSize;
         if (activeWeapon.reserveAmmo > magSize) {
             shotsInMag = magSize;
@@ -111,13 +111,15 @@ public class PlayerAimShoot : MonoBehaviour
         angle = Mathf.Atan2(directionPoint.x, directionPoint.z) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
-        // Firerate
-        fireRateCounter += 1 * Time.deltaTime;
-
         // AimShoot Joystick turns the play
         if (aimShootJoystick.Horizontal != 0 || aimShootJoystick.Vertical != 0) {
+            // Aims
             directionPoint.x = aimShootJoystick.Horizontal;
             directionPoint.z = aimShootJoystick.Vertical;
+
+            // Firerate
+            fireRateCounter += 1 * Time.deltaTime;
+
             // shoot here
             if (fireRateCounter >= firerateTime) {
                 if (shotsInMag > 0 || shotsInMag < 0) {
@@ -127,7 +129,10 @@ public class PlayerAimShoot : MonoBehaviour
                     fireRateCounter = 0;
                 } 
             }
-        } 
+        } else {
+            // Firerate reset
+            fireRateCounter = 0;
+        }
     }
 
 
@@ -232,13 +237,17 @@ public class PlayerAimShoot : MonoBehaviour
             else if (gameManager.activeWeapon.name == "Rail Gun") {
                 audioManager.PlaySFX("Rail Gun");
 
+                /*
                 GameObject projectile = objectPooler.SpawnFromPool("RailGunBolt", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "RailGunBolt");
+                */
 
                 GameObject boltEffect = objectPooler.SpawnFromPool("BoltEffect", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
                 StartCoroutine(RailGunEffect(boltEffect));
+                AccessBullets(boltEffect, "RailGunBolt");
+                print(boltEffect.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage);
             }
 
 
@@ -286,9 +295,10 @@ public class PlayerAimShoot : MonoBehaviour
             go.GetComponent<Rocket>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
             go.GetComponent<Rocket>().impact = gameManager.activeWeapon.impact;
         } else if (projectileType == "RailGunBolt") {
-            go.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
+            go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
         }
         
     }
 }
+

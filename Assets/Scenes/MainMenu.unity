@@ -16454,6 +16454,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveManager: {fileID: 472939794}
+  audioManager: {fileID: 2057983118}
+  adManager: {fileID: 2021616619}
 --- !u!1 &1713259204
 GameObject:
   m_ObjectHideFlags: 0
@@ -17864,7 +17866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 400, y: 0}
+  m_AnchoredPosition: {x: 400.00003, y: 0}
   m_SizeDelta: {x: 1500, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1859608789
@@ -19957,6 +19959,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042635799}
   m_CullTransparentMesh: 1
+--- !u!1001 &2049407060
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2469306761225803258, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7623095703485469844, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
 --- !u!1 &2055799896
 GameObject:
   m_ObjectHideFlags: 0
@@ -20033,6 +20096,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2055799896}
   m_CullTransparentMesh: 1
+--- !u!114 &2057983118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 439504364434890003, guid: e1dc5c0d48f194a6fa683af4de13f57f, type: 3}
+  m_PrefabInstance: {fileID: 2049407060}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77abde11dee24ad288e0020b59aed20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2069913771
 GameObject:
   m_ObjectHideFlags: 0
@@ -20252,7 +20326,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1253510472}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.46666196
+  m_Size: 0.46661645
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
