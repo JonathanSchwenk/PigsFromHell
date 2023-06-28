@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dorkbots.ServiceLocatorTools;
 
 public class PlayerMove : MonoBehaviour
 {
 
     [SerializeField] private FloatingJoystick movementJoystick;
-    [SerializeField] private float speed;
     [SerializeField] Animator animator;
 
+    private IGameManager gameManager;
 
     private Vector3 movement;
+    private float speed;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = ServiceLocator.Resolve<IGameManager>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,13 @@ public class PlayerMove : MonoBehaviour
 
     // Fixed update applies to rigidbodys
     private void FixedUpdate() {
+        // Sets speed based off speedDrop
+        // This will changeg to the speed value from thte weapon date for thte active gun from the game manager.
+        if (gameManager.dropsList.Contains("Speed")) {
+            speed = 3;
+        } else {
+            speed = 2;
+        }
         // Player movement
         gameObject.GetComponent<Rigidbody>().MovePosition(gameObject.GetComponent<Rigidbody>().position + movement * speed * Time.fixedDeltaTime);
         

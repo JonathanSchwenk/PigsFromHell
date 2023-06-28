@@ -160,6 +160,7 @@ public class GameplayUIManager : MonoBehaviour
 
 
     public void BackToMainMenu() {
+        Time.timeScale = 1; // So animation in main menu runs still
         SceneManager.LoadScene("MainMenu");
     }
     public void Pause() {

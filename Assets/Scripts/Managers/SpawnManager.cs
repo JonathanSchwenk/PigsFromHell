@@ -5,6 +5,8 @@ using Dorkbots.ServiceLocatorTools;
 
 public class SpawnManager : MonoBehaviour , ISpawnManager
 {
+    [SerializeField] private GameObject startNewRoundButton;
+
     public int numEnemies {get; set;}
     public int bankValue {get; set;}
     public bool canSpawn {get; set;}
@@ -80,11 +82,21 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
 
         // if bank value == 0 and there are no enemies left then rounds over, and update the UI and values in game manager
         if (bankValue == 0 & numEnemies == 0) {
-            gameManager.UpdateRound();
+            // Drops reset here because I would do it on the new round button pressed but I want the drops to go away before
+            gameManager.UpdateDrops("Clear");
+
+            startNewRoundButton.SetActive(true);
         }
     }
 
 
+    public void StartRound() {
+        // Update the round number in the game manager
+        gameManager.UpdateRound();
+
+        // Update the UI
+        startNewRoundButton.SetActive(false);
+    }
 
 
 

@@ -37,6 +37,8 @@ public class FireBullet : MonoBehaviour
             // Teleports actual bullet away so it doesn't keep hitting stuff but also is still active for the animation
             gameObject.transform.position = new Vector3(0,-10000,0);
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+
+            
         }
         if (other.tag == "Enemy") {
             GameObject groundFire = objectPooler.SpawnFromPool("GroundFire", gameObject.transform.position, Quaternion.identity);

@@ -7,7 +7,9 @@ public class Rocket : MonoBehaviour
 {
     public int impact = 1;
     public float damage = 1;
+
     private IObjectPooler objectPooler;
+    private IAudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +20,10 @@ public class Rocket : MonoBehaviour
         } else {
             print("ERROR service has not been registered yet");
         }
+
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Enviornment") {
@@ -37,6 +36,8 @@ public class Rocket : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
 
             explosion.transform.GetChild(1).gameObject.SetActive(false); // if this doesnt work then just deal with the damage after
+
+            audioManager.PlaySFX("Explosion");
         }
         if (other.tag == "Enemy") {
             GameObject explosion = objectPooler.SpawnFromPool("Explosion", gameObject.transform.position, Quaternion.identity);
@@ -48,6 +49,8 @@ public class Rocket : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
 
             explosion.transform.GetChild(1).gameObject.SetActive(false); // if this doesnt work then just deal with the damage after
+            
+            audioManager.PlaySFX("Explosion");
         }
     }
 

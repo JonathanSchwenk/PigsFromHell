@@ -19,11 +19,13 @@ public class PlayerReload : MonoBehaviour
 
     private ISaveManager saveManager;
     private IGameManager gameManager;
+    private IAudioManager audioManager;
 
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -80,6 +82,8 @@ public class PlayerReload : MonoBehaviour
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
         if (activeWeapon.name != "Knife" && gameManager.activeWeapon.bulletsInMag < magSize && gameManager.activeWeapon.reserveAmmo > 1) {
+
+            audioManager.PlaySFX("Reload");
             
             if (gameManager.activeWeapon.reserveAmmo > magSize) {
                 gameManager.activeWeapon.bulletsInMag = magSize;

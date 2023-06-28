@@ -190,7 +190,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[0].magSize = 100;
         saveManager.saveData.totalSpecialWeapons[0].totalAmmo = 800;
         saveManager.saveData.totalSpecialWeapons[0].impact = 1;
-        saveManager.saveData.totalSpecialWeapons[0].damage = 0.5f;
+        saveManager.saveData.totalSpecialWeapons[0].damage = 0.05f;
         saveManager.saveData.totalSpecialWeapons[0].bulletsInMag = 100;
         saveManager.saveData.totalSpecialWeapons[0].reserveAmmo = 800;
         saveManager.saveData.totalSpecialWeapons[0].starValue = 1;

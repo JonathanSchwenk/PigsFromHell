@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject damageIndecator;
 
 
-    private int health;
+    private float health;
     private int maxHealth;
     private float healthRecoveryRate;
     private float healthRecoveryCounter;
@@ -17,13 +17,14 @@ public class Player : MonoBehaviour
     private float timeToWaitBeforeRecoveryCounter;
 
     private IGameManager gameManager;
-
+    private IAudioManager audioManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         // Player Health (These will be set from the game manager and savemanager depending on armor...)
         health = 5;
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
     {
         DamageIndecator();
 
+        // If the health ever goes over max health because of the recovering while health drop is active then it gets set to its max
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+
         if (health < maxHealth) {
             timeToWaitBeforeRecoveryCounter += 1 * Time.deltaTime;
             if (timeToWaitBeforeRecoveryCounter >= timeToWaitBeforeRecovery) {
@@ -56,7 +62,14 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         if (other.collider.tag == "Enemy") {
-            health -= 1;
+            audioManager.PlaySFX("PlayerDamaged");
+
+            if (gameManager.dropsList.Contains("Health")) {
+                health -= 0.5f;
+            } else {
+                health -= 1;
+            }
+
             timeToWaitBeforeRecoveryCounter = 0;
             //print("Player damaged");
 
@@ -77,9 +90,15 @@ public class Player : MonoBehaviour
     private void OnCollisionStay(Collision other) {
         if (other.collider.tag == "Enemy") {
             if (other.collider.gameObject.GetComponent<EnemyAnimationScript>().DealDamage() == true) {
-                print("Players Health: " + health);
+                
+                audioManager.PlaySFX("PlayerDamaged");
                 // Deals damage
-                health -= 1;
+                if (gameManager.dropsList.Contains("Health")) {
+                    health -= 0.5f;
+                } else {
+                    health -= 1;
+                }
+
                 timeToWaitBeforeRecoveryCounter = 0;
 
                 if (health <= 0) {
@@ -115,7 +134,7 @@ public class Player : MonoBehaviour
             damageIndecator.transform.GetChild(5).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
-        } else if (health == 4) {
+        } else if (health >= 4 && health < 5) {
             damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(1).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(2).gameObject.SetActive(false);
@@ -124,7 +143,7 @@ public class Player : MonoBehaviour
             damageIndecator.transform.GetChild(5).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
-        } else if (health == 3) {
+        } else if (health >= 3 && health < 4) {
             damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(2).gameObject.SetActive(false);
@@ -133,7 +152,7 @@ public class Player : MonoBehaviour
             damageIndecator.transform.GetChild(5).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(6).gameObject.SetActive(false);
             damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
-        } else if (health == 2) {
+        } else if (health >= 2 && health < 3) {
             damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(2).gameObject.SetActive(true);
@@ -142,7 +161,7 @@ public class Player : MonoBehaviour
             damageIndecator.transform.GetChild(5).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(6).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(7).gameObject.SetActive(false);
-        } else if (health == 1) {
+        } else if (health >= 0 && health < 2) {
             damageIndecator.transform.GetChild(0).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(1).gameObject.SetActive(true);
             damageIndecator.transform.GetChild(2).gameObject.SetActive(true);

@@ -256,9 +256,12 @@ public class PlayerAimShoot : MonoBehaviour
             shotsInMag -= 1;
             activeWeapon.bulletsInMag -= 1;
         } else {
+            // Knife
             // Shoot animation
             animator.SetTrigger("Shoot");
             animator.SetBool("Idle", false);
+
+            audioManager.PlaySFX("Knife");
 
             // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
             StartCoroutine(KnifeDamageCollider());
@@ -283,20 +286,60 @@ public class PlayerAimShoot : MonoBehaviour
     private void AccessBullets(GameObject go, string projectileType) {
         // repeat for all bullets
         if (projectileType == "Bullet") {
-            go.GetComponent<Bullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.GetComponent<Bullet>().impact = gameManager.activeWeapon.impact;
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<Bullet>().damage = 100;
+            } else {
+                go.GetComponent<Bullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<Bullet>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<Bullet>().impact = gameManager.activeWeapon.impact;
+            }  
         } else if (projectileType == "Fire") {
-            go.GetComponent<FireBullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.GetComponent<FireBullet>().impact = gameManager.activeWeapon.impact;
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<FireBullet>().damage = 100;
+            } else {
+                go.GetComponent<FireBullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<FireBullet>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<FireBullet>().impact = gameManager.activeWeapon.impact;
+            } 
         } else if (projectileType == "Arrow") {
-            go.GetComponent<Arrow>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.GetComponent<Arrow>().impact = gameManager.activeWeapon.impact;
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<Arrow>().damage = 100;
+            } else {
+                go.GetComponent<Arrow>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<Arrow>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<Arrow>().impact = gameManager.activeWeapon.impact;
+            } 
         } else if (projectileType == "Rocket") {
-            go.GetComponent<Rocket>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.GetComponent<Rocket>().impact = gameManager.activeWeapon.impact;
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<Rocket>().damage = 100;
+            } else {
+                go.GetComponent<Rocket>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<Rocket>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<Rocket>().impact = gameManager.activeWeapon.impact;
+            } 
         } else if (projectileType == "RailGunBolt") {
-            go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
-            go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage = 100;
+            } else {
+                go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
+            } 
         }
         
     }

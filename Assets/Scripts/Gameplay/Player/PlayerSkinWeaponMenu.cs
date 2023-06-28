@@ -82,6 +82,7 @@ public class PlayerSkinWeaponMenu : MonoBehaviour
         // Animator
         animator.runtimeAnimatorController = animatorPool.transform.Find(saveManager.saveData.activeWeapon.name).GetComponent<Animator>().runtimeAnimatorController;
 
+        
     }
 
     // Update is called once per frame

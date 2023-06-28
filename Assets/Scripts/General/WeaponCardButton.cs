@@ -40,10 +40,7 @@ public class WeaponCardButton : MonoBehaviour
     }
 
 
-    private void ChangeGunHelper(GameObject gunTextGO) {
-        // Going to try to use a dictionary to look up weapons which will make it easier
-        // Using it here and making a new one every time isn't idea for memory I think but whatevs
-        // Not great way 
+    private void ChangeGunHelper(GameObject gunTextGO) { 
         Dictionary<int, string> unlockedWeaponsDictionary = new Dictionary<int, string>();
         
         for (int i = 0; i < saveManager.saveData.unlockedWeapons.Count; i++) {

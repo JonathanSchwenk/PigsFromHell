@@ -7,14 +7,17 @@ public interface IGameManager {
     GameState State {get; set;}
     void UpdateGameState(GameState state);
     void UpdateRound();
-    Action<GameState>OnGameStateChanged {get; set;}
-    Action<int>OnRoundChanged {get; set;}
+    void UpdateDrops(string drop);
+    Action<GameState> OnGameStateChanged {get; set;}
+    Action<int> OnRoundChanged {get; set;}
     int RoundNum {get; set;}
     int points {get; set;}
     GameObject activeBuyObject {get; set;}
     bool currentlyBuyingNewGun {get; set;}
     WeaponData[] currentWeapons {get; set;}
     WeaponData activeWeapon {get; set;}
+    List<string> dropsList  {get; set;}
+    Action<string> OnDropChanged {get; set;}
 
 }
 
@@ -42,7 +45,9 @@ public interface ISpawnManager {
 
 public interface IAudioManager {
     void PlaySFX(string name);
+    void StopSFX(string name);
     void PlayMusic(string name);
+    void StopMusic(string name);
 }
 
 

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7623095703485469844}
   - component: {fileID: 439504364434890003}
+  - component: {fileID: 7027448153112665824}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2469306761225803258}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49,7 +50,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d02b1b6cfe8b36642837556911c60938, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -57,7 +58,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d650fa96584041f4eab67054b48df717, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -65,7 +66,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 06159b3c7c5bbc748bbccf3e2ef47342, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -73,7 +74,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c615408f5c517304680ab9b98db1306d, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -81,7 +82,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 56a6141d3fd147f4e9860371923dad61, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -89,7 +90,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 589aecb8702af804aa6e42dfde0d9dc9, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -97,7 +98,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 588cfdbccda7f66419de73fa605b0c67, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -105,7 +106,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0fedc16c9c8ffd84b9c1fecfb4c98fb0, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -113,7 +114,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cb031fbc6adbfa9488fbee287cc22302, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -121,7 +122,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7d24ee45b6e4d4e4f973db50c33da650, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
@@ -129,15 +130,67 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8bec873d343c1ef4daf8b398569dfe26, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Mini Gun
-    clip: {fileID: 8300000, guid: f272edb9babb33741b95e407780e5e5e, type: 3}
+    clip: {fileID: 8300000, guid: f5198853f5ca3c6458c54ff0ac870916, type: 3}
     volume: 1
     pitch: 0.8
-    spacialBlend: 1
+    spacialBlend: 0
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: ee9cde1db595a544399e62fed28bca42, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Reload
+    clip: {fileID: 8300000, guid: 43b68fa6e6581cc4d8534f5afcc5f859, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PlayerDamaged
+    clip: {fileID: 8300000, guid: dc67cf5597d41fc48883336552ca7fcc, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Knife
+    clip: {fileID: 8300000, guid: 7d3daa08eba005240adaf8bfea21218a, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: MenuBackgroundMusic
+    clip: {fileID: 8300000, guid: 5387af9d6ddfb2e45957c4063ded6ac3, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+--- !u!114 &7027448153112665824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469306761225803258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ab841f6bca14fc388a3ebfd43fab32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

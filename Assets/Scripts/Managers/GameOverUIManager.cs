@@ -36,6 +36,8 @@ public class GameOverUIManager : MonoBehaviour
 
         saveManager.Save();
 
+        Time.timeScale = 1; // So animation in main menu runs still
+
         SceneManager.LoadScene("MainMenu");
     }
 }

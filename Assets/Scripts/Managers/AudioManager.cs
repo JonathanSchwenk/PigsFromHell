@@ -58,6 +58,17 @@ public class AudioManager : MonoBehaviour, IAudioManager
         }
     }
 
+    public void StopSFX(string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null) {
+            print("Sound: " + name + " not found");
+            return;
+        }
+
+        s.source.Stop();
+    }
+
     public void PlayMusic(string name) {
         if (saveManager.saveData.musicOn == true) {
             Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -69,6 +80,17 @@ public class AudioManager : MonoBehaviour, IAudioManager
 
             s.source.Play();
         }
+    }
+
+public void StopMusic(string name) {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+
+        if (s == null) {
+            print("Sound: " + name + " not found");
+            return;
+        }
+
+        s.source.Stop();
     }
 
 }

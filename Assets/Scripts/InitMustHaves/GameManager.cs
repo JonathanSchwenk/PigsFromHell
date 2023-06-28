@@ -1,19 +1,21 @@
 using UnityEngine;
 using System;
 using Dorkbots.ServiceLocatorTools;
-
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour, IGameManager
 {
     public GameState State {get; set;}
-    public Action<GameState>OnGameStateChanged {get; set;}
-    public Action<int>OnRoundChanged {get; set;}
+    public Action<GameState> OnGameStateChanged {get; set;}
+    public Action<int> OnRoundChanged {get; set;}
     public int RoundNum {get; set;}
     public int points {get; set;}
     public GameObject activeBuyObject {get; set;}
     public bool currentlyBuyingNewGun {get; set;}
     public WeaponData[] currentWeapons {get; set;}
     public WeaponData activeWeapon {get; set;}
+    public List<string> dropsList {get; set;} // Might have prob with this bc its setting it to a new list now (Init in start in here)
+    public Action<string> OnDropChanged {get; set;}
 
 
 
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour, IGameManager
 
         // Sets the active to the current primary at the start to refrence the pointer so their connected 
         activeWeapon = currentWeapons[0];
+
+        dropsList = new List<string>();
     }
 
     // Update game state function
@@ -83,6 +87,25 @@ public class GameManager : MonoBehaviour, IGameManager
 
         // Null checker then calls the action for anthing subscribed to it
         OnRoundChanged?.Invoke(RoundNum);
+    }
+
+    public void UpdateDrops(string drop) {
+
+        // If drop == stopInstaKill then it removes intaKill
+        if (drop == "StopInstaKill") {
+            if (dropsList.Contains("InstaKill")) {
+                dropsList.Remove("InstaKill");
+            }
+        } else if (drop == "Clear") {
+            if (dropsList.Count > 0) {
+                dropsList.Clear();
+            }
+        } else if (dropsList.Contains(drop) != true) {
+            dropsList.Add(drop);
+        }
+
+        // Null checker then calls the action for anthing subscribed to it
+        OnDropChanged?.Invoke(drop);
     }
 
     private void HandelGameOverState() {

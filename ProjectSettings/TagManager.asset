@@ -13,6 +13,8 @@ TagManager:
   - Arrow
   - Fire
   - RailGunBolt
+  - DefaultBullet
+  - GroundFire
   layers:
   - Default
   - TransparentFX

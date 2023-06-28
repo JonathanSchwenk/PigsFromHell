@@ -80,6 +80,9 @@ public class EnemySpawner : MonoBehaviour
                         // Spawn FirePigLight2
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigLight2", gameObject.transform.position, Quaternion.identity);
 
+                        enemy.GetComponent<EnemyPig>().health = 1;
+                        enemy.GetComponent<EnemyPig>().pointValue = 5;
+
                         spawnManager.numEnemies += 1;
                         spawnManager.bankValue -=1;
 
@@ -90,6 +93,9 @@ public class EnemySpawner : MonoBehaviour
                     if (spawnManager.bankValue >= 2) {
                         // Spawn FirePigLight1
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigLight1", gameObject.transform.position, Quaternion.identity);
+
+                        enemy.GetComponent<EnemyPig>().health = 2;
+                        enemy.GetComponent<EnemyPig>().pointValue = 10;
 
                         spawnManager.numEnemies += 1;
                         spawnManager.bankValue -=2;
@@ -104,6 +110,9 @@ public class EnemySpawner : MonoBehaviour
                         // Spawn FirePigDark2
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigDark2", gameObject.transform.position, Quaternion.identity);
 
+                        enemy.GetComponent<EnemyPig>().health = 3;
+                        enemy.GetComponent<EnemyPig>().pointValue = 15;
+
                         spawnManager.numEnemies += 1;
                         spawnManager.bankValue -=3;
 
@@ -116,6 +125,9 @@ public class EnemySpawner : MonoBehaviour
                     if (spawnManager.bankValue >= 4) {
                         // Spawn FirePigDark1
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigDark1", gameObject.transform.position, Quaternion.identity);
+
+                        enemy.GetComponent<EnemyPig>().health = 4;
+                        enemy.GetComponent<EnemyPig>().pointValue = 20;
 
                         spawnManager.numEnemies += 1;
                         spawnManager.bankValue -=4;
