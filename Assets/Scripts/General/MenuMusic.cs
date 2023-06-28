@@ -18,12 +18,4 @@ public class MenuMusic : MonoBehaviour
             audioManager.PlayMusic("MenuBackgroundMusic");
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (saveManager.saveData.musicOn == false) {
-            audioManager.StopMusic("MenuBackgroundMusic");
-        }
-    }
 }
