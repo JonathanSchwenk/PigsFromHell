@@ -6,7 +6,7 @@ using Dorkbots.ServiceLocatorTools;
 public class MysteryGunButton : MonoBehaviour
 {
     [SerializeField] private GameObject takeGunButton;
-    [SerializeField] private GameObject diceIcon;
+    private GameObject diceIcon;
     private GameObject gunsList; // Will be gotten from the activebuying game onject inbthe game manager
 
 
@@ -56,7 +56,8 @@ public class MysteryGunButton : MonoBehaviour
         // Sets the is currently buying to true to signal that the buy button should turn off so you cant spam
         gameManager.currentlyBuyingNewGun = true;
 
-        if (gameManager.points < cost) { // Change back to >
+        if (gameManager.points > cost) { // Change back to > after testing
+            diceIcon = gameManager.activeBuyObject.transform.GetChild(0).transform.GetChild(2).gameObject;
             diceIcon.SetActive(false);
             gunsList.SetActive(true);
             StartCoroutine(WaitForNextGun(0.2f, 0));
@@ -104,6 +105,11 @@ public class MysteryGunButton : MonoBehaviour
     IEnumerator WaitToTakeGun(float waitTime, int counter) {
         // Wait some time
         yield return new WaitForSeconds(waitTime);
+
+        // Changes dice icon to be on to show that the process is over
+        diceIcon = gameManager.activeBuyObject.transform.GetChild(0).transform.GetChild(2).gameObject;
+        diceIcon.SetActive(true);
+        gunsList.SetActive(false);
 
         // Set the take button to false, signaling that the timer ran out and you can no longer get the gun
         takeGunButton.SetActive(false);
@@ -157,6 +163,7 @@ public class MysteryGunButton : MonoBehaviour
         gunsList = gameManager.activeBuyObject.transform.GetChild(1).gameObject;
 
         // Changes dice icon to be on to show that the process is over
+        diceIcon = gameManager.activeBuyObject.transform.GetChild(0).transform.GetChild(2).gameObject;
         diceIcon.SetActive(true);
         gunsList.SetActive(false);
 

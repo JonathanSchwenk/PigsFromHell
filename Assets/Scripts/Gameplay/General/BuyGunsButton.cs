@@ -40,7 +40,7 @@ public class BuyGunsButton : MonoBehaviour
         cost = int.Parse(gameManager.activeBuyObject.transform.GetChild(0).transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
         gunName = gameManager.activeBuyObject.transform.GetChild(0).transform.GetChild(2).GetComponent<TextMeshProUGUI>();
 
-        if (gameManager.points < cost) { // Change back to >
+        if (gameManager.points > cost) { // Change back to > after testing
             // Primary
             if (gameManager.currentWeapons[0].name == gunName.text) {
                 print("Refill gun");
