@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2672526545992707368}
+  speed: 0
 --- !u!114 &1981999646587358693
 MonoBehaviour:
   m_ObjectHideFlags: 0

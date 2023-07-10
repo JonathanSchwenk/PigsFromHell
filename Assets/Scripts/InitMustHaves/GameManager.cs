@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour, IGameManager
     public WeaponData activeWeapon {get; set;}
     public List<string> dropsList {get; set;} // Might have prob with this bc its setting it to a new list now (Init in start in here)
     public Action<string> OnDropChanged {get; set;}
+    public float enemySpeed {get; set;}
 
 
 
@@ -84,6 +85,12 @@ public class GameManager : MonoBehaviour, IGameManager
     public void UpdateRound() {
         // Increased thet round number
         RoundNum += 1;
+
+        enemySpeed = 1.5f + (RoundNum * 0.1f);
+
+        if (enemySpeed >= 3.2f) {
+            enemySpeed = 3.2f;
+        }
 
         // Null checker then calls the action for anthing subscribed to it
         OnRoundChanged?.Invoke(RoundNum);

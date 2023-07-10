@@ -18,7 +18,7 @@ public interface IGameManager {
     WeaponData activeWeapon {get; set;}
     List<string> dropsList  {get; set;}
     Action<string> OnDropChanged {get; set;}
-
+    float enemySpeed {get; set;}
 }
 
 public interface IObjectPooler {
