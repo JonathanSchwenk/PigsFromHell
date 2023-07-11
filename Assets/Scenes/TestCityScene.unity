@@ -8043,7 +8043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1152338155
 Transform:
   m_ObjectHideFlags: 0
@@ -18820,6 +18820,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1458299944}
   gameplayUICanvas: {fileID: 2487913791140263627}
   gameplayControlsCanvas: {fileID: 7341242134287353535}
+  playerTasks: []
 --- !u!224 &3522987023496841896
 RectTransform:
   m_ObjectHideFlags: 0

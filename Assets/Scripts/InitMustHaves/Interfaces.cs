@@ -8,6 +8,7 @@ public interface IGameManager {
     void UpdateGameState(GameState state);
     void UpdateRound();
     void UpdateDrops(string drop);
+    void UpdateTasks(GameObject taskGO);
     Action<GameState> OnGameStateChanged {get; set;}
     Action<int> OnRoundChanged {get; set;}
     int RoundNum {get; set;}
