@@ -24,7 +24,6 @@ public class GameManager : MonoBehaviour, IGameManager
     // If story then you complete goals, else if survival then no goals
     // Each goal has a key on it
 
-    // For each GoalGameObject, they will have a script that gets accessed to see if they task is complete
     // Each GoalGameObject is public so when they are finished the gameManager can access and know and do something
     // Prob will have to make another public action and function that is only for story (Like how updateRound is only survival) 
     // This action/function will trigger something in each goalgameobject that tells this gameManager that its complete
@@ -134,8 +133,13 @@ public class GameManager : MonoBehaviour, IGameManager
         // When this gets called it takes in the key / string and removes it from the list of tasks still needing to be complete
         // If all tasks are gone then level over
 
+        print(taskGO);
+
         if (playerTasks.Contains(taskGO)) {
+            print(playerTasks.Count);
             playerTasks.Remove(taskGO);
+            print(playerTasks.Count);
+            taskGO.SetActive(false);
         }
 
         if (playerTasks.Count <= 0) {
