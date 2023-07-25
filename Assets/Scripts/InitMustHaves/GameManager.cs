@@ -136,9 +136,7 @@ public class GameManager : MonoBehaviour, IGameManager
         print(taskGO);
 
         if (playerTasks.Contains(taskGO)) {
-            print(playerTasks.Count);
             playerTasks.Remove(taskGO);
-            print(playerTasks.Count);
             taskGO.SetActive(false);
         }
 

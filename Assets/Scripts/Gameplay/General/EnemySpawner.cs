@@ -2,26 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
+using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-
-    /*
-        Get Round number from GameManger
-        Get number of enemies on the map from EnemyManager
-        Depending on RoundNum and numEnemies, Spawn enemy from pool
-        Have a bank that is calculated based off RoundNum and numEnemies and enemies are spawned with values 
-            Light2 pig cost 1 from bank while Dark1 pig cost 4 but is stronger
-        
-        Want to make it so if its story then the RoundNum is set and wont change but is set so it spawns for different difficulties
-
-        Might want to connect with all other spawners with a spawnerManager so that they know how many to spawn and things like that
-        SpawnManager could also get the RoundNumber so the gamemanger doest get overused
-        SpawnManger is a service
-
-        int array for the bank, 1-4, if it chooses 2 then it spawns FirePigLight1 (Dont need array)
-        needs int for total allowed to spawn
-    */
 
     private int maxEnemiesAllowed = 25; // This is the maximum amount of enemies that can be alive at once (Could be any of the 4 types of enemies) (For now 25)
     private float spawnDelayMin = 5.0f;
@@ -72,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
 
         int enemyStrength = Random.Range(enemyStrengthMin, enemyStrengthMax);
         bool hasSpawned = false;
+        // int enemyStrength = 1;
 
         if (spawnManager.bankValue >= 1 && spawnManager.numEnemies < maxEnemiesAllowed) {
             while (hasSpawned == false) {
@@ -79,6 +64,8 @@ public class EnemySpawner : MonoBehaviour
                     if (spawnManager.bankValue >= 1) {
                         // Spawn FirePigLight2
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigLight2", gameObject.transform.position, Quaternion.identity);
+
+                        enemy.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
 
                         enemy.GetComponent<EnemyPig>().health = 1;
                         enemy.GetComponent<EnemyPig>().pointValue = 5;
@@ -93,6 +80,8 @@ public class EnemySpawner : MonoBehaviour
                     if (spawnManager.bankValue >= 2) {
                         // Spawn FirePigLight1
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigLight1", gameObject.transform.position, Quaternion.identity);
+
+                        enemy.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
 
                         enemy.GetComponent<EnemyPig>().health = 2;
                         enemy.GetComponent<EnemyPig>().pointValue = 10;
@@ -110,6 +99,8 @@ public class EnemySpawner : MonoBehaviour
                         // Spawn FirePigDark2
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigDark2", gameObject.transform.position, Quaternion.identity);
 
+                        enemy.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
+
                         enemy.GetComponent<EnemyPig>().health = 3;
                         enemy.GetComponent<EnemyPig>().pointValue = 15;
 
@@ -125,6 +116,8 @@ public class EnemySpawner : MonoBehaviour
                     if (spawnManager.bankValue >= 4) {
                         // Spawn FirePigDark1
                         GameObject enemy = objectPooler.SpawnFromPool("FirePigDark1", gameObject.transform.position, Quaternion.identity);
+
+                        enemy.GetComponent<NavMeshAgent>().Warp(gameObject.transform.position);
 
                         enemy.GetComponent<EnemyPig>().health = 4;
                         enemy.GetComponent<EnemyPig>().pointValue = 20;

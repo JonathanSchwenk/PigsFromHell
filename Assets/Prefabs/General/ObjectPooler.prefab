@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7383767995978905466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1310444694163258293}
+  - component: {fileID: 3031877122397029772}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1310444694163258293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383767995978905466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3031877122397029772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7383767995978905466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ec09eda70594aa7a60614b54b0ff54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: FirePigLight1
+    prefab: {fileID: 8506910376634148691, guid: 724999b4cb59b4317a18c4e0da6827b2, type: 3}
+    size: 50
+  - tag: FirePigLight2
+    prefab: {fileID: 7927362256950266779, guid: a79e11d9cf2814b438745711ad95c274, type: 3}
+    size: 50
+  - tag: FirePigDark1
+    prefab: {fileID: 1427921402615738752, guid: 1f2cb58d3a36a4356b6a0d0a89aef8c4, type: 3}
+    size: 50
+  - tag: FirePigDark2
+    prefab: {fileID: 8635880924227028497, guid: 97cdb04abbd134194bad7954c7ac2ce6, type: 3}
+    size: 50
+  - tag: LargeBullet
+    prefab: {fileID: 2535647899589478601, guid: e32a62387a392466e8b68756cbb2cc01, type: 3}
+    size: 50
+  - tag: MediumBullet
+    prefab: {fileID: 7431866935440523498, guid: 1b8a38a4dcff74f239de1c9b3e3fcf0b, type: 3}
+    size: 50
+  - tag: SmallBullet
+    prefab: {fileID: 383396756685548798, guid: 5d8b658bb8a8f4cd7bc28bfd006229a6, type: 3}
+    size: 50
+  - tag: Rocket
+    prefab: {fileID: 9123204010852712859, guid: f2755e614de584a15bea018110d702eb, type: 3}
+    size: 50
+  - tag: Arrow
+    prefab: {fileID: 1471729567569604449, guid: e0581d5386fc84d768c19445c57c81ce, type: 3}
+    size: 50
+  - tag: FireBullet
+    prefab: {fileID: 8717833532113331954, guid: dcaa589868b8d4b629dfb65a4ad5775c, type: 3}
+    size: 50
+  - tag: RailGunBolt
+    prefab: {fileID: 2169059539348768937, guid: 8d4f9f7e6ec9f4d8eb6c3ce60f949725, type: 3}
+    size: 50
+  - tag: GroundFire
+    prefab: {fileID: 1072266305437261759, guid: 07b599598acb84517a07ab8f6c8f4b46, type: 3}
+    size: 50
+  - tag: Explosion
+    prefab: {fileID: 4134416466687577537, guid: 1b26b3de1c88b49b9b2f82d906d246ba, type: 3}
+    size: 50
+  - tag: BoltEffect
+    prefab: {fileID: 3391781765854277960, guid: 09c783457bf194247805d4111ddd15a9, type: 3}
+    size: 50
+  - tag: MaxAmmoDrop
+    prefab: {fileID: 4862355777750334332, guid: 9aa772847a405435693a683626962c96, type: 3}
+    size: 20
+  - tag: InstaKillDrop
+    prefab: {fileID: 4511160216094778827, guid: fe17102a251ea40b28fc06e827d004d1, type: 3}
+    size: 20
+  - tag: HealthDrop
+    prefab: {fileID: 6568838358437581709, guid: 19a3d1245cf7a4b449bea17956a004bc, type: 3}
+    size: 20
+  - tag: SpeedDrop
+    prefab: {fileID: 2437320312926281009, guid: edfe399f7221b44799b95a7c17c47a62, type: 3}
+    size: 20
+  - tag: ImpactDrop
+    prefab: {fileID: 9204304743086714285, guid: 46704bd92816547d4a7bfd7381d0a5e0, type: 3}
+    size: 20
