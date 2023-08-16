@@ -23,5 +23,11 @@ public class SaveData
 
     public bool SFXOn = true;
     public bool musicOn = true;
+
+    public int storyLevelSelected = 1;
+    public string gameMode = "Story";
+
+    // int for levels completed, if you complete a level and the storyLevelSelected > the levelsCompleted then set levelsCompleted to storyLevelSelected
+    public int levelsCompleted = 2;
 }
 

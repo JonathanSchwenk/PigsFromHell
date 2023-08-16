@@ -14,4 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestCityScene.unity
     guid: 3a7ed723c52574cc3a0319bca7210c47
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_1_Neighborhood.unity
+    guid: ab85a76105a574d6e8b0849f8c3c918d
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_2-Highway.unity
+    guid: 5d1639c275d3d4448b4b873d9d3b4df5
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_3_Downtown.unity
+    guid: 46452ee99d71c46fc91e119a3cfbdfa6
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_4_Beach.unity
+    guid: 39f55d739e76342e1bff1b45aacfd71a
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_5_ShoppingCenter.unity
+    guid: 3aaf9edb0c82f4cdb82d5f78e45eb4d1
+  - enabled: 1
+    path: Assets/Scenes/Story/Lv_6_Bomb.unity
+    guid: 73f643d370fb74ce1805d4654459a21f
   m_configObjects: {}
