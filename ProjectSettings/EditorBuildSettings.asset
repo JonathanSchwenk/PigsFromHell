@@ -32,4 +32,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Story/Lv_6_Bomb.unity
     guid: 73f643d370fb74ce1805d4654459a21f
+  - enabled: 1
+    path: Assets/Scenes/Survival/Survival_Beach.unity
+    guid: c1d4f139b109647e8847b5a5367537e1
+  - enabled: 1
+    path: Assets/Scenes/Survival/Survival_Downtown.unity
+    guid: e3593c735dd864901baa6ec46a18518c
+  - enabled: 1
+    path: Assets/Scenes/Survival/Survival_Highway.unity
+    guid: 93836c8ee69d04d1a89c48294a57fa41
+  - enabled: 1
+    path: Assets/Scenes/Survival/Survival_Neighborhood.unity
+    guid: 40d42f7c2cac242bf8f38392a6e38626
+  - enabled: 1
+    path: Assets/Scenes/Survival/Survival_ShoppingCenter.unity
+    guid: 3a5523bfbb85c40dea4790d7964009ee
   m_configObjects: {}
