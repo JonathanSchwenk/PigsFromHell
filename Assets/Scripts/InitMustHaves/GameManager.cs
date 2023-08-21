@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour, IGameManager
     public Action<string> OnDropChanged {get; set;}
     public float enemySpeed {get; set;}
 
+    public List<GameObject> playerTasksGlobal {get; set;}
+
 
     // Make a [SerializeField] private Goals[] (Could by GameObject[]) where you have to complete all of them to finish the level
     // At the start of the game the gamemanager reads in if its survival or story from savemanager
@@ -55,9 +57,15 @@ public class GameManager : MonoBehaviour, IGameManager
         UpdateGameState(GameState.Playing);
         saveManager = ServiceLocator.Resolve<ISaveManager>();
 
-        // RoundNum gets set to 0 and then the round gets updated which increases the round number and invokes all subscribed actions
-        RoundNum = 0; // 0 for actual game
-        UpdateRound();
+        // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
+        if (saveManager.saveData.gameMode == "Story") {
+            RoundNum = 0; // 0 for actual game
+            UpdateRound();
+        } else {
+            // RoundNum gets set to 0 and then the round gets updated which increases the round number and invokes all subscribed actions
+            RoundNum = 0; // 0 for actual game
+            UpdateRound();
+        }
 
         // CurrentWeapons get set as well as the active weapon
         currentWeapons = new WeaponData[3];
@@ -70,6 +78,8 @@ public class GameManager : MonoBehaviour, IGameManager
         activeWeapon = currentWeapons[0];
 
         dropsList = new List<string>();
+
+        playerTasksGlobal = playerTasks;
     }
 
     // Update game state function
@@ -132,8 +142,6 @@ public class GameManager : MonoBehaviour, IGameManager
     public void UpdateTasks(GameObject taskGO) {
         // When this gets called it takes in the key / string and removes it from the list of tasks still needing to be complete
         // If all tasks are gone then level over
-
-        print(taskGO);
 
         if (playerTasks.Contains(taskGO)) {
             playerTasks.Remove(taskGO);

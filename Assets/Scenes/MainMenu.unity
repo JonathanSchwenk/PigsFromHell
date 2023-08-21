@@ -4667,7 +4667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451994036}
   m_Layer: 0
-  m_Name: Map4
+  m_Name: Beach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6929,7 +6929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601833934}
   m_Layer: 0
-  m_Name: Map1
+  m_Name: Neighborhood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7132,7 +7132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630523390}
   m_Layer: 0
-  m_Name: Map2
+  m_Name: Highway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7591,7 +7591,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 647583220}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PressedShoppingCenter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &647583220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9503,7 +9515,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 846230370}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PlayButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &846230370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10007,7 +10031,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 889816791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PressedBeach
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &889816791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12783,7 +12819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110819864}
   m_Layer: 0
-  m_Name: Map3
+  m_Name: Downtown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13936,7 +13972,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1240233390}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PressedHighway
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1240233390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16051,7 +16099,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1521929875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PressedNeighborhood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1521929875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16765,7 +16825,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599425338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1663249901}
+        m_TargetAssemblyTypeName: SurvivalCanvasManager, Assembly-CSharp
+        m_MethodName: PressedDowntown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599425338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17282,6 +17354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1663249900}
+  - component: {fileID: 1663249901}
   m_Layer: 0
   m_Name: SurvivalCanavasManager
   m_TagString: Untagged
@@ -17304,6 +17377,24 @@ Transform:
   m_Father: {fileID: 370206205}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1663249901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663249899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdfabfc83290427c90bd70453473174, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapList:
+  - {fileID: 601833933}
+  - {fileID: 630523389}
+  - {fileID: 1110819863}
+  - {fileID: 451994035}
+  - {fileID: 1713975265}
 --- !u!1 &1669435060
 GameObject:
   m_ObjectHideFlags: 0
@@ -17852,7 +17943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1713975266}
   m_Layer: 0
-  m_Name: Map5
+  m_Name: ShoppingCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

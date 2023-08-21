@@ -20,6 +20,7 @@ public interface IGameManager {
     List<string> dropsList  {get; set;}
     Action<string> OnDropChanged {get; set;}
     float enemySpeed {get; set;}
+    List<GameObject> playerTasksGlobal {get; set;}
 }
 
 public interface IObjectPooler {
