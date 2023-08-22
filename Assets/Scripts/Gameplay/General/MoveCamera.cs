@@ -19,38 +19,6 @@ public class MoveCamera : MonoBehaviour
 
     private IGameManager gameManager;
 
-
-/*
-    private void Awake() {
-        // Inits gamemanager
-        gameManager = ServiceLocator.Resolve<IGameManager>();
-
-        // null checker
-        if (gameManager != null) {
-            // Subscribes the action to this script
-            gameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
-        }
-    }
-
-
-    private void OnDestroy() {
-        // null checker
-        if (gameManager != null) {
-            // Unsubscribes the action to this script
-            gameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
-        }
-    }
-
-
-    private void GameManagerOnGameStateChanged(GameState state) {
-        if (state == GameState.Playing) {
-            moveCamera = true;
-        } else {
-            moveCamera = false;
-        }
-    }
-*/
-
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +26,7 @@ public class MoveCamera : MonoBehaviour
     }
 
     private Vector3 velocity = Vector3.zero;
+    private List<Collider> colliders = new List<Collider>();
 
     [SerializeField] private float dampening;
     [SerializeField] private Vector3 offset;
@@ -93,6 +62,24 @@ public class MoveCamera : MonoBehaviour
     private void FixedUpdate() {
         Vector3 movePosition = player.transform.position + offset;
         transform.position = Vector3.SmoothDamp(transform.position, movePosition, ref velocity, dampening);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!colliders.Contains(other)) { 
+            colliders.Add(other);
+
+            // Make parent of collider transparent
+            // Could try to change the material of the other object to transparent. I think this would work but I think it would 
+            // change anything with that material to be transparent which could result in unwanted things being transparent
+            // Next option is to make a custom material that is transparent and the other object changes to this material
+        }
+    }
+
+    private void OnTriggerExit (Collider other) {
+        colliders.Remove(other);
+
+        // Make parent of collider not transparent anymore
     }
 }
 

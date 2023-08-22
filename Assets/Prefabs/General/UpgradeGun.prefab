@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5730595094021335162}
   - component: {fileID: 1318901091346589487}
+  - component: {fileID: 8188392829296442538}
   m_Layer: 0
   m_Name: UpgradeGun
   m_TagString: Untagged
@@ -126,7 +127,7 @@ Transform:
   - {fileID: 5432668259552987186}
   - {fileID: 8130673926880351009}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1318901091346589487
 MonoBehaviour:
@@ -142,6 +143,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   buyButton: {fileID: 0}
+  stationBackground: {fileID: 6109064282344455763}
+  stationText: {fileID: 7632546385076773141}
+  stationImage: {fileID: 8082444837751171995}
+--- !u!136 &8188392829296442538
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532398219168376717}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &604373590292364124
 GameObject:
   m_ObjectHideFlags: 0
