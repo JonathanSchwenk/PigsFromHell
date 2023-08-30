@@ -9,6 +9,7 @@ public class MoveCamera : MonoBehaviour
     [SerializeField] private float Speed;
     [SerializeField] private float movementThresholdX;
     [SerializeField] private float movementThresholdZ;
+    [SerializeField] private GameObject transparentMat;
 
 
     private Vector3 moveTemp;
@@ -66,13 +67,18 @@ public class MoveCamera : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print(other);
         if (!colliders.Contains(other)) { 
             colliders.Add(other);
+
+            print(other);
 
             // Make parent of collider transparent
             // Could try to change the material of the other object to transparent. I think this would work but I think it would 
             // change anything with that material to be transparent which could result in unwanted things being transparent
             // Next option is to make a custom material that is transparent and the other object changes to this material
+            
+            other.gameObject.transform.GetComponent<MeshRenderer>().material = transparentMat.transform.GetComponent<MeshRenderer>().material;
         }
     }
 

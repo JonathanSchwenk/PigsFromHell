@@ -30,7 +30,13 @@ public class EnemyPig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Want to make it so when the player is a certian distance away or further the pig teleports to a spawner in range
+        // Problem with that is I have no way of referencing the spawners.
+
+        // Possible solution is to just despawn the enemy and respawn it at a closer spawner.
+        // Problem with this is the pig could regain all of its health which might not be the wordt problem
+        // Would still subtract the number of enemies by 1 but would have to add the bankValue back the value of the pig so
+        // somehow I have to get the pig value. Maybe getting the name and go from there. I have conserns about the (Clone) at the end of each name
     }
 
     private void OnTriggerEnter(Collider other) {

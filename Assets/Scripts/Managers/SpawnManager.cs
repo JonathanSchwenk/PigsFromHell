@@ -11,7 +11,7 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
     public int bankValue {get; set;}
     public bool canSpawn {get; set;}
 
-    private int bankCap = 400;
+    private int bankCap = 400; // Max enemies for a level 
     private int bankMultiplier = 7;
 
 
@@ -64,7 +64,7 @@ public class SpawnManager : MonoBehaviour , ISpawnManager
         if (gameManager.RoundNum * bankMultiplier <= bankCap) {
             bankValue = gameManager.RoundNum * bankMultiplier; 
         } else {
-            bankValue = 400;
+            bankValue = bankCap;
         }
     }
 

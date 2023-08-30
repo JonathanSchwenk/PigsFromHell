@@ -16,16 +16,19 @@ public class EnemySpawner : MonoBehaviour
     // These will be set based off the spawnManager and Roundnumber
     private int enemyStrengthMin = 1;
     private int enemyStrengthMax = 4;
+    private float distanceToSpawn = 75;
 
 
     private ISpawnManager spawnManager;
     private IObjectPooler objectPooler;
+    private IGameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnManager = ServiceLocator.Resolve<ISpawnManager>();
         objectPooler = ServiceLocator.Resolve<IObjectPooler>();
+        gameManager = ServiceLocator.Resolve<IGameManager>();
 
 
         spawnDelayRate = Random.Range(spawnDelayMin, spawnDelayMax);
@@ -39,7 +42,11 @@ public class EnemySpawner : MonoBehaviour
             // Spawn timer delay
             spawnDelayCounter += 1 * Time.deltaTime;
 
-            if (spawnDelayCounter >= spawnDelayRate) {
+            float distance = Vector3.Distance(gameObject.transform.position, gameManager.playerGOGlobal.transform.position);
+
+            // If the timer allows a pig to spawn and the spawner is in range (Add this in range part)
+            // Get distance from this game object to the player and if the distance is within a certain value then an enemy can spawn
+            if (spawnDelayCounter >= spawnDelayRate && distance <= distanceToSpawn) {
                 // Spawn enemy
                 SpawnEnemy();
 

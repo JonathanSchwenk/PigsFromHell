@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour, IGameManager
     public float enemySpeed {get; set;}
 
     public List<GameObject> playerTasksGlobal {get; set;}
+    public GameObject playerGOGlobal {get; set;}
 
 
     // Make a [SerializeField] private Goals[] (Could by GameObject[]) where you have to complete all of them to finish the level
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour, IGameManager
     [SerializeField] private GameObject gameplayUICanvas;
     [SerializeField] private GameObject gameplayControlsCanvas;
     [SerializeField] private List<GameObject> playerTasks;
+    [SerializeField] private GameObject playerGO;
 
 
 

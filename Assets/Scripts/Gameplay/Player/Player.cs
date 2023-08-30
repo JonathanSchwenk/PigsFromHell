@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+
     [SerializeField] private GameObject damageIndecator;
 
 
