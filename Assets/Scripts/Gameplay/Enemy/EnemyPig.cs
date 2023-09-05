@@ -11,6 +11,7 @@ public class EnemyPig : MonoBehaviour
 {
     public float health = 4;
     public int pointValue = 20;
+    private float maxDistanceAway = 75;
 
     private ISpawnManager spawnManager;
     private IGameManager gameManager;
@@ -30,13 +31,10 @@ public class EnemyPig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Want to make it so when the player is a certian distance away or further the pig teleports to a spawner in range
-        // Problem with that is I have no way of referencing the spawners.
-
-        // Possible solution is to just despawn the enemy and respawn it at a closer spawner.
-        // Problem with this is the pig could regain all of its health which might not be the wordt problem
-        // Would still subtract the number of enemies by 1 but would have to add the bankValue back the value of the pig so
-        // somehow I have to get the pig value. Maybe getting the name and go from there. I have conserns about the (Clone) at the end of each name
+        
+        // If the pig is too far away from the player it respawns closer
+        RespawnPig();
+        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -141,6 +139,36 @@ public class EnemyPig : MonoBehaviour
             } else if (whichDrop == 5) {
                 // drop instaKill
                 GameObject drop = objectPooler.SpawnFromPool("ImpactDrop", gameObject.transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    // If the enemy pig is too far from the player then it despawns and gets respawned closer.
+    // This helps so in the early round when the pigs are slow if you are super far away you don't have to wait for the pigs to finally get
+    // to you, they just respawn closer. 
+    private void RespawnPig() {
+        float distance = Vector3.Distance(gameObject.transform.position, gameManager.playerGOGlobal.transform.position);
+
+        if (distance > maxDistanceAway) {
+            // Despawn pig
+            gameObject.SetActive(false);
+            spawnManager.numEnemies -= 1;
+
+            if (gameObject.name == "FirePigLight2(Clone)") {
+                print("FirePigLight2");
+                spawnManager.bankValue += 1;
+            }
+            if (gameObject.name == "FirePigLight1(Clone)") {
+                print("FirePigLight1");
+                spawnManager.bankValue += 2;
+            }
+            if (gameObject.name == "FirePigDark2(Clone)") {
+                print("FirePigDark2");
+                spawnManager.bankValue += 3;
+            }
+            if (gameObject.name == "FirePigDark1(Clone)") {
+                print("FirePigDark1");
+                spawnManager.bankValue += 4;
             }
         }
     }

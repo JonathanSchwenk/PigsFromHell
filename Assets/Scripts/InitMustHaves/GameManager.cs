@@ -82,6 +82,8 @@ public class GameManager : MonoBehaviour, IGameManager
         dropsList = new List<string>();
 
         playerTasksGlobal = playerTasks;
+
+        playerGOGlobal = playerGO;
     }
 
     // Update game state function
