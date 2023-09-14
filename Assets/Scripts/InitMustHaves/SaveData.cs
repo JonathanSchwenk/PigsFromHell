@@ -30,5 +30,8 @@ public class SaveData
 
     // int for levels completed, if you complete a level and the storyLevelSelected > the levelsCompleted then set levelsCompleted to storyLevelSelected
     public int levelsCompleted = 0;
+
+    public String[] survivalLevelRecodsKeys = {"Neighborhood", "Highway", "Downtown", "Beach", "ShoppingCenter"};
+    public int[] survivalLevelRecodsValues = {0, 0, 0, 0, 0};
 }
 

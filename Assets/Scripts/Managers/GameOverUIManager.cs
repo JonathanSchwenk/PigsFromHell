@@ -32,12 +32,26 @@ public class GameOverUIManager : MonoBehaviour
 
 
     public void BackToMenu() {
+        // Updates how many coins the user has
         saveManager.saveData.coins += gameManager.RoundNum;
 
         saveManager.Save();
 
         Time.timeScale = 1; // So animation in main menu runs still
 
+        // Need to play ad now before changing scenes
+
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Replay() {
+        // Updates how many coins the user has
+        saveManager.saveData.coins += gameManager.RoundNum;
+
+        saveManager.Save();
+
+        Time.timeScale = 1; // So the time is reset for next round
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

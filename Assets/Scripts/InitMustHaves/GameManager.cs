@@ -167,6 +167,15 @@ public class GameManager : MonoBehaviour, IGameManager
         gameplayUICanvas.SetActive(false);
         gameplayControlsCanvas.SetActive(false);
         gameOverCanvas.SetActive(true);
+
+        // Updates map record if greater
+        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
+            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
+                if (RoundNum > saveManager.saveData.survivalLevelRecodsValues[i]) {
+                    saveManager.saveData.survivalLevelRecodsValues[i] = RoundNum;
+                }
+            }
+        }
     } 
 
 

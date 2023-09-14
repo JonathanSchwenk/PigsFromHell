@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 // mapSelected variable thats a string that gets set when a map button gets pressed. this variable tells which map should have the selected 
 // background vs the non-selected. This variable also will let the play button know which scene to load up.
@@ -14,6 +15,7 @@ using UnityEngine.SceneManagement;
 public class SurvivalCanvasManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] mapList;
+    [SerializeField] private TextMeshProUGUI currentMapRecord;
 
     private ISaveManager saveManager;
 
@@ -22,6 +24,13 @@ public class SurvivalCanvasManager : MonoBehaviour
     void Start()
     {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+
+        // Sets the record to show for the selected map
+        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
+            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
+                currentMapRecord.text = saveManager.saveData.survivalLevelRecodsValues[i].ToString();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -78,6 +87,13 @@ public class SurvivalCanvasManager : MonoBehaviour
             } else {
                 mapList[i].transform.GetChild(1).gameObject.SetActive(false);
                 mapList[i].transform.GetChild(2).gameObject.SetActive(true);
+            }
+        }
+
+        // Sets the record to show for the selected map
+        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
+            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
+                currentMapRecord.text = saveManager.saveData.survivalLevelRecodsValues[i].ToString();
             }
         }
     }

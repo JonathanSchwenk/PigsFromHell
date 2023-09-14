@@ -79,15 +79,15 @@ public class AdManager : MonoBehaviour , IAdManager
         this.rewardedAd.LoadAd(request);
 
         rewardedAd.OnUserEarnedReward += (object sender, Reward reward) => {
-            //print("Reward given: " + (int)reward.Amount); // this is set in GoogleAdMob for each ad unit
+            // print("Reward given: " + (int)reward.Amount); // this is set in GoogleAdMob for each ad unit
 
-            print("Reward given: " + coinsEarned);
+            // print("Reward given: " + coinsEarned);
 
-            saveManager.saveData.coins += coinsEarned;
+            // saveManager.saveData.coins += coinsEarned;
 
-            saveManager.Save();
+            // saveManager.Save();
 
-            SceneManager.LoadScene("MainMenu");
+            // SceneManager.LoadScene("MainMenu");
 
             // Need to destroy the rewardedAd
             rewardedAd.Destroy();
