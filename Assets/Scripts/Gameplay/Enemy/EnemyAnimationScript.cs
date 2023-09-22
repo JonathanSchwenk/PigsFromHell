@@ -23,14 +23,16 @@ public class EnemyAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distanceFromTarget = (float)Math.Sqrt((Math.Pow(target.transform.position.x - transform.position.x, 2) + Math.Pow(target.transform.position.z - transform.position.z, 2)));
+        if (target) {
+            distanceFromTarget = (float)Math.Sqrt((Math.Pow(target.transform.position.x - transform.position.x, 2) + Math.Pow(target.transform.position.z - transform.position.z, 2)));
 
-        if (distanceFromTarget <= pigAttackRange) {
-            // Attack
-            animator.SetInteger("animation", 3);
-        } else {
-            // Run
-            animator.SetInteger("animation", 2);
+            if (distanceFromTarget <= pigAttackRange) {
+                // Attack
+                animator.SetInteger("animation", 3);
+            } else {
+                // Run
+                animator.SetInteger("animation", 2);
+            }
         }
     }
 

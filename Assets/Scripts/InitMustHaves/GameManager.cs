@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour, IGameManager
     [SerializeField] private GameObject gameplayControlsCanvas;
     [SerializeField] private List<GameObject> playerTasks;
     [SerializeField] private GameObject playerGO;
+    [SerializeField] private GameObject endgameCutscene;
 
 
 
@@ -160,20 +161,36 @@ public class GameManager : MonoBehaviour, IGameManager
     }
 
     private void HandelGameOverState() {
-        // Stops the time
-        Time.timeScale = 0;
+        if (saveManager.saveData.gameMode == "Survival") {
+            // Stops the time
+            Time.timeScale = 0;
 
-        // Changes canvases
-        gameplayUICanvas.SetActive(false);
-        gameplayControlsCanvas.SetActive(false);
-        gameOverCanvas.SetActive(true);
+            // Changes canvases
+            gameplayUICanvas.SetActive(false);
+            gameplayControlsCanvas.SetActive(false);
+            gameOverCanvas.SetActive(true);
 
-        // Updates map record if greater
-        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
-            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
-                if (RoundNum > saveManager.saveData.survivalLevelRecodsValues[i]) {
-                    saveManager.saveData.survivalLevelRecodsValues[i] = RoundNum;
+            // Updates map record if greater
+            for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
+                if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
+                    if (RoundNum > saveManager.saveData.survivalLevelRecodsValues[i]) {
+                        saveManager.saveData.survivalLevelRecodsValues[i] = RoundNum;
+                    }
                 }
+            }
+        } else {
+            if (saveManager.saveData.storyLevelSelected == 6) {
+                print("Should Start Cutscene");
+                // Bomb level
+                endgameCutscene.gameObject.SetActive(true);
+            } else {
+                // Stops the time
+                Time.timeScale = 0;
+                
+                // Changes canvases
+                gameplayUICanvas.SetActive(false);
+                gameplayControlsCanvas.SetActive(false);
+                gameOverCanvas.SetActive(true); // this will be different for story gamemode
             }
         }
     } 
