@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3031877122397029772
 MonoBehaviour:
@@ -102,3 +102,9 @@ MonoBehaviour:
   - tag: ImpactDrop
     prefab: {fileID: 9204304743086714285, guid: 46704bd92816547d4a7bfd7381d0a5e0, type: 3}
     size: 20
+  - tag: PoisonShot
+    prefab: {fileID: 3490612623179665283, guid: 8ffbbddb36824477aa2c185a94b1f6f2, type: 3}
+    size: 50
+  - tag: PoisonSmoke
+    prefab: {fileID: 2953349593770702892, guid: f8b8f90556c5f40a5bbf34b02cb61675, type: 3}
+    size: 50

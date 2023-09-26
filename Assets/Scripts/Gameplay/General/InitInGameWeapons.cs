@@ -215,6 +215,20 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[4].damage = 0.25f;
         saveManager.saveData.totalSpecialWeapons[4].bulletsInMag = 200;
         saveManager.saveData.totalSpecialWeapons[4].reserveAmmo = 1600;
+
+        saveManager.saveData.totalSpecialWeapons[5] = new WeaponData();
+        saveManager.saveData.totalSpecialWeapons[5].name = "Chemical Gun";
+        saveManager.saveData.totalSpecialWeapons[5].firePointPos = new Vector3(0f, 0.15f, 0.75f);
+        saveManager.saveData.totalSpecialWeapons[5].fireRate = 0.75f;
+        saveManager.saveData.totalSpecialWeapons[5].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[5].bulletForce = 15;
+        saveManager.saveData.totalSpecialWeapons[5].magSize = 12;
+        saveManager.saveData.totalSpecialWeapons[5].totalAmmo = 120;
+        saveManager.saveData.totalSpecialWeapons[5].impact = 1;
+        saveManager.saveData.totalSpecialWeapons[5].damage = 0.05f;
+        saveManager.saveData.totalSpecialWeapons[5].bulletsInMag = 12;
+        saveManager.saveData.totalSpecialWeapons[5].reserveAmmo = 120;
+        saveManager.saveData.totalSpecialWeapons[5].starValue = 1;
     }
 
 }
