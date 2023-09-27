@@ -16,7 +16,7 @@ public class SaveData
     //public ArrayList lockedWeapons = new ArrayList(){"HMG", "SMG", "Assault Rifle", "Shotgun", "Sniper", "RPG", "Mini Gun", "Cross Bow", "Rail Gun", "Flame Thrower"};
     //public String[] totalNormalWeapons = {"Hunting Rifle", "Pistol", "HMG", "SMG", "Assault Rifle", "Shotgun", "Sniper"};
     public WeaponData[] totalNormalWeapons = new WeaponData[8];
-    public WeaponData[] totalSpecialWeapons = new WeaponData[5];
+    public WeaponData[] totalSpecialWeapons = new WeaponData[10];
 
     public String[] totalSkins = {"BasicFemale", "BasicMale", "Cowboy", "Hero", "Hoodie", "Jester", "Knight", "Ninja", "Robber", "Soldier"};
     public ArrayList unlockedSkins = new ArrayList(){"BasicFemale", "BasicMale"};
@@ -31,7 +31,7 @@ public class SaveData
     // int for levels completed, if you complete a level and the storyLevelSelected > the levelsCompleted then set levelsCompleted to storyLevelSelected
     public int levelsCompleted = 0;
 
-    public String[] survivalLevelRecodsKeys = {"Neighborhood", "Highway", "Downtown", "Beach", "ShoppingCenter"};
-    public int[] survivalLevelRecodsValues = {0, 0, 0, 0, 0};
+    public String[] survivalLevelRecordsKeys = {"Neighborhood", "Highway", "Downtown", "Beach", "ShoppingCenter"};
+    public int[] survivalLevelRecordsValues = {0, 0, 0, 0, 0};
 }
 

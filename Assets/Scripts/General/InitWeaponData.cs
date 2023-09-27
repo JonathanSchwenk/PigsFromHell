@@ -27,7 +27,7 @@ public class InitWeaponData : MonoBehaviour
 
         if (saveManager.saveData.totalNormalWeapons[0] == null) {
             saveManager.saveData.totalNormalWeapons = new WeaponData[8];
-            saveManager.saveData.totalSpecialWeapons = new WeaponData[5];
+            saveManager.saveData.totalSpecialWeapons = new WeaponData[10];
 
             InitTotalWeapons();
         } else {
@@ -54,11 +54,9 @@ public class InitWeaponData : MonoBehaviour
         if (saveManager.saveData.unlockedWeapons.Count == 0) {
             //saveManager.saveData.unlockedWeapons = new ArrayList();
             print("From Unlocked Weapons");
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[0]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[1]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[2]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[3]);
-            saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[7]);
+            for (int i = 0; i < saveManager.saveData.totalNormalWeapons.Length; i++) {
+                saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[i]);
+            }
         }
 
         saveManager.Save();
@@ -203,7 +201,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[1].bulletForce = 80;
         saveManager.saveData.totalSpecialWeapons[1].magSize = 2;
         saveManager.saveData.totalSpecialWeapons[1].totalAmmo = 16;
-        saveManager.saveData.totalSpecialWeapons[1].impact = 0;
+        saveManager.saveData.totalSpecialWeapons[1].impact = 1000;
         saveManager.saveData.totalSpecialWeapons[1].damage = 1f;
         saveManager.saveData.totalSpecialWeapons[1].bulletsInMag =2;
         saveManager.saveData.totalSpecialWeapons[1].reserveAmmo = 16;
@@ -264,6 +262,62 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[5].bulletsInMag = 12;
         saveManager.saveData.totalSpecialWeapons[5].reserveAmmo = 120;
         saveManager.saveData.totalSpecialWeapons[5].starValue = 1;
+
+        saveManager.saveData.totalSpecialWeapons[6] = new WeaponData();
+        saveManager.saveData.totalSpecialWeapons[6].name = "Electric Gun";
+        saveManager.saveData.totalSpecialWeapons[6].firePointPos = new Vector3(0f, 0f, 0.6f);
+        saveManager.saveData.totalSpecialWeapons[6].fireRate = 0.75f;
+        saveManager.saveData.totalSpecialWeapons[6].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[6].bulletForce = 15;
+        saveManager.saveData.totalSpecialWeapons[6].magSize = 12;
+        saveManager.saveData.totalSpecialWeapons[6].totalAmmo = 120;
+        saveManager.saveData.totalSpecialWeapons[6].impact = 1;
+        saveManager.saveData.totalSpecialWeapons[6].damage = 0.05f;
+        saveManager.saveData.totalSpecialWeapons[6].bulletsInMag = 12;
+        saveManager.saveData.totalSpecialWeapons[6].reserveAmmo = 120;
+        saveManager.saveData.totalSpecialWeapons[6].starValue = 1;
+
+        saveManager.saveData.totalSpecialWeapons[7] = new WeaponData();
+        saveManager.saveData.totalSpecialWeapons[7].name = "Gravity Gun";
+        saveManager.saveData.totalSpecialWeapons[7].firePointPos = new Vector3(0f, 0.125f, 1.1f);
+        saveManager.saveData.totalSpecialWeapons[7].fireRate = 0.8f;
+        saveManager.saveData.totalSpecialWeapons[7].movementSpeed = 1.75f;
+        saveManager.saveData.totalSpecialWeapons[7].bulletForce = 10;
+        saveManager.saveData.totalSpecialWeapons[7].magSize = 5;
+        saveManager.saveData.totalSpecialWeapons[7].totalAmmo = 50;
+        saveManager.saveData.totalSpecialWeapons[7].impact = 1000;
+        saveManager.saveData.totalSpecialWeapons[7].damage = 1f;
+        saveManager.saveData.totalSpecialWeapons[7].bulletsInMag = 5;
+        saveManager.saveData.totalSpecialWeapons[7].reserveAmmo = 50;
+        saveManager.saveData.totalSpecialWeapons[7].starValue = 1;
+
+        saveManager.saveData.totalSpecialWeapons[8] = new WeaponData();
+        saveManager.saveData.totalSpecialWeapons[8].name = "Saw Gun";
+        saveManager.saveData.totalSpecialWeapons[8].firePointPos = new Vector3(0f, 0f, 1.25f);
+        saveManager.saveData.totalSpecialWeapons[8].fireRate = 0.75f;
+        saveManager.saveData.totalSpecialWeapons[8].movementSpeed = 1.5f;
+        saveManager.saveData.totalSpecialWeapons[8].bulletForce = 25;
+        saveManager.saveData.totalSpecialWeapons[8].magSize = 10;
+        saveManager.saveData.totalSpecialWeapons[8].totalAmmo = 100;
+        saveManager.saveData.totalSpecialWeapons[8].impact = 1000;
+        saveManager.saveData.totalSpecialWeapons[8].damage = 0.5f;
+        saveManager.saveData.totalSpecialWeapons[8].bulletsInMag = 10;
+        saveManager.saveData.totalSpecialWeapons[8].reserveAmmo = 100;
+        saveManager.saveData.totalSpecialWeapons[8].starValue = 1;
+
+        saveManager.saveData.totalSpecialWeapons[9] = new WeaponData();
+        saveManager.saveData.totalSpecialWeapons[9].name = "Ice Gun";
+        saveManager.saveData.totalSpecialWeapons[9].firePointPos = new Vector3(0f, 0.175f, 1f);
+        saveManager.saveData.totalSpecialWeapons[9].fireRate = 0.20f;
+        saveManager.saveData.totalSpecialWeapons[9].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[9].bulletForce = 25;
+        saveManager.saveData.totalSpecialWeapons[9].magSize = 30;
+        saveManager.saveData.totalSpecialWeapons[9].totalAmmo = 300;
+        saveManager.saveData.totalSpecialWeapons[9].impact = 2;
+        saveManager.saveData.totalSpecialWeapons[9].damage = 0.5f;
+        saveManager.saveData.totalSpecialWeapons[9].bulletsInMag = 30;
+        saveManager.saveData.totalSpecialWeapons[9].reserveAmmo = 300;
+        saveManager.saveData.totalSpecialWeapons[9].starValue = 1;
     }
 
 }

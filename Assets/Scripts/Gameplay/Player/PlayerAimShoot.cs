@@ -253,9 +253,9 @@ public class PlayerAimShoot : MonoBehaviour
             else if (gameManager.activeWeapon.name == "Chemical Gun") {
                 audioManager.PlaySFX("RPG");
 
-                GameObject projectile = objectPooler.SpawnFromPool("PosionShot", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                GameObject projectile = objectPooler.SpawnFromPool("PoisonShot", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
-                AccessBullets(projectile, "PosionShot");
+                AccessBullets(projectile, "PoisonShot");
             }
 
 
@@ -348,7 +348,7 @@ public class PlayerAimShoot : MonoBehaviour
             } else {
                 go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
             } 
-        } else if (projectileType == "PosionShot") {
+        } else if (projectileType == "PoisonShot") {
             if (gameManager.dropsList.Contains("InstaKill")) {
                 go.transform.GetChild(1).gameObject.GetComponent<PosionShot>().damage = 100;
             } else {

@@ -62,7 +62,7 @@ public class WeaponCardInScrollView : MonoBehaviour
         if (isNormal == true) {
             scrollViewRectTransfrom.sizeDelta = new Vector2(1200.0f, 300.0f); // x = 367.5 for setting position
         } else {
-            scrollViewRectTransfrom.sizeDelta = new Vector2(900.0f, 300.0f); // x = 187.5 for setting position
+            scrollViewRectTransfrom.sizeDelta = new Vector2(1720.0f, 300.0f); // x = 600 for setting position
         }
         
         // Might want to load data here
@@ -156,19 +156,20 @@ public class WeaponCardInScrollView : MonoBehaviour
             // Sets weapon name and image
             // name
             go.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = saveManager.saveData.totalSpecialWeapons[i].name;
+            print(go.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text);
             // image
             go.transform.GetChild(1).GetComponent<Image>().sprite = go.transform.GetChild(4).Find(saveManager.saveData.totalSpecialWeapons[i].name).GetComponent<Image>().sprite;
             
 
             // Sets isSelected 
             if (primaryOrSecondary == 0) {
-                if (saveManager.saveData.currentWeapons[0] == saveManager.saveData.totalSpecialWeapons[i]) {
+                if (saveManager.saveData.currentWeapons[0].name == saveManager.saveData.totalSpecialWeapons[i].name) {
                     go.transform.GetChild(0).gameObject.SetActive(true);
                 } else {
                     go.transform.GetChild(0).gameObject.SetActive(false);
                 }
             } else {
-                if (saveManager.saveData.currentWeapons[1] == saveManager.saveData.totalSpecialWeapons[i]) {
+                if (saveManager.saveData.currentWeapons[1].name == saveManager.saveData.totalSpecialWeapons[i].name) {
                     go.transform.GetChild(0).gameObject.SetActive(true);
                 } else {
                     go.transform.GetChild(0).gameObject.SetActive(false);

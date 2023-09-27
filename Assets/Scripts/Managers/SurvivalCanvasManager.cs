@@ -26,9 +26,9 @@ public class SurvivalCanvasManager : MonoBehaviour
         saveManager = ServiceLocator.Resolve<ISaveManager>();
 
         // Sets the record to show for the selected map
-        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
-            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
-                currentMapRecord.text = saveManager.saveData.survivalLevelRecodsValues[i].ToString();
+        for (int i = 0; i < saveManager.saveData.survivalLevelRecordsKeys.Length; i++) {
+            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecordsKeys[i]) {
+                currentMapRecord.text = saveManager.saveData.survivalLevelRecordsValues[i].ToString();
             }
         }
     }
@@ -91,9 +91,9 @@ public class SurvivalCanvasManager : MonoBehaviour
         }
 
         // Sets the record to show for the selected map
-        for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
-            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
-                currentMapRecord.text = saveManager.saveData.survivalLevelRecodsValues[i].ToString();
+        for (int i = 0; i < saveManager.saveData.survivalLevelRecordsKeys.Length; i++) {
+            if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecordsKeys[i]) {
+                currentMapRecord.text = saveManager.saveData.survivalLevelRecordsValues[i].ToString();
             }
         }
     }

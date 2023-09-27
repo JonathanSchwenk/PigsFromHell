@@ -171,10 +171,10 @@ public class GameManager : MonoBehaviour, IGameManager
             gameOverCanvas.SetActive(true);
 
             // Updates map record if greater
-            for (int i = 0; i < saveManager.saveData.survivalLevelRecodsKeys.Length; i++) {
-                if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecodsKeys[i]) {
-                    if (RoundNum > saveManager.saveData.survivalLevelRecodsValues[i]) {
-                        saveManager.saveData.survivalLevelRecodsValues[i] = RoundNum;
+            for (int i = 0; i < saveManager.saveData.survivalLevelRecordsKeys.Length; i++) {
+                if (saveManager.saveData.survivalMapSelected == saveManager.saveData.survivalLevelRecordsKeys[i]) {
+                    if (RoundNum > saveManager.saveData.survivalLevelRecordsValues[i]) {
+                        saveManager.saveData.survivalLevelRecordsValues[i] = RoundNum;
                     }
                 }
             }
