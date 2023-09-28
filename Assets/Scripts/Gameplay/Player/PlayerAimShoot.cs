@@ -257,6 +257,22 @@ public class PlayerAimShoot : MonoBehaviour
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "PoisonShot");
             }
+            // Electric Gun
+            else if (gameManager.activeWeapon.name == "Electric Gun") {
+                audioManager.PlaySFX("RPG");
+
+                GameObject projectile = objectPooler.SpawnFromPool("ElectricBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "ElectricBullet");
+            }
+            // Gravity Gun
+            else if (gameManager.activeWeapon.name == "Gravity Gun") {
+                audioManager.PlaySFX("RPG");
+
+                GameObject projectile = objectPooler.SpawnFromPool("GravityShot", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "GravityShot");
+            }
 
 
 
@@ -350,14 +366,36 @@ public class PlayerAimShoot : MonoBehaviour
             } 
         } else if (projectileType == "PoisonShot") {
             if (gameManager.dropsList.Contains("InstaKill")) {
-                go.transform.GetChild(1).gameObject.GetComponent<PosionShot>().damage = 100;
+                go.GetComponent<PoisonShot>().damage = 100;
             } else {
-                go.transform.GetChild(1).gameObject.GetComponent<PosionShot>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+                go.GetComponent<PoisonShot>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
             }
             if (gameManager.dropsList.Contains("Impact")) {
-                go.GetComponent<PosionShot>().impact = gameManager.activeWeapon.impact * 2;
+                go.GetComponent<PoisonShot>().impact = gameManager.activeWeapon.impact * 2;
             } else {
-                go.GetComponent<PosionShot>().impact = gameManager.activeWeapon.impact;
+                go.GetComponent<PoisonShot>().impact = gameManager.activeWeapon.impact;
+            } 
+        } else if (projectileType == "ElectricBullet") {
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<ElectricBullet>().damage = 100;
+            } else {
+                go.GetComponent<ElectricBullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<ElectricBullet>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<ElectricBullet>().impact = gameManager.activeWeapon.impact;
+            } 
+        } else if (projectileType == "GravityShot") {
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<GravityShot>().damage = 100;
+            } else {
+                go.GetComponent<GravityShot>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<GravityShot>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<GravityShot>().impact = gameManager.activeWeapon.impact;
             } 
         }
         

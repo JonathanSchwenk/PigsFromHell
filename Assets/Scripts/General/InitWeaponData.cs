@@ -251,7 +251,7 @@ public class InitWeaponData : MonoBehaviour
 
         saveManager.saveData.totalSpecialWeapons[5] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[5].name = "Chemical Gun";
-        saveManager.saveData.totalSpecialWeapons[5].firePointPos = new Vector3(0f, 0.15f, 0.75f);
+        saveManager.saveData.totalSpecialWeapons[5].firePointPos = new Vector3(0.325f, 0.65f, 0.75f);
         saveManager.saveData.totalSpecialWeapons[5].fireRate = 0.75f;
         saveManager.saveData.totalSpecialWeapons[5].movementSpeed = 2f;
         saveManager.saveData.totalSpecialWeapons[5].bulletForce = 15;
@@ -265,7 +265,7 @@ public class InitWeaponData : MonoBehaviour
 
         saveManager.saveData.totalSpecialWeapons[6] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[6].name = "Electric Gun";
-        saveManager.saveData.totalSpecialWeapons[6].firePointPos = new Vector3(0f, 0f, 0.6f);
+        saveManager.saveData.totalSpecialWeapons[6].firePointPos = new Vector3(0.325f, 0.65f, 0.6f);
         saveManager.saveData.totalSpecialWeapons[6].fireRate = 0.75f;
         saveManager.saveData.totalSpecialWeapons[6].movementSpeed = 2f;
         saveManager.saveData.totalSpecialWeapons[6].bulletForce = 15;
@@ -279,7 +279,7 @@ public class InitWeaponData : MonoBehaviour
 
         saveManager.saveData.totalSpecialWeapons[7] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[7].name = "Gravity Gun";
-        saveManager.saveData.totalSpecialWeapons[7].firePointPos = new Vector3(0f, 0.125f, 1.1f);
+        saveManager.saveData.totalSpecialWeapons[7].firePointPos = new Vector3(0.325f, 0.65f, 1.1f);
         saveManager.saveData.totalSpecialWeapons[7].fireRate = 0.8f;
         saveManager.saveData.totalSpecialWeapons[7].movementSpeed = 1.75f;
         saveManager.saveData.totalSpecialWeapons[7].bulletForce = 10;
@@ -293,7 +293,7 @@ public class InitWeaponData : MonoBehaviour
 
         saveManager.saveData.totalSpecialWeapons[8] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[8].name = "Saw Gun";
-        saveManager.saveData.totalSpecialWeapons[8].firePointPos = new Vector3(0f, 0f, 1.25f);
+        saveManager.saveData.totalSpecialWeapons[8].firePointPos = new Vector3(0.325f, 0.65f, 1.25f);
         saveManager.saveData.totalSpecialWeapons[8].fireRate = 0.75f;
         saveManager.saveData.totalSpecialWeapons[8].movementSpeed = 1.5f;
         saveManager.saveData.totalSpecialWeapons[8].bulletForce = 25;
@@ -307,7 +307,7 @@ public class InitWeaponData : MonoBehaviour
 
         saveManager.saveData.totalSpecialWeapons[9] = new WeaponData();
         saveManager.saveData.totalSpecialWeapons[9].name = "Ice Gun";
-        saveManager.saveData.totalSpecialWeapons[9].firePointPos = new Vector3(0f, 0.175f, 1f);
+        saveManager.saveData.totalSpecialWeapons[9].firePointPos = new Vector3(0.325f, 0.65f, 1f);
         saveManager.saveData.totalSpecialWeapons[9].fireRate = 0.20f;
         saveManager.saveData.totalSpecialWeapons[9].movementSpeed = 2f;
         saveManager.saveData.totalSpecialWeapons[9].bulletForce = 25;

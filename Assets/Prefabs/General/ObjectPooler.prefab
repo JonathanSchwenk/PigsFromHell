@@ -108,3 +108,12 @@ MonoBehaviour:
   - tag: PoisonSmoke
     prefab: {fileID: 2953349593770702892, guid: f8b8f90556c5f40a5bbf34b02cb61675, type: 3}
     size: 50
+  - tag: ElectricBullet
+    prefab: {fileID: 1728675696582018298, guid: 50c3ea8d9a7ef470cbb6b0d64861bc41, type: 3}
+    size: 50
+  - tag: ElectricBlast
+    prefab: {fileID: 4938974239848100423, guid: ba7313fe31f734ed5b78f948a0ee77ac, type: 3}
+    size: 50
+  - tag: GravityShot
+    prefab: {fileID: 4815165463941912881, guid: e0700f1b4a2e2428b94c683875df5a7e, type: 3}
+    size: 50

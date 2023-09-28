@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
 
-public class PosionShot : MonoBehaviour
+public class PoisonShot : MonoBehaviour
 {
     public int impact = 1;
     public float damage = 1;
@@ -38,7 +38,6 @@ public class PosionShot : MonoBehaviour
         }
         if (other.tag == "Enemy") {
             GameObject PoisonSmoke = objectPooler.SpawnFromPool("PoisonSmoke", gameObject.transform.position, Quaternion.identity);
-            // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
             // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
             StartCoroutine(PoisonSmokeGO(PoisonSmoke));
 

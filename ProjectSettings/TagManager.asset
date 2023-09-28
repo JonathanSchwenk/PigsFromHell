@@ -15,6 +15,12 @@ TagManager:
   - RailGunBolt
   - DefaultBullet
   - GroundFire
+  - PoisonShot
+  - PoisonSmoke
+  - ElectricBullet
+  - ElectricBlast
+  - RocketExplosion
+  - GravityShot
   layers:
   - Default
   - TransparentFX

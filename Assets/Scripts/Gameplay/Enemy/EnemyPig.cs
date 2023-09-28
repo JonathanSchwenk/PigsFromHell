@@ -19,6 +19,7 @@ public class EnemyPig : MonoBehaviour
 
 
     private float groundFireDamange;
+    private float poisonDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +58,16 @@ public class EnemyPig : MonoBehaviour
 
         // Special weapons Rocket Arrow Fire RailGunBolt
         if (other.tag == "Rocket") {
-            health -= other.GetComponent<Rocket>().damage;
+            health -= other.GetComponent<Rocket>().damage; // This might be wrong. Might need separate value for damage for explosion
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "RocketExplosion") {
+            health -= other.GetComponent<RocketExplosion>().damage; // This might be wrong. Might need separate value for damage for explosion
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);
@@ -93,6 +103,43 @@ public class EnemyPig : MonoBehaviour
                 gameManager.points += pointValue;
             }
         }
+        if (other.tag == "PoisonShot") {
+            poisonDamage = other.GetComponent<PoisonShot>().damage;
+            health -= other.GetComponent<PoisonShot>().damage;
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "ElectricBullet") {
+            health -= other.GetComponent<ElectricBullet>().damage; // Need separate value / tag
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "ElectricBlast") {
+            health -= other.GetComponent<ElectricBlast>().damage; // Need separate value / tag
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "GravityShot") {
+            health -= other.GetComponent<GravityShot>().damage; // Need separate value / tag
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
     }
 
     /// <summary>
@@ -104,6 +151,15 @@ public class EnemyPig : MonoBehaviour
     {
         if (other.tag == "GroundFire") {
             health -= groundFireDamange;
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "PoisonSmoke") {
+            health -= poisonDamage;
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);

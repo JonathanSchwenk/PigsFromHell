@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
 
-public class Rocket : MonoBehaviour
+public class ElectricBullet : MonoBehaviour
 {
     public int impact = 1;
     public float damage = 1;
@@ -27,32 +27,31 @@ public class Rocket : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Enviornment" || other.tag == "Enemy") {
-            GameObject explosion = objectPooler.SpawnFromPool("Explosion", gameObject.transform.position, Quaternion.identity);
-            explosion.GetComponent<RocketExplosion>().damage = gameObject.GetComponent<Rocket>().damage;
-
+            GameObject blast = objectPooler.SpawnFromPool("ElectricBlast", gameObject.transform.position, Quaternion.identity);
+            blast.GetComponent<ElectricBlast>().damage = gameObject.GetComponent<ElectricBullet>().damage;
             // spawn an object that appears for a short time and then dissapears. This object will damage enemies.
-            StartCoroutine(RocketExplosionAnimation(explosion, gameObject));
-            StartCoroutine(RocketExplosionCollider(explosion));
+            StartCoroutine(ElectricBlastAnimation(blast, gameObject));
+            StartCoroutine(ElectricBlastCollider(blast));
 
             // Teleports actual bullet away so it doesn't keep hitting stuff but also is still active for the animation
             gameObject.transform.position = new Vector3(0,-10000,0);
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
 
+            // explosion.transform.GetChild(1).gameObject.SetActive(false); // if this doesnt work then just deal with the damage after
+
             audioManager.PlaySFX("Explosion");
         }
     }
 
-    IEnumerator RocketExplosionAnimation(GameObject explosion, GameObject projectile) {
+    IEnumerator ElectricBlastAnimation(GameObject blast, GameObject projectile) {
         yield return new WaitForSeconds(2.5f);
-        explosion.SetActive(false);
-        impact -= 1;
-        if (impact < 1) {
-            projectile.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
-            projectile.SetActive(false);
-        }
+        blast.SetActive(false);
+        projectile.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        projectile.SetActive(false);
     }
-    IEnumerator RocketExplosionCollider(GameObject explosion) {
+
+    IEnumerator ElectricBlastCollider(GameObject blast) {
         yield return new WaitForSeconds(0.5f);
-        explosion.transform.GetChild(1).gameObject.SetActive(false);
+        blast.transform.GetChild(1).gameObject.SetActive(false);
     }
 }
