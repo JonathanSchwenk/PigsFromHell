@@ -117,3 +117,6 @@ MonoBehaviour:
   - tag: GravityShot
     prefab: {fileID: 4815165463941912881, guid: e0700f1b4a2e2428b94c683875df5a7e, type: 3}
     size: 50
+  - tag: SawBlade
+    prefab: {fileID: 5163960483332987734, guid: a348ebead8dd84a77889fc2c50660598, type: 3}
+    size: 50

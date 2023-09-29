@@ -21,6 +21,7 @@ TagManager:
   - ElectricBlast
   - RocketExplosion
   - GravityShot
+  - SawBlade
   layers:
   - Default
   - TransparentFX

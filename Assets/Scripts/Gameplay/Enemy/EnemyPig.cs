@@ -132,7 +132,16 @@ public class EnemyPig : MonoBehaviour
             }
         }
         if (other.tag == "GravityShot") {
-            health -= other.GetComponent<GravityShot>().damage; // Need separate value / tag
+            health -= other.GetComponent<GravityShot>().damage;
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "SawBlade") {
+            health -= other.GetComponent<SawBlade>().damage;
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);

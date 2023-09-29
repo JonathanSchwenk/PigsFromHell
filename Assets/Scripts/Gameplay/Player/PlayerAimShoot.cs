@@ -273,6 +273,14 @@ public class PlayerAimShoot : MonoBehaviour
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "GravityShot");
             }
+            // Saw Gun
+            else if (gameManager.activeWeapon.name == "Saw Gun") {
+                audioManager.PlaySFX("RPG");
+
+                GameObject projectile = objectPooler.SpawnFromPool("SawBlade", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "SawBlade");
+            }
 
 
 
@@ -386,16 +394,16 @@ public class PlayerAimShoot : MonoBehaviour
             } else {
                 go.GetComponent<ElectricBullet>().impact = gameManager.activeWeapon.impact;
             } 
-        } else if (projectileType == "GravityShot") {
+        } else if (projectileType == "SawBlade") {
             if (gameManager.dropsList.Contains("InstaKill")) {
-                go.GetComponent<GravityShot>().damage = 100;
+                go.GetComponent<SawBlade>().damage = 100;
             } else {
-                go.GetComponent<GravityShot>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+                go.GetComponent<SawBlade>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
             }
             if (gameManager.dropsList.Contains("Impact")) {
-                go.GetComponent<GravityShot>().impact = gameManager.activeWeapon.impact * 2;
+                go.GetComponent<SawBlade>().impact = gameManager.activeWeapon.impact * 2;
             } else {
-                go.GetComponent<GravityShot>().impact = gameManager.activeWeapon.impact;
+                go.GetComponent<SawBlade>().impact = gameManager.activeWeapon.impact;
             } 
         }
         
