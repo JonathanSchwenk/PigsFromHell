@@ -120,3 +120,6 @@ MonoBehaviour:
   - tag: SawBlade
     prefab: {fileID: 5163960483332987734, guid: a348ebead8dd84a77889fc2c50660598, type: 3}
     size: 50
+  - tag: IceBullet
+    prefab: {fileID: 317271814525638267, guid: e6f28a4cf60124eb49f0c92637639cc0, type: 3}
+    size: 50

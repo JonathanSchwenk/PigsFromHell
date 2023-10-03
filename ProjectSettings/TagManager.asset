@@ -22,6 +22,7 @@ TagManager:
   - RocketExplosion
   - GravityShot
   - SawBlade
+  - IceBullet
   layers:
   - Default
   - TransparentFX

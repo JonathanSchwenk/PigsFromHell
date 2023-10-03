@@ -281,6 +281,14 @@ public class PlayerAimShoot : MonoBehaviour
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
                 AccessBullets(projectile, "SawBlade");
             }
+            // Ice Gun
+            else if (gameManager.activeWeapon.name == "Ice Gun") {
+                audioManager.PlaySFX("RPG");
+
+                GameObject projectile = objectPooler.SpawnFromPool("IceBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
+                projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
+                AccessBullets(projectile, "IceBullet");
+            }
 
 
 
@@ -404,6 +412,17 @@ public class PlayerAimShoot : MonoBehaviour
                 go.GetComponent<SawBlade>().impact = gameManager.activeWeapon.impact * 2;
             } else {
                 go.GetComponent<SawBlade>().impact = gameManager.activeWeapon.impact;
+            } 
+        } else if (projectileType == "IceBullet") {
+            if (gameManager.dropsList.Contains("InstaKill")) {
+                go.GetComponent<IceBullet>().damage = 100;
+            } else {
+                go.GetComponent<IceBullet>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            }
+            if (gameManager.dropsList.Contains("Impact")) {
+                go.GetComponent<IceBullet>().impact = gameManager.activeWeapon.impact * 2;
+            } else {
+                go.GetComponent<IceBullet>().impact = gameManager.activeWeapon.impact;
             } 
         }
         

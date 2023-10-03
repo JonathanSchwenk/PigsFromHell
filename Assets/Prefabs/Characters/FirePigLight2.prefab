@@ -973,7 +973,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 703090984178553225}
-  speed: 0
 --- !u!114 &1104767935923259055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,6 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40fd38360bac4d72a431d70289f8dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 703090984178553225}
   health: 4
   pointValue: 20
 --- !u!1 &8593106723230609452

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class IceBullet : MonoBehaviour
 {
     public int impact = 1;
     public float damage = 1;

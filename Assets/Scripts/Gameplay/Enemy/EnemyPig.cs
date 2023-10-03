@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Dorkbots.ServiceLocatorTools;
+using UnityEngine.AI;
 
 /*
 - when each enemy spawns in I need to set the health and point value
@@ -9,6 +10,8 @@ using Dorkbots.ServiceLocatorTools;
 
 public class EnemyPig : MonoBehaviour
 {
+    [SerializeField] private NavMeshAgent navMeshAgent;
+
     public float health = 4;
     public int pointValue = 20;
     private float maxDistanceAway = 75;
@@ -52,6 +55,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
 
@@ -64,6 +68,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "RocketExplosion") {
@@ -73,6 +78,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "Arrow") {
@@ -82,6 +88,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "Fire") {
@@ -92,6 +99,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "RailGunBolt") {
@@ -101,6 +109,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "PoisonShot") {
@@ -111,6 +120,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "ElectricBullet") {
@@ -120,6 +130,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "ElectricBlast") {
@@ -129,6 +140,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "GravityShot") {
@@ -138,6 +150,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "SawBlade") {
@@ -147,6 +160,18 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
+            }
+        }
+        if (other.tag == "IceBullet") {
+            health -= other.GetComponent<IceBullet>().damage;
+            navMeshAgent.speed -= 1.5f;
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
     }
@@ -165,6 +190,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "PoisonSmoke") {
@@ -174,6 +200,7 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
             }
         }
     }
