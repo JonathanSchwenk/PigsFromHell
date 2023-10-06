@@ -18,7 +18,7 @@ public class SaveData
     public WeaponData[] totalNormalWeapons = new WeaponData[8];
     public WeaponData[] totalSpecialWeapons = new WeaponData[10];
 
-    public String[] totalSkins = {"BasicFemale", "BasicMale", "Cowboy", "Hero", "Hoodie", "Jester", "Knight", "Ninja", "Robber", "Soldier"};
+    public String[] totalSkins = {"BasicFemale", "BasicMale", "Cowboy", "Hero", "Hoodie", "Jester", "Knight", "Ninja", "Robber", "Soldier", "Alien", "Bear", "GillieSuit", "Chicken", "PaperBag", "Rambo", "Hazard", "SpaceSuit", "Robot", "Samurai"};
     public ArrayList unlockedSkins = new ArrayList(){"BasicFemale", "BasicMale"};
 
     public bool SFXOn = true;

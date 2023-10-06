@@ -51,7 +51,7 @@ public class SkinCardInScrollView : MonoBehaviour
         scrollViewRectTransfrom = scrollViewContents.GetComponent<RectTransform>();
 
         // Change size
-        scrollViewRectTransfrom.sizeDelta = new Vector2(1200.0f, 300.0f); // x = 337.5 for setting position 
+        scrollViewRectTransfrom.sizeDelta = new Vector2(2400.0f, 300.0f); // x = 337.5 for setting position 
         
         // Might want to load data here
 
