@@ -13,11 +13,13 @@ public class SwapWeapon : MonoBehaviour
 
     private ISaveManager saveManager;
     private IGameManager gameManager;
+    private IAudioManager audioManager;
     private WeaponData activeWeapon;
 
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         if (saveManager != null) {
             saveManager.OnSave += SaveManagerOnSave;
@@ -65,9 +67,9 @@ public class SwapWeapon : MonoBehaviour
 
 
     public void SwitchWeapon() {
-        //print(activeWeapon.name);
-        //print(gameManager.currentWeapons[0].name);
-        // Issue when both guns are the same, same name so never moves (Could and prob will prevent this by only letting you get the weapon once and it just refills bullets)
+        // Plays sound
+        audioManager.PlaySFX("ChangeGun");
+
         if (activeWeapon.name == gameManager.currentWeapons[0].name) {
             gameManager.activeWeapon = gameManager.currentWeapons[1];
         } else if (activeWeapon.name == gameManager.currentWeapons[1].name) {

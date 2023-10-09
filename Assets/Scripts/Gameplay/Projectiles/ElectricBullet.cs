@@ -39,7 +39,7 @@ public class ElectricBullet : MonoBehaviour
 
             // explosion.transform.GetChild(1).gameObject.SetActive(false); // if this doesnt work then just deal with the damage after
 
-            audioManager.PlaySFX("Explosion");
+            audioManager.PlaySFX("ElectricBlast");
         }
     }
 

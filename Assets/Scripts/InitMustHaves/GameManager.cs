@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour, IGameManager
 
 
     private ISaveManager saveManager;
+    private IAudioManager audioManager;
 
 
 
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour, IGameManager
     void Start() {
         UpdateGameState(GameState.Playing);
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
 
         // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
         if (saveManager.saveData.gameMode == "Story") {
@@ -147,6 +149,9 @@ public class GameManager : MonoBehaviour, IGameManager
     public void UpdateTasks(GameObject taskGO) {
         // When this gets called it takes in the key / string and removes it from the list of tasks still needing to be complete
         // If all tasks are gone then level over
+        
+        // Sound when a task has been completed
+        audioManager.PlaySFX("CompleteTask");
 
         if (playerTasks.Contains(taskGO)) {
             playerTasks.Remove(taskGO);
@@ -164,6 +169,9 @@ public class GameManager : MonoBehaviour, IGameManager
         if (saveManager.saveData.gameMode == "Survival") {
             // Stops the time
             Time.timeScale = 0;
+
+            // play sound
+            audioManager.PlaySFX("GameOverSurvival");
 
             // Changes canvases
             gameplayUICanvas.SetActive(false);
@@ -183,9 +191,15 @@ public class GameManager : MonoBehaviour, IGameManager
                 print("Should Start Cutscene");
                 // Bomb level
                 endgameCutscene.gameObject.SetActive(true);
+
+                // play sound
+                audioManager.PlaySFX("GameOverStory");
             } else {
                 // Stops the time
                 Time.timeScale = 0;
+
+                // play sound
+                audioManager.PlaySFX("GameOverStory");
                 
                 // Changes canvases
                 gameplayUICanvas.SetActive(false);

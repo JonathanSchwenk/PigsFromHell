@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &439504364434890003
 MonoBehaviour:
@@ -176,6 +176,118 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: MenuBackgroundMusic
     clip: {fileID: 8300000, guid: 5387af9d6ddfb2e45957c4063ded6ac3, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ChangeGun
+    clip: {fileID: 8300000, guid: f3e4d11ac31e30346b282b53592bd10e, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PickupDrop
+    clip: {fileID: 8300000, guid: 9a3f14dfc0d54a945bbfbcf48a84477f, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CompleteTask
+    clip: {fileID: 8300000, guid: 2769bcbb59f097548b7086401b9bffec, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HoldingPosition
+    clip: {fileID: 8300000, guid: b7dc4c581a77ac3498038f6129ec0f93, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HoldPosThreshold
+    clip: {fileID: 8300000, guid: 43520cf8c9c0e7547b3e92f468d00f85, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GameOverStory
+    clip: {fileID: 8300000, guid: 4cf038772c5a2f34594a0e63ac390eb9, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GameOverSurvival
+    clip: {fileID: 8300000, guid: c7729ea7c0d07944db3587fdbfdc696a, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Nuke
+    clip: {fileID: 8300000, guid: 97b73b63b82ab1747b76f76bc9ad18df, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PoisonShot
+    clip: {fileID: 8300000, guid: 8627f7eddf5303a458b38a4f6c5a3892, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ElectricBullet
+    clip: {fileID: 8300000, guid: 7418f4853db77134f83e1ecba7247878, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ElectricBlast
+    clip: {fileID: 8300000, guid: df00d63ffa3913248a18fc4391ee02a8, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GravityShot
+    clip: {fileID: 8300000, guid: 7b0568d8880138149ae5dfd72e9b9f51, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: IceBullet
+    clip: {fileID: 8300000, guid: 1cab15c756de1834da5cbdbfdc3656de, type: 3}
+    volume: 1
+    pitch: 0.8
+    spacialBlend: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SawBlade
+    clip: {fileID: 8300000, guid: 61e6464e97417b24c9ba55c7d2e64918, type: 3}
     volume: 1
     pitch: 0.8
     spacialBlend: 0

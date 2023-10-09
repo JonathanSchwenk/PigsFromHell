@@ -251,7 +251,7 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Chemical Gun
             else if (gameManager.activeWeapon.name == "Chemical Gun") {
-                audioManager.PlaySFX("RPG");
+                audioManager.PlaySFX("PoisonShot");
 
                 GameObject projectile = objectPooler.SpawnFromPool("PoisonShot", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
@@ -259,7 +259,7 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Electric Gun
             else if (gameManager.activeWeapon.name == "Electric Gun") {
-                audioManager.PlaySFX("RPG");
+                audioManager.PlaySFX("ElectricBullet");
 
                 GameObject projectile = objectPooler.SpawnFromPool("ElectricBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
@@ -267,7 +267,7 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Gravity Gun
             else if (gameManager.activeWeapon.name == "Gravity Gun") {
-                audioManager.PlaySFX("RPG");
+                audioManager.PlaySFX("GravityShot");
 
                 GameObject projectile = objectPooler.SpawnFromPool("GravityShot", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
@@ -275,7 +275,7 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Saw Gun
             else if (gameManager.activeWeapon.name == "Saw Gun") {
-                audioManager.PlaySFX("RPG");
+                audioManager.PlaySFX("SawBlade");
 
                 GameObject projectile = objectPooler.SpawnFromPool("SawBlade", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);
@@ -283,7 +283,7 @@ public class PlayerAimShoot : MonoBehaviour
             }
             // Ice Gun
             else if (gameManager.activeWeapon.name == "Ice Gun") {
-                audioManager.PlaySFX("RPG");
+                audioManager.PlaySFX("IceBullet");
 
                 GameObject projectile = objectPooler.SpawnFromPool("IceBullet", new Vector3(rightFirePoint.transform.position.x, rightFirePoint.transform.position.y, rightFirePoint.transform.position.z), gameObject.transform.rotation);
                 projectile.GetComponent<Rigidbody>().AddForce(rightFirePoint.transform.forward * bulletForce, ForceMode.Impulse);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dorkbots.ServiceLocatorTools;
 
 public class EndgameCutscene : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class EndgameCutscene : MonoBehaviour
     [SerializeField] private GameObject cutsceneCamera;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject nukeAnimation;
+
+    private IAudioManager audioManager;
+
+    private void Awake() {
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +32,20 @@ public class EndgameCutscene : MonoBehaviour
         cutsceneCamera.gameObject.SetActive(true);
         nukeAnimation.gameObject.SetActive(true);
 
-        StartCoroutine(WaitFoCutscene());
+
+        StartCoroutine(WaitForCutscene());
     }
 
-    IEnumerator WaitFoCutscene() {
+    IEnumerator WaitForCutscene() {
         yield return new WaitForSeconds(10f);
         gameOverUI.gameObject.SetActive(true);
 
         // Stops the time
         Time.timeScale = 0;
+    }
+
+    IEnumerator WaitForSound() {
+        yield return new WaitForSeconds(3.5f);
+        audioManager.PlaySFX("Nuke");
     }
 }

@@ -7,15 +7,19 @@ public class InstaKillDrop : MonoBehaviour
 {
 
     private IGameManager gameManager;
+    private IAudioManager audioManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
+            audioManager.PlaySFX("PickupDrop");
             
             gameManager.UpdateDrops("InstaKill");
 

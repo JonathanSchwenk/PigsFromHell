@@ -53,7 +53,6 @@ public class InitWeaponData : MonoBehaviour
         // Inits unlocked weapons for the first time
         if (saveManager.saveData.unlockedWeapons.Count == 0) {
             //saveManager.saveData.unlockedWeapons = new ArrayList();
-            print("From Unlocked Weapons");
             for (int i = 0; i < saveManager.saveData.totalNormalWeapons.Length; i++) {
                 saveManager.saveData.unlockedWeapons.Add(saveManager.saveData.totalNormalWeapons[i]);
             }

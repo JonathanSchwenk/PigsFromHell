@@ -7,18 +7,19 @@ public class HealthDrop : MonoBehaviour
 {
 
     private IGameManager gameManager;
-    //private ISaveManager saveManager;
+    private IAudioManager audioManager;
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = ServiceLocator.Resolve<IGameManager>();
-        //saveManager = ServiceLocator.Resolve<ISaveManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
+            audioManager.PlaySFX("PickupDrop");
 
             gameManager.UpdateDrops("Health");
 

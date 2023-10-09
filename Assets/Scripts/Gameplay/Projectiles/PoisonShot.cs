@@ -33,8 +33,6 @@ public class PoisonShot : MonoBehaviour
 
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0); // Stops projectile from moving for next use
             gameObject.SetActive(false); // Removes projectile because its spawning a whole new object 
-
-            audioManager.PlaySFX("Explosion");
         }
         if (other.tag == "Enemy") {
             GameObject PoisonSmoke = objectPooler.SpawnFromPool("PoisonSmoke", gameObject.transform.position, Quaternion.identity);
@@ -43,8 +41,6 @@ public class PoisonShot : MonoBehaviour
 
             gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0); // Stops projectile from moving for next use
             gameObject.SetActive(false); // Removes projectile because its spawning a whole new object 
-            
-            audioManager.PlaySFX("Explosion");
         }
     }
 
