@@ -12,7 +12,7 @@ public class AdManager : MonoBehaviour , IAdManager
     //private AdRequest request;
 
 
-    private RewardedAd rewardedAd;
+    private RewardedAd rewardedAd; 
 
 
 
@@ -28,8 +28,10 @@ public class AdManager : MonoBehaviour , IAdManager
 
 
     private ISaveManager saveManager;
+    private IAudioManager audioManager;
     private void Awake() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+        audioManager = ServiceLocator.Resolve<IAudioManager>();
     }
 
     public void Start()
@@ -58,8 +60,12 @@ public class AdManager : MonoBehaviour , IAdManager
 
 
     // Loads the rewarded ad.
-    public void LoadRewardedAd(int coinsEarned)
+    public void LoadRewardedAd(Boolean isMenu)
     {
+
+        // Nothing is happening with coinsEarned as a parameter because I am adding the coins in the game over state but I could add them here after the
+        // ad is finished to make sure that the people are finishing the ad. 
+        // Can't have more than one parameter because using it in the inspector for a button only allows one parameter. 
 
 
         // Clean up the old ad before loading a new one.
@@ -75,19 +81,7 @@ public class AdManager : MonoBehaviour , IAdManager
         AdRequest request = new AdRequest.Builder().Build();
         //request.Keywords.Add("unity-admob-sample");
 
-        // Load request
-        this.rewardedAd.LoadAd(request);
-
         rewardedAd.OnUserEarnedReward += (object sender, Reward reward) => {
-            // print("Reward given: " + (int)reward.Amount); // this is set in GoogleAdMob for each ad unit
-
-            // print("Reward given: " + coinsEarned);
-
-            // saveManager.saveData.coins += coinsEarned;
-
-            // saveManager.Save();
-
-            // SceneManager.LoadScene("MainMenu");
 
             // Need to destroy the rewardedAd
             rewardedAd.Destroy();
@@ -95,13 +89,30 @@ public class AdManager : MonoBehaviour , IAdManager
         rewardedAd.OnAdOpening += (object sender, EventArgs eventArgs) => {
             // Pause music
             print("Should pause music");
+            audioManager.StopMusic("MenuBackgroundMusic");
         };
         rewardedAd.OnAdClosed += (object sender, EventArgs eventArgs) => {
             // Play music
             print("Should play music");
+            if (saveManager.saveData.musicOn == true) {
+                audioManager.PlayMusic("MenuBackgroundMusic");
+            }
+
+            if (isMenu != true) {
+                SceneManager.LoadScene("MainMenu");
+            }
+        };
+        rewardedAd.OnAdLoaded += (object sender, EventArgs eventArgs) => {
+            print("On ad loaded");
+            ShowRewardedAd();
         };
 
-        ShowRewardedAd();
+        rewardedAd.OnAdFailedToLoad += (object sender, AdFailedToLoadEventArgs failedEventArgs) => {
+            print("On ad failed to load");
+        };
+
+        // Load request
+        this.rewardedAd.LoadAd(request);
     }
 
     // Shows the rewarded ad

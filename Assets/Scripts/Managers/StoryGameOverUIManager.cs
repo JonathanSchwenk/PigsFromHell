@@ -12,6 +12,7 @@ public class StoryGameOverUIManager : MonoBehaviour
 
     private ISaveManager saveManager;
     private IGameManager gameManager;
+    private IAdManager adManager;
 
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class StoryGameOverUIManager : MonoBehaviour
     {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        adManager = ServiceLocator.Resolve<IAdManager>();
     }
 
     // Update is called once per frame
@@ -38,8 +40,7 @@ public class StoryGameOverUIManager : MonoBehaviour
         Time.timeScale = 1; // So animation in main menu runs still
 
         // Need to play ad now before changing scenes
-
-        SceneManager.LoadScene("MainMenu");
+        adManager.LoadRewardedAd(false);
     }
 
     public void Replay() {

@@ -55,5 +55,5 @@ public interface IAudioManager {
 
 
 public interface IAdManager {
-    void LoadRewardedAd(int coinsEarned);
+    void LoadRewardedAd(Boolean isMenu);
 }

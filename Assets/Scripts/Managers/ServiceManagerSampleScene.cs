@@ -10,6 +10,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
     public GameManager gameManager;
     public SpawnManager spawnManager;
     public AudioManager audioManager;
+    public AdManager adManager;
 
 
     private void Awake() {
@@ -41,6 +42,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
         ServiceLocator.Register<IObjectPooler>(objectPooler);
         ServiceLocator.Register<IGameManager>(gameManager);
         ServiceLocator.Register<ISpawnManager>(spawnManager);
+        ServiceLocator.Register<IAdManager>(spawnManager);
     }
 
 
@@ -48,6 +50,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
         ServiceLocator.Unregister<IObjectPooler>();
         ServiceLocator.Unregister<IGameManager>();
         ServiceLocator.Unregister<ISpawnManager>();
+        ServiceLocator.Unregister<IAdManager>();
     }
 
     
