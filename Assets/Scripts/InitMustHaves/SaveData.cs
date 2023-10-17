@@ -33,5 +33,8 @@ public class SaveData
 
     public String[] survivalLevelRecordsKeys = {"Neighborhood", "Highway", "Downtown", "Beach", "ShoppingCenter"};
     public int[] survivalLevelRecordsValues = {0, 0, 0, 0, 0};
+
+    public int numVidsWatchedToday = 0;
+    public DateTime vidAdDate;
 }
 
