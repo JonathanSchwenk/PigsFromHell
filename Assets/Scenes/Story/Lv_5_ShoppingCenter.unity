@@ -4917,7 +4917,7 @@ MonoBehaviour:
   - {fileID: 2103822244}
   - {fileID: 792837405}
   - {fileID: 963850511}
-  playerGO: {fileID: 0}
+  playerGO: {fileID: 375975714}
   endgameCutscene: {fileID: 0}
 --- !u!1 &624898055
 GameObject:
@@ -10713,6 +10713,7 @@ Transform:
   - {fileID: 1699458852}
   - {fileID: 2055920522}
   - {fileID: 937917387}
+  - {fileID: 1976967282}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356491634
@@ -14839,6 +14840,104 @@ Transform:
   - {fileID: 1206273902}
   m_Father: {fileID: 119108454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1976967281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1342900930}
+    m_Modifications:
+    - target: {fileID: 5944258487417256167, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 375975714}
+    - target: {fileID: 5944258487417256167, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: buyButton
+      value: 
+      objectReference: {fileID: 1511336887}
+    - target: {fileID: 6872190910468689254, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 375975714}
+    - target: {fileID: 6872190910468689254, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: buyButton
+      value: 
+      objectReference: {fileID: 2004553076}
+    - target: {fileID: 6872190910468689254, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: takeGunButton
+      value: 
+      objectReference: {fileID: 2007424294}
+    - target: {fileID: 6872190910468689254, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: buttonParentObject
+      value: 
+      objectReference: {fileID: 80154103}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8279238874440100647, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 375975714}
+    - target: {fileID: 8279238874440100647, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: buyButton
+      value: 
+      objectReference: {fileID: 315595335}
+    - target: {fileID: 8598805346153145591, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_Name
+      value: PlayerStations
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 6707200590627830253, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+    - {fileID: 2766874238674789535, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+    - {fileID: 8367274182185171269, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+    - {fileID: 6147234428583140582, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+--- !u!4 &1976967282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+  m_PrefabInstance: {fileID: 1976967281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1984064048
 GameObject:
   m_ObjectHideFlags: 0
