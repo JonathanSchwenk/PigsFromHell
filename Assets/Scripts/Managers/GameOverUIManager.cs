@@ -29,7 +29,9 @@ public class GameOverUIManager : MonoBehaviour
     {
         // Setting points and round values here (Might have to move if its doesn't update and display properly)
         pointsValue.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
-        roundsValue.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        if (roundsValue) {
+            roundsValue.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        }
     }
 
 

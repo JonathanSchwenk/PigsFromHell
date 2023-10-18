@@ -36,13 +36,20 @@ public class ServiceManagerSampleScene : MonoBehaviour
             Debug.Log("AudioManager not found, creating one");
             ServiceLocator.Register<IAudioManager>(audioManager);
         }
+
+        // If there is no SaveManager service registered, create one, else, do nothing
+        if (ServiceLocator.IsRegistered<IAdManager>()) {
+            Debug.Log("An IAdManager already exists");
+        } else {
+            Debug.Log("IAdManager not found, creating one");
+            ServiceLocator.Register<IAdManager>(spawnManager);
+        }
         
 
 
         ServiceLocator.Register<IObjectPooler>(objectPooler);
         ServiceLocator.Register<IGameManager>(gameManager);
         ServiceLocator.Register<ISpawnManager>(spawnManager);
-        ServiceLocator.Register<IAdManager>(spawnManager);
     }
 
 
