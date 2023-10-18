@@ -62,7 +62,7 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[1].name = "Pistol";
         saveManager.saveData.totalNormalWeapons[1].firePointPos = new Vector3(0.315f, 0.625f, 0.65f);
         saveManager.saveData.totalNormalWeapons[1].fireRate = 0.25f;
-        saveManager.saveData.totalNormalWeapons[1].movementSpeed = 3;
+        saveManager.saveData.totalNormalWeapons[1].movementSpeed = 2.5f;
         saveManager.saveData.totalNormalWeapons[1].bulletForce = 15;
         saveManager.saveData.totalNormalWeapons[1].magSize = 12;
         saveManager.saveData.totalNormalWeapons[1].totalAmmo = 120;
@@ -88,7 +88,7 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[3].name = "HMG";
         saveManager.saveData.totalNormalWeapons[3].firePointPos = new Vector3(0.325f, 0.595f, 0.75f);
         saveManager.saveData.totalNormalWeapons[3].fireRate = 0.1f;
-        saveManager.saveData.totalNormalWeapons[3].movementSpeed = 2.5f;
+        saveManager.saveData.totalNormalWeapons[3].movementSpeed = 2.35f;
         saveManager.saveData.totalNormalWeapons[3].bulletForce = 20;
         saveManager.saveData.totalNormalWeapons[3].magSize = 25;
         saveManager.saveData.totalNormalWeapons[3].totalAmmo = 250;
@@ -140,12 +140,12 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[7].name = "Knife";
         saveManager.saveData.totalNormalWeapons[7].firePointPos = new Vector3(0f, 0f, 0f);
         saveManager.saveData.totalNormalWeapons[7].fireRate = 0.3f;
-        saveManager.saveData.totalNormalWeapons[7].movementSpeed = 3f;
+        saveManager.saveData.totalNormalWeapons[7].movementSpeed = 2.5f;
         saveManager.saveData.totalNormalWeapons[7].bulletForce =  -1;
         saveManager.saveData.totalNormalWeapons[7].magSize = -1;
         saveManager.saveData.totalNormalWeapons[7].totalAmmo = -1;
-        saveManager.saveData.totalNormalWeapons[7].impact = -1;
-        saveManager.saveData.totalNormalWeapons[7].damage = -1f;
+        saveManager.saveData.totalNormalWeapons[7].impact = 1;
+        saveManager.saveData.totalNormalWeapons[7].damage = 1f;
         saveManager.saveData.totalNormalWeapons[7].bulletsInMag = -1;
         saveManager.saveData.totalNormalWeapons[7].reserveAmmo = -1;
         
@@ -160,7 +160,7 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[0].magSize = 100;
         saveManager.saveData.totalSpecialWeapons[0].totalAmmo = 800;
         saveManager.saveData.totalSpecialWeapons[0].impact = 1;
-        saveManager.saveData.totalSpecialWeapons[0].damage = 0.5f;
+        saveManager.saveData.totalSpecialWeapons[0].damage = 0.05f;
         saveManager.saveData.totalSpecialWeapons[0].bulletsInMag = 100;
         saveManager.saveData.totalSpecialWeapons[0].reserveAmmo = 800;
 
@@ -181,7 +181,7 @@ public class InitInGameWeapons : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[2].name = "Cross Bow";
         saveManager.saveData.totalSpecialWeapons[2].firePointPos = new Vector3(0.325f, 0.625f, 1.175f);
         saveManager.saveData.totalSpecialWeapons[2].fireRate = 0.5f;
-        saveManager.saveData.totalSpecialWeapons[2].movementSpeed = 3f;
+        saveManager.saveData.totalSpecialWeapons[2].movementSpeed = 2.5f;
         saveManager.saveData.totalSpecialWeapons[2].bulletForce = 40;
         saveManager.saveData.totalSpecialWeapons[2].magSize = 2;
         saveManager.saveData.totalSpecialWeapons[2].totalAmmo = 0;

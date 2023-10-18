@@ -42,7 +42,7 @@ public class ServiceManagerSampleScene : MonoBehaviour
             Debug.Log("An IAdManager already exists");
         } else {
             Debug.Log("IAdManager not found, creating one");
-            ServiceLocator.Register<IAdManager>(spawnManager);
+            ServiceLocator.Register<IAdManager>(adManager);
         }
         
 
