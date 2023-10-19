@@ -23,6 +23,7 @@ TagManager:
   - GravityShot
   - SawBlade
   - IceBullet
+  - Knife
   layers:
   - Default
   - TransparentFX

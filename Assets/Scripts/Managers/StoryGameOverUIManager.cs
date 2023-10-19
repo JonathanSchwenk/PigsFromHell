@@ -45,7 +45,7 @@ public class StoryGameOverUIManager : MonoBehaviour
 
     public void Replay() {
         // Updates how many coins the user has
-        saveManager.saveData.coins += 25;
+        saveManager.saveData.coins += 15;
 
         saveManager.Save();
 

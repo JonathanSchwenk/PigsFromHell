@@ -59,6 +59,19 @@ public class EnemyPig : MonoBehaviour
             }
         }
 
+        // Knife Weapons
+        if (other.tag == "Knife") {
+            health -= 10;
+            //print(health);
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+                navMeshAgent.speed = 3.5f;
+            }
+        }
+
 
         // Special weapons Rocket Arrow Fire RailGunBolt
         if (other.tag == "Rocket") {
