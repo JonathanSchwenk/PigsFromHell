@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private ISpawnManager spawnManager;
     private IObjectPooler objectPooler;
     private IGameManager gameManager;
+    private ISaveManager saveManager;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
         spawnManager = ServiceLocator.Resolve<ISpawnManager>();
         objectPooler = ServiceLocator.Resolve<IObjectPooler>();
         gameManager = ServiceLocator.Resolve<IGameManager>();
+        saveManager = ServiceLocator.Resolve<ISaveManager>();
 
 
         spawnDelayRate = Random.Range(spawnDelayMin, spawnDelayMax);
@@ -78,7 +80,9 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().pointValue = 5;
 
                         spawnManager.numEnemies += 1;
-                        spawnManager.bankValue -=1;
+                        if (saveManager.saveData.gameMode == "Survival") {
+                            spawnManager.bankValue -= 1;
+                        }
 
                         hasSpawned = true;
                     }
@@ -94,7 +98,9 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().pointValue = 10;
 
                         spawnManager.numEnemies += 1;
-                        spawnManager.bankValue -=2;
+                        if (saveManager.saveData.gameMode == "Survival") {
+                            spawnManager.bankValue -= 2;
+                        }
 
                         hasSpawned = true;
                     } else {
@@ -112,7 +118,9 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().pointValue = 15;
 
                         spawnManager.numEnemies += 1;
-                        spawnManager.bankValue -=3;
+                        if (saveManager.saveData.gameMode == "Survival") {
+                            spawnManager.bankValue -= 3;
+                        }
 
                         hasSpawned = true;
                     } else {
@@ -130,7 +138,9 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().pointValue = 20;
 
                         spawnManager.numEnemies += 1;
-                        spawnManager.bankValue -=4;
+                        if (saveManager.saveData.gameMode == "Survival") {
+                            spawnManager.bankValue -= 4;
+                        }
 
                         hasSpawned = true;
                     } else {

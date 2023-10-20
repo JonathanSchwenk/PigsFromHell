@@ -64,11 +64,12 @@ public class GameManager : MonoBehaviour, IGameManager
 
         // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
         if (saveManager.saveData.gameMode == "Story") {
-            RoundNum = 0; // 0 for actual game
+            RoundNum = 20; // 0 for survival
+            enemySpeed = 3f;
             UpdateRound();
         } else {
             // RoundNum gets set to 0 and then the round gets updated which increases the round number and invokes all subscribed actions
-            RoundNum = 0; // 0 for actual game
+            RoundNum = 0; // 0 for survival
             UpdateRound();
         }
 
@@ -113,17 +114,21 @@ public class GameManager : MonoBehaviour, IGameManager
     }
 
     public void UpdateRound() {
-        // Increased thet round number
-        RoundNum += 1;
+        if (saveManager.saveData.gameMode == "Survival") {
+            // Increased thet round number
+            RoundNum += 1;
 
-        enemySpeed = 1.5f + (RoundNum * 0.1f);
+            enemySpeed = 1.5f + (RoundNum * 0.1f);
 
-        if (enemySpeed >= 3.2f) {
-            enemySpeed = 3.2f;
+            if (enemySpeed >= 3.2f) {
+                enemySpeed = 3.2f;
+            }
+
+            // Null checker then calls the action for anthing subscribed to it
+            OnRoundChanged?.Invoke(RoundNum);
+        } else {
+            OnRoundChanged?.Invoke(RoundNum);
         }
-
-        // Null checker then calls the action for anthing subscribed to it
-        OnRoundChanged?.Invoke(RoundNum);
     }
 
     public void UpdateDrops(string drop) {
