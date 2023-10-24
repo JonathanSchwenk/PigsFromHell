@@ -20,19 +20,21 @@ public class DirectionArrow : MonoBehaviour
     void Update()
     {
         if (gameManager.playerTasksGlobal.Count > 0) {
-            // gameObject.transform.rotation = Quaternion.LookRotation((gameManager.playerTasksGlobal[0].transform.position - player.transform.position).normalized);
+            /*
+                Gets the direction by finding the displacement of the target and the player.
+                Then it gets the angle in radians and changes to degrees using a custom function in Extentions.
 
-            Vector3 direction = (gameManager.playerTasksGlobal[0].transform.position - player.transform.position).normalized;
-            // print("Direction " + direction);
-            float angle = Vector3.Angle(player.transform.position, direction);
+                Note: I set the y to 0 because I am in 3D so I want to read on the x, z axis and not x, y
+            */
 
-            if (direction.z < 0) {
-                angle = angle * -1;
-            }
-            // print("Angle " + angle);
-            Quaternion targetRotation = Quaternion.Euler(0f, 0f, (angle + 90));
-            
-            gameObject.transform.rotation = targetRotation;
+            Vector3 toPos = gameManager.playerTasksGlobal[0].transform.position;
+            Vector3 fromPos = player.transform.position;
+            toPos.y = 0f;
+            fromPos.y = 0f;
+            Vector3 dir = (toPos - fromPos).normalized;
+            float angle = Extensions.GetAngleFromVectorFloat(dir);
+            angle = angle + 90;
+            gameObject.transform.localEulerAngles = new Vector3(0, 0, angle);
         }
     }
 }
