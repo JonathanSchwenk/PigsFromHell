@@ -34,7 +34,9 @@ public class BuyGunsObject : MonoBehaviour
             gameManager.activeBuyObject = gameObject;
             buyButton.SetActive(true);
         } else {
-            buyButton.SetActive(false);
+            if (gameManager.activeBuyObject == gameObject) {
+                buyButton.SetActive(false);
+            }
         }
     }
 

@@ -27,7 +27,7 @@ public class MysteryGunButton : MonoBehaviour
 
 
     private int PrimaryOrSecondaryHelper() {
-        if (saveManager.saveData.activeWeapon.name == saveManager.saveData.currentWeapons[0].name) {
+        if (gameManager.activeWeapon.name == gameManager.currentWeapons[0].name) {
             return 0;
         } else {
             return 1;

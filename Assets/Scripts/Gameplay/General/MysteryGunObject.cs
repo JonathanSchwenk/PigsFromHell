@@ -43,7 +43,9 @@ public class MysteryGunObject : MonoBehaviour
                 buyButton.SetActive(true);
             }
         } else {
-            buttonParentObject.SetActive(false);
+            if (gameManager.activeBuyObject == gameObject) {
+                buttonParentObject.SetActive(false);
+            }
         }
     }
 

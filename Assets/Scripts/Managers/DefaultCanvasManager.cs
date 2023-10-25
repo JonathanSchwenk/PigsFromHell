@@ -29,7 +29,7 @@ public class DefaultCanvasManager : MonoBehaviour
     [SerializeField] private GameObject buyingSkinsAfterCanvas;
     [SerializeField] private GameObject getCoinsCanvas;
 
-
+    private string currentTab;
 
     private ISaveManager saveManager;
 
@@ -37,6 +37,8 @@ public class DefaultCanvasManager : MonoBehaviour
     void Start()
     {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
+
+        currentTab = "Story";
     }
 
     // Update is called once per frame
@@ -71,6 +73,8 @@ public class DefaultCanvasManager : MonoBehaviour
             survivalButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
             characterButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
             settingsButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
+
+            currentTab = tabName;
         } else if (tabName == "Survival") {
             // Change canvas
             storyCanvas.SetActive(false);
@@ -88,6 +92,8 @@ public class DefaultCanvasManager : MonoBehaviour
             survivalButton.GetComponent<Image>().sprite = skyButtonImage.GetComponent<Image>().sprite;
             characterButton.GetComponent<Image>().sprite= blueButtonImage.GetComponent<Image>().sprite;
             settingsButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
+
+            currentTab = tabName;
         } else if (tabName == "Character") {
             // Change canvas
             storyCanvas.SetActive(false);
@@ -105,6 +111,8 @@ public class DefaultCanvasManager : MonoBehaviour
             survivalButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
             characterButton.GetComponent<Image>().sprite= skyButtonImage.GetComponent<Image>().sprite;
             settingsButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
+
+            currentTab = tabName;
         } else if (tabName == "Settings") {
             // Change canvas
             storyCanvas.SetActive(false);
@@ -122,9 +130,12 @@ public class DefaultCanvasManager : MonoBehaviour
             survivalButton.GetComponent<Image>().sprite = blueButtonImage.GetComponent<Image>().sprite;
             characterButton.GetComponent<Image>().sprite= blueButtonImage.GetComponent<Image>().sprite;
             settingsButton.GetComponent<Image>().sprite = skyButtonImage.GetComponent<Image>().sprite;
+
+            currentTab = tabName;
         }
     }
 
+    // Make a variable for current tab and then change tabs based on that and now i can go back to it from the watch ad canvas
 
     public void VidForCoinsButton() {
         storyCanvas.SetActive(false);
@@ -137,5 +148,9 @@ public class DefaultCanvasManager : MonoBehaviour
         buyingSkinsAfterCanvas.SetActive(false);
 
         getCoinsCanvas.SetActive(true);
+    }
+
+    public void CancelVid() {
+        ChangeTab(currentTab);
     }
 }

@@ -22,6 +22,7 @@ public interface IGameManager {
     float enemySpeed {get; set;}
     List<GameObject> playerTasksGlobal {get; set;}
     GameObject playerGOGlobal {get; set;}
+    bool playerWon {get; set;}
 }
 
 public interface IObjectPooler {

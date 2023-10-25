@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour, IGameManager
 
     public List<GameObject> playerTasksGlobal {get; set;}
     public GameObject playerGOGlobal {get; set;}
+    public bool playerWon {get; set;}
 
 
     // Make a [SerializeField] private Goals[] (Could by GameObject[]) where you have to complete all of them to finish the level
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour, IGameManager
 
 
     [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private GameObject gameOverStoryLostCanvas;
     [SerializeField] private GameObject gameplayUICanvas;
     [SerializeField] private GameObject gameplayControlsCanvas;
     [SerializeField] private List<GameObject> playerTasks;
@@ -192,24 +194,39 @@ public class GameManager : MonoBehaviour, IGameManager
                 }
             }
         } else {
-            if (saveManager.saveData.storyLevelSelected == 6) {
-                print("Should Start Cutscene");
-                // Bomb level
-                endgameCutscene.gameObject.SetActive(true);
+            if (playerWon == true) {
+                if (saveManager.saveData.storyLevelSelected == 6) {
+                    print("Should Start Cutscene");
+                    // Bomb level
+                    endgameCutscene.gameObject.SetActive(true);
 
-                // play sound
-                audioManager.PlaySFX("GameOverStory");
+                    // play sound
+                    audioManager.PlaySFX("GameOverStory");
+                } else {
+                    // Stops the time
+                    Time.timeScale = 0;
+
+                    // play sound
+                    audioManager.PlaySFX("GameOverStory");
+                    
+                    // Changes canvases
+                    gameplayUICanvas.SetActive(false);
+                    gameplayControlsCanvas.SetActive(false);
+                    gameOverCanvas.SetActive(true); // this will be different for story gamemode
+                }
             } else {
-                // Stops the time
-                Time.timeScale = 0;
+                if (gameOverStoryLostCanvas) {
+                    // Stops the time
+                    Time.timeScale = 0;
 
-                // play sound
-                audioManager.PlaySFX("GameOverStory");
-                
-                // Changes canvases
-                gameplayUICanvas.SetActive(false);
-                gameplayControlsCanvas.SetActive(false);
-                gameOverCanvas.SetActive(true); // this will be different for story gamemode
+                    // play sound
+                    audioManager.PlaySFX("GameOverStory");
+                    
+                    // Changes canvases
+                    gameplayUICanvas.SetActive(false);
+                    gameplayControlsCanvas.SetActive(false);
+                    gameOverStoryLostCanvas.SetActive(true); // this will be different for story gamemode
+                }
             }
         }
     } 
