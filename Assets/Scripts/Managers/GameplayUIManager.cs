@@ -165,11 +165,13 @@ public class GameplayUIManager : MonoBehaviour
     }
     public void Pause() {
         if (Time.timeScale != 0) {
+            // Pause
             Time.timeScale = 0;
             pauseUI.SetActive(true);
             playerControlsUI.SetActive(false);
             gameInfoUI.SetActive(false);
         } else {
+            // Play
             Time.timeScale = 1;
             pauseUI.SetActive(false);
             playerControlsUI.SetActive(true);

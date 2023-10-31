@@ -22,19 +22,7 @@ public class GameManager : MonoBehaviour, IGameManager
     public GameObject playerGOGlobal {get; set;}
     public bool playerWon {get; set;}
 
-
-    // Make a [SerializeField] private Goals[] (Could by GameObject[]) where you have to complete all of them to finish the level
-    // At the start of the game the gamemanager reads in if its survival or story from savemanager
-    // If story then you complete goals, else if survival then no goals
-    // Each goal has a key on it
-
-    // Each GoalGameObject is public so when they are finished the gameManager can access and know and do something
-    // Prob will have to make another public action and function that is only for story (Like how updateRound is only survival) 
-    // This action/function will trigger something in each goalgameobject that tells this gameManager that its complete
-    // if all goals in list are done then level over
-    // Need to make some sort of end level thing that pops up that lets you know the level is ending (Task/goal counter to see how many left in level)
-
-
+    // Could have made the game mode into a enum
 
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject gameOverStoryLostCanvas;
@@ -90,6 +78,8 @@ public class GameManager : MonoBehaviour, IGameManager
         playerTasksGlobal = playerTasks;
 
         playerGOGlobal = playerGO;
+
+        playerWon = true;
     }
 
     // Update game state function

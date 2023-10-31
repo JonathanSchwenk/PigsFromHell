@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameOverUIManager : MonoBehaviour
 {
     [SerializeField] private GameObject pointsValue;
+    [SerializeField] private GameObject pointsValueLost;
     [SerializeField] private GameObject roundsValue;
 
 
@@ -25,19 +26,31 @@ public class GameOverUIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() // Could do this in the game over state so it only happens once but whatever
     {
-        // Setting points and round values here (Might have to move if its doesn't update and display properly)
-        pointsValue.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
-        if (roundsValue) {
-            roundsValue.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+        if (gameManager.playerWon == false && saveManager.saveData.gameMode == "Story") {
+            // Setting points and round values here (Might have to move if its doesn't update and display properly)
+            if (pointsValueLost) {
+                pointsValueLost.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
+            }
+        } else {
+            // Setting points and round values here (Might have to move if its doesn't update and display properly)
+            pointsValue.GetComponent<TextMeshProUGUI>().text = gameManager.points.ToString();
+            if (roundsValue) {
+                roundsValue.GetComponent<TextMeshProUGUI>().text = gameManager.RoundNum.ToString();
+            }
         }
     }
 
 
     public void BackToMenu() {
-        // Updates how many coins the user has
-        saveManager.saveData.coins += gameManager.RoundNum;
+        if (saveManager.saveData.gameMode == "Story") {
+            // Updates how many coins the user has
+            saveManager.saveData.coins += 25;
+        } else {
+            // Updates how many coins the user has
+            saveManager.saveData.coins += gameManager.RoundNum;
+        }
 
         saveManager.Save();
 
