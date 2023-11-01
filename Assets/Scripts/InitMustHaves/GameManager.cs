@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour, IGameManager
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject gameOverStoryLostCanvas;
     [SerializeField] private GameObject gameplayUICanvas;
+    [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject gameplayControlsCanvas;
     [SerializeField] private List<GameObject> playerTasks;
     [SerializeField] private GameObject playerGO;
@@ -48,9 +49,18 @@ public class GameManager : MonoBehaviour, IGameManager
 
     // Sets the state to ready when the game starts 
     void Start() {
-        UpdateGameState(GameState.Playing);
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         audioManager = ServiceLocator.Resolve<IAudioManager>();
+        
+        if (saveManager.saveData.gameMode == "Story") {
+            if (saveManager.saveData.storyLevelSelected == 1) {
+                UpdateGameState(GameState.Tutorial);
+            } else {
+                UpdateGameState(GameState.Playing);
+            }
+        } else {
+            UpdateGameState(GameState.Playing);
+        }
 
         // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
         if (saveManager.saveData.gameMode == "Story") {
@@ -82,12 +92,16 @@ public class GameManager : MonoBehaviour, IGameManager
         playerWon = true;
     }
 
+    // For next game, control more with this game managers state machine to keep everything in one spot
     // Update game state function
     public void UpdateGameState(GameState newState) {
         State = newState;
 
         // Swtich statement that deals with each possible state 
         switch(newState) {
+            case GameState.Tutorial:
+                HandleTutorialState();
+                break;
             case GameState.Idle:
                 
                 break;
@@ -160,6 +174,14 @@ public class GameManager : MonoBehaviour, IGameManager
             print("Levels over, stop game and show spash screen");
             UpdateGameState(GameState.GameOver);
         }
+    }
+
+    private void HandleTutorialState() {
+        Time.timeScale = 0;
+
+        tutorialCanvas.SetActive(true);
+        gameplayControlsCanvas.SetActive(false);
+        gameplayUICanvas.SetActive(false);
     }
 
     private void HandelGameOverState() {
@@ -290,6 +312,7 @@ public class GameManager : MonoBehaviour, IGameManager
 
 // GameState enum (basically a definition)
 public enum GameState {
+    Tutorial,
     Idle,
     Playing,
     GameOver

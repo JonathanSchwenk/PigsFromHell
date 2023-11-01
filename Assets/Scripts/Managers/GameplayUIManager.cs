@@ -11,6 +11,7 @@ public class GameplayUIManager : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private GameObject playerControlsUI;
     [SerializeField] private GameObject gameInfoUI;
+    [SerializeField] private GameObject tutorialUI;
 
     [SerializeField] private GameObject bulletsInMagText;
     [SerializeField] private GameObject totalReserveAmmoText;
@@ -177,5 +178,15 @@ public class GameplayUIManager : MonoBehaviour
             playerControlsUI.SetActive(true);
             gameInfoUI.SetActive(true);
         }
+    }
+
+    public void TutorialPlay() {
+        playerControlsUI.SetActive(true);
+        gameInfoUI.SetActive(true);
+        tutorialUI.SetActive(false);
+
+        Time.timeScale = 1;
+        
+        gameManager.UpdateGameState(GameState.Playing);
     }
 }
