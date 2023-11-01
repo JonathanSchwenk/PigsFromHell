@@ -54,7 +54,11 @@ public class GameManager : MonoBehaviour, IGameManager
         
         if (saveManager.saveData.gameMode == "Story") {
             if (saveManager.saveData.storyLevelSelected == 1) {
-                UpdateGameState(GameState.Tutorial);
+                if (tutorialCanvas) {
+                    UpdateGameState(GameState.Tutorial);
+                } else {
+                    UpdateGameState(GameState.Playing);
+                }
             } else {
                 UpdateGameState(GameState.Playing);
             }
@@ -209,8 +213,10 @@ public class GameManager : MonoBehaviour, IGameManager
             if (playerWon == true) {
                 if (saveManager.saveData.storyLevelSelected == 6) {
                     print("Should Start Cutscene");
-                    // Bomb level
-                    endgameCutscene.gameObject.SetActive(true);
+                    if (endgameCutscene) {
+                        // Bomb level
+                        endgameCutscene.gameObject.SetActive(true);
+                    }
 
                     // play sound
                     audioManager.PlaySFX("GameOverStory");
@@ -232,6 +238,7 @@ public class GameManager : MonoBehaviour, IGameManager
                     Time.timeScale = 0;
 
                     // play sound
+                    // Might not want this if you lose
                     audioManager.PlaySFX("GameOverStory");
                     
                     // Changes canvases

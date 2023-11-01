@@ -245,5 +245,7 @@ public class StoryCanvasManager : MonoBehaviour
         } else {
             print("Error: Level is non-existant");
         }
+
+        saveManager.saveData.gameMode = "Story";
     }
 }

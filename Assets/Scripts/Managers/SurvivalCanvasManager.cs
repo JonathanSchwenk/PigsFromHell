@@ -76,6 +76,8 @@ public class SurvivalCanvasManager : MonoBehaviour
         if (saveManager.saveData.survivalMapSelected == "ShoppingCenter") {
             SceneManager.LoadScene("Survival_ShoppingCenter");
         }
+
+        saveManager.saveData.gameMode = "Survival";
     }
 
 
