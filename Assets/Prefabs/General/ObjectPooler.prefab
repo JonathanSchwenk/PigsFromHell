@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7383767995978905466}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3031877122397029772
 MonoBehaviour:
@@ -74,9 +74,6 @@ MonoBehaviour:
     size: 50
   - tag: FireBullet
     prefab: {fileID: 8717833532113331954, guid: dcaa589868b8d4b629dfb65a4ad5775c, type: 3}
-    size: 50
-  - tag: RailGunBolt
-    prefab: {fileID: 2169059539348768937, guid: 8d4f9f7e6ec9f4d8eb6c3ce60f949725, type: 3}
     size: 50
   - tag: GroundFire
     prefab: {fileID: 1072266305437261759, guid: 07b599598acb84517a07ab8f6c8f4b46, type: 3}

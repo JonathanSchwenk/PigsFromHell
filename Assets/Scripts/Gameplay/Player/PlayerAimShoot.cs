@@ -376,9 +376,9 @@ public class PlayerAimShoot : MonoBehaviour
                 go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().damage = gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
             }
             if (gameManager.dropsList.Contains("Impact")) {
-                go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact * 2;
+                go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact * 2;
             } else {
-                go.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
+                go.transform.GetChild(1).gameObject.GetComponent<RailGunBolt>().impact = gameManager.activeWeapon.impact;
             } 
         } else if (projectileType == "PoisonShot") {
             if (gameManager.dropsList.Contains("InstaKill")) {

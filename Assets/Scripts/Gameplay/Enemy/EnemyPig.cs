@@ -55,7 +55,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
 
@@ -68,7 +67,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
 
@@ -81,7 +79,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "RocketExplosion") {
@@ -91,7 +88,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "Arrow") {
@@ -101,7 +97,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "Fire") {
@@ -112,7 +107,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "RailGunBolt") {
@@ -122,7 +116,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "PoisonShot") {
@@ -133,7 +126,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "ElectricBullet") {
@@ -143,7 +135,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "ElectricBlast") {
@@ -153,7 +144,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "GravityShot") {
@@ -163,7 +153,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "SawBlade") {
@@ -173,7 +162,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "IceBullet") {
@@ -184,7 +172,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
     }
@@ -203,7 +190,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
         if (other.tag == "PoisonSmoke") {
@@ -213,7 +199,6 @@ public class EnemyPig : MonoBehaviour
                 gameObject.SetActive(false);
                 spawnManager.numEnemies -= 1;
                 gameManager.points += pointValue;
-                navMeshAgent.speed = 3.5f;
             }
         }
     }

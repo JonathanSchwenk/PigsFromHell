@@ -68,7 +68,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[0].name = "Hunting Rifle";
         saveManager.saveData.totalNormalWeapons[0].firePointPos = new Vector3(0.315f, 0.625f, 1.2f);
         saveManager.saveData.totalNormalWeapons[0].fireRate = 0.5f;
-        saveManager.saveData.totalNormalWeapons[0].movementSpeed = 2;
+        saveManager.saveData.totalNormalWeapons[0].movementSpeed = 1.8f;
         saveManager.saveData.totalNormalWeapons[0].bulletForce = 30;
         saveManager.saveData.totalNormalWeapons[0].magSize = 10;
         saveManager.saveData.totalNormalWeapons[0].totalAmmo = 100;
@@ -82,7 +82,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[1].name = "Pistol";
         saveManager.saveData.totalNormalWeapons[1].firePointPos = new Vector3(0.315f, 0.625f, 0.65f);
         saveManager.saveData.totalNormalWeapons[1].fireRate = 0.25f;
-        saveManager.saveData.totalNormalWeapons[1].movementSpeed = 2.5f;
+        saveManager.saveData.totalNormalWeapons[1].movementSpeed = 2.1f;
         saveManager.saveData.totalNormalWeapons[1].bulletForce = 15;
         saveManager.saveData.totalNormalWeapons[1].magSize = 12;
         saveManager.saveData.totalNormalWeapons[1].totalAmmo = 120;
@@ -96,7 +96,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[2].name = "Assault Rifle";
         saveManager.saveData.totalNormalWeapons[2].firePointPos = new Vector3(0.31f, 0.656f, 1.325f);
         saveManager.saveData.totalNormalWeapons[2].fireRate = 0.15f;
-        saveManager.saveData.totalNormalWeapons[2].movementSpeed = 2;
+        saveManager.saveData.totalNormalWeapons[2].movementSpeed = 1.8f;
         saveManager.saveData.totalNormalWeapons[2].bulletForce = 25;
         saveManager.saveData.totalNormalWeapons[2].magSize = 40;
         saveManager.saveData.totalNormalWeapons[2].totalAmmo = 400;
@@ -110,7 +110,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[3].name = "HMG";
         saveManager.saveData.totalNormalWeapons[3].firePointPos = new Vector3(0.325f, 0.595f, 0.75f);
         saveManager.saveData.totalNormalWeapons[3].fireRate = 0.1f;
-        saveManager.saveData.totalNormalWeapons[3].movementSpeed = 2.35f;
+        saveManager.saveData.totalNormalWeapons[3].movementSpeed = 2f;
         saveManager.saveData.totalNormalWeapons[3].bulletForce = 20;
         saveManager.saveData.totalNormalWeapons[3].magSize = 25;
         saveManager.saveData.totalNormalWeapons[3].totalAmmo = 250;
@@ -124,7 +124,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[4].name = "SMG";
         saveManager.saveData.totalNormalWeapons[4].firePointPos = new Vector3(0.325f, 0.6f, 0.85f);
         saveManager.saveData.totalNormalWeapons[4].fireRate = 0.1f;
-        saveManager.saveData.totalNormalWeapons[4].movementSpeed = 2.25f;
+        saveManager.saveData.totalNormalWeapons[4].movementSpeed = 1.9f;
         saveManager.saveData.totalNormalWeapons[4].bulletForce = 20;
         saveManager.saveData.totalNormalWeapons[4].magSize = 30;
         saveManager.saveData.totalNormalWeapons[4].totalAmmo = 300;
@@ -152,7 +152,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[6].name = "Shotgun";
         saveManager.saveData.totalNormalWeapons[6].firePointPos = new Vector3(0.3f, 0.625f, 1.075f);
         saveManager.saveData.totalNormalWeapons[6].fireRate = 0.75f;
-        saveManager.saveData.totalNormalWeapons[6].movementSpeed = 2.25f;
+        saveManager.saveData.totalNormalWeapons[6].movementSpeed = 1.9f;
         saveManager.saveData.totalNormalWeapons[6].bulletForce = 20;
         saveManager.saveData.totalNormalWeapons[6].magSize = 8;
         saveManager.saveData.totalNormalWeapons[6].totalAmmo = 80;
@@ -166,7 +166,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[7].name = "Knife";
         saveManager.saveData.totalNormalWeapons[7].firePointPos = new Vector3(0f, 0f, 0f);
         saveManager.saveData.totalNormalWeapons[7].fireRate = 1f;
-        saveManager.saveData.totalNormalWeapons[7].movementSpeed = 2.5f;
+        saveManager.saveData.totalNormalWeapons[7].movementSpeed = 2.2f;
         saveManager.saveData.totalNormalWeapons[7].bulletForce =  -1;
         saveManager.saveData.totalNormalWeapons[7].magSize = -1;
         saveManager.saveData.totalNormalWeapons[7].totalAmmo = -1;
@@ -182,7 +182,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[0].name = "Flame Thrower";
         saveManager.saveData.totalSpecialWeapons[0].firePointPos = new Vector3(0.3f, 0.625f, 1.05f);
         saveManager.saveData.totalSpecialWeapons[0].fireRate = 0.1f;
-        saveManager.saveData.totalSpecialWeapons[0].movementSpeed = 1.75f;
+        saveManager.saveData.totalSpecialWeapons[0].movementSpeed = 1.7f;
         saveManager.saveData.totalSpecialWeapons[0].bulletForce = 10;
         saveManager.saveData.totalSpecialWeapons[0].magSize = 100;
         saveManager.saveData.totalSpecialWeapons[0].totalAmmo = 800;
@@ -196,7 +196,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[1].name = "Rail Gun";
         saveManager.saveData.totalSpecialWeapons[1].firePointPos = new Vector3(0.325f, 0.625f, 1.25f);
         saveManager.saveData.totalSpecialWeapons[1].fireRate = 1f;
-        saveManager.saveData.totalSpecialWeapons[1].movementSpeed = 1.75f;
+        saveManager.saveData.totalSpecialWeapons[1].movementSpeed = 1.7f;
         saveManager.saveData.totalSpecialWeapons[1].bulletForce = 80;
         saveManager.saveData.totalSpecialWeapons[1].magSize = 2;
         saveManager.saveData.totalSpecialWeapons[1].totalAmmo = 16;
@@ -210,7 +210,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[2].name = "Cross Bow";
         saveManager.saveData.totalSpecialWeapons[2].firePointPos = new Vector3(0.325f, 0.625f, 1.175f);
         saveManager.saveData.totalSpecialWeapons[2].fireRate = 0.5f;
-        saveManager.saveData.totalSpecialWeapons[2].movementSpeed = 2.5f;
+        saveManager.saveData.totalSpecialWeapons[2].movementSpeed = 2.1f;
         saveManager.saveData.totalSpecialWeapons[2].bulletForce = 40;
         saveManager.saveData.totalSpecialWeapons[2].magSize = 2;
         saveManager.saveData.totalSpecialWeapons[2].totalAmmo = 0;
@@ -238,7 +238,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[4].name = "Mini Gun";
         saveManager.saveData.totalSpecialWeapons[4].firePointPos = new Vector3(0.125f, 0.5f, 1.35f);
         saveManager.saveData.totalSpecialWeapons[4].fireRate = 0.025f;
-        saveManager.saveData.totalSpecialWeapons[4].movementSpeed = 1f;
+        saveManager.saveData.totalSpecialWeapons[4].movementSpeed = 1.4f;
         saveManager.saveData.totalSpecialWeapons[4].bulletForce = 20;
         saveManager.saveData.totalSpecialWeapons[4].magSize = 200;
         saveManager.saveData.totalSpecialWeapons[4].totalAmmo = 1600;
@@ -252,7 +252,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[5].name = "Chemical Gun";
         saveManager.saveData.totalSpecialWeapons[5].firePointPos = new Vector3(0.325f, 0.65f, 0.75f);
         saveManager.saveData.totalSpecialWeapons[5].fireRate = 0.75f;
-        saveManager.saveData.totalSpecialWeapons[5].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[5].movementSpeed = 1.8f;
         saveManager.saveData.totalSpecialWeapons[5].bulletForce = 15;
         saveManager.saveData.totalSpecialWeapons[5].magSize = 12;
         saveManager.saveData.totalSpecialWeapons[5].totalAmmo = 120;
@@ -266,7 +266,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[6].name = "Electric Gun";
         saveManager.saveData.totalSpecialWeapons[6].firePointPos = new Vector3(0.325f, 0.65f, 0.6f);
         saveManager.saveData.totalSpecialWeapons[6].fireRate = 0.75f;
-        saveManager.saveData.totalSpecialWeapons[6].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[6].movementSpeed = 1.9f;
         saveManager.saveData.totalSpecialWeapons[6].bulletForce = 15;
         saveManager.saveData.totalSpecialWeapons[6].magSize = 12;
         saveManager.saveData.totalSpecialWeapons[6].totalAmmo = 120;
@@ -280,7 +280,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[7].name = "Gravity Gun";
         saveManager.saveData.totalSpecialWeapons[7].firePointPos = new Vector3(0.325f, 0.65f, 1.1f);
         saveManager.saveData.totalSpecialWeapons[7].fireRate = 0.8f;
-        saveManager.saveData.totalSpecialWeapons[7].movementSpeed = 1.75f;
+        saveManager.saveData.totalSpecialWeapons[7].movementSpeed = 1.7f;
         saveManager.saveData.totalSpecialWeapons[7].bulletForce = 10;
         saveManager.saveData.totalSpecialWeapons[7].magSize = 5;
         saveManager.saveData.totalSpecialWeapons[7].totalAmmo = 50;
@@ -294,7 +294,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[8].name = "Saw Gun";
         saveManager.saveData.totalSpecialWeapons[8].firePointPos = new Vector3(0.325f, 0.65f, 1.25f);
         saveManager.saveData.totalSpecialWeapons[8].fireRate = 0.75f;
-        saveManager.saveData.totalSpecialWeapons[8].movementSpeed = 1.5f;
+        saveManager.saveData.totalSpecialWeapons[8].movementSpeed = 1.6f;
         saveManager.saveData.totalSpecialWeapons[8].bulletForce = 25;
         saveManager.saveData.totalSpecialWeapons[8].magSize = 10;
         saveManager.saveData.totalSpecialWeapons[8].totalAmmo = 100;
@@ -308,7 +308,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalSpecialWeapons[9].name = "Ice Gun";
         saveManager.saveData.totalSpecialWeapons[9].firePointPos = new Vector3(0.325f, 0.65f, 1f);
         saveManager.saveData.totalSpecialWeapons[9].fireRate = 0.20f;
-        saveManager.saveData.totalSpecialWeapons[9].movementSpeed = 2f;
+        saveManager.saveData.totalSpecialWeapons[9].movementSpeed = 1.8f;
         saveManager.saveData.totalSpecialWeapons[9].bulletForce = 25;
         saveManager.saveData.totalSpecialWeapons[9].magSize = 30;
         saveManager.saveData.totalSpecialWeapons[9].totalAmmo = 300;

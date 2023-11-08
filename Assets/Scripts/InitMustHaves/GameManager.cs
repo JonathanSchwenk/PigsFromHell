@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour, IGameManager
     void Start() {
         saveManager = ServiceLocator.Resolve<ISaveManager>();
         audioManager = ServiceLocator.Resolve<IAudioManager>();
-        
+
         if (saveManager.saveData.gameMode == "Story") {
             if (saveManager.saveData.storyLevelSelected == 1) {
                 if (tutorialCanvas) {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour, IGameManager
         // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
         if (saveManager.saveData.gameMode == "Story") {
             RoundNum = 20; // 0 for survival
-            enemySpeed = 3f;
+            enemySpeed = 1.8f;
             UpdateRound();
         } else {
             // RoundNum gets set to 0 and then the round gets updated which increases the round number and invokes all subscribed actions
@@ -128,10 +128,10 @@ public class GameManager : MonoBehaviour, IGameManager
             // Increased thet round number
             RoundNum += 1;
 
-            enemySpeed = 1.5f + (RoundNum * 0.1f);
+            enemySpeed = 1.5f + (RoundNum * 0.025f);
 
-            if (enemySpeed >= 3.2f) {
-                enemySpeed = 3.2f;
+            if (enemySpeed >= 2f) {
+                enemySpeed = 2f;
             }
 
             // Null checker then calls the action for anthing subscribed to it
