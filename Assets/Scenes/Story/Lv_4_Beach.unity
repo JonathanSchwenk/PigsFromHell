@@ -8772,6 +8772,14 @@ PrefabInstance:
       propertyPath: buyButton
       value: 
       objectReference: {fileID: 135904498}
+    - target: {fileID: 2741445825161056396, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 61.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741445825161056396, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 651
+      objectReference: {fileID: 0}
     - target: {fileID: 3600175860954434945, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -8780,6 +8788,14 @@ PrefabInstance:
       propertyPath: buyButton
       value: 
       objectReference: {fileID: 1235884840}
+    - target: {fileID: 3737964975738513478, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 218.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737964975738513478, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 638.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4753673616108664689, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -8804,6 +8820,14 @@ PrefabInstance:
       propertyPath: buttonParentObject
       value: 
       objectReference: {fileID: 992323427}
+    - target: {fileID: 6198508197089536636, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 202.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609958732990760076, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 217
+      objectReference: {fileID: 0}
     - target: {fileID: 8205125852681898403, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
