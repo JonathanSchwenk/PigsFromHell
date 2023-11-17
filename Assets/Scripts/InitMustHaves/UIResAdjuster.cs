@@ -21,12 +21,13 @@ public class UIResAdjuster : MonoBehaviour
         for (int i = 0; i < gameObject.transform.childCount; i++) {
             gameObject.transform.GetChild(i).localScale = new Vector3(scaleValueX, scaleValueY, 1);
 
-            
-            gameObject.transform.GetChild(i).position = new Vector3(
-                ((gameObject.transform.GetChild(i).transform.position.x - (Screen.width / 2)) * scaleValueX) + (Screen.width / 2),
-                ((gameObject.transform.GetChild(i).transform.position.y - (Screen.height / 2)) * scaleValueY) + (Screen.height / 2),
-                0
-            );
+            if (gameObject.transform.GetChild(i).name != "MoveJoystick" && gameObject.transform.GetChild(i).name != "AimShootJoystick") {
+                gameObject.transform.GetChild(i).position = new Vector3(
+                    ((gameObject.transform.GetChild(i).transform.position.x - (Screen.width / 2)) * scaleValueX) + (Screen.width / 2),
+                    ((gameObject.transform.GetChild(i).transform.position.y - (Screen.height / 2)) * scaleValueY) + (Screen.height / 2),
+                    0
+                );
+            }
 
             
         }
