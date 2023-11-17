@@ -62,6 +62,7 @@ public class InitWeaponData : MonoBehaviour
 
     }
 
+    // Calls this every time you got to the main menu so if I'm changing stuff it will update.
     private void InitTotalWeapons() {
         // Normal Guns
         saveManager.saveData.totalNormalWeapons[0] = new WeaponData();
