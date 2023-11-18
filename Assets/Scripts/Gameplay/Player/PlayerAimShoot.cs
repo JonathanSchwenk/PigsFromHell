@@ -25,7 +25,6 @@ public class PlayerAimShoot : MonoBehaviour
 
     private int totalAmmo;
     private int magSize;
-    private int shotsInMag;
     private WeaponData activeWeapon;
 
 
@@ -66,11 +65,6 @@ public class PlayerAimShoot : MonoBehaviour
         firerateTime = activeWeapon.fireRate;
         fireRateCounter = 0; //firerateTime; // Might get rid of this and change back to 0. I feel that a slight delay is good for the user to aim.
         magSize = activeWeapon.magSize;
-        if (activeWeapon.reserveAmmo > magSize) {
-            shotsInMag = magSize;
-        } else {
-            shotsInMag = activeWeapon.reserveAmmo;
-        }
 
         rightFirePoint.transform.localPosition = activeWeapon.firePointPos;
     }
@@ -93,11 +87,6 @@ public class PlayerAimShoot : MonoBehaviour
         firerateTime = activeWeapon.fireRate;
         fireRateCounter = 0; //firerateTime; // Might get rid of this and change back to 0. I feel that a slight delay is good for the user to aim.
         magSize = activeWeapon.magSize;
-        if (activeWeapon.reserveAmmo > magSize) {
-            shotsInMag = magSize;
-        } else {
-            shotsInMag = activeWeapon.reserveAmmo;
-        }
 
         rightFirePoint.transform.localPosition = activeWeapon.firePointPos;
 
@@ -122,7 +111,7 @@ public class PlayerAimShoot : MonoBehaviour
 
             // shoot here
             if (fireRateCounter >= firerateTime) {
-                if (shotsInMag > 0 || shotsInMag < 0) {
+                if (gameManager.activeWeapon.bulletsInMag > 0 || gameManager.activeWeapon.bulletsInMag < 0) {
                     // Shoot actual projectile
                     Shoot();
                     // Resets fire rate
@@ -293,7 +282,6 @@ public class PlayerAimShoot : MonoBehaviour
 
 
             // Lower shots in mag
-            shotsInMag -= 1;
             activeWeapon.bulletsInMag -= 1;
         } else {
             // Knife

@@ -85,14 +85,20 @@ public class PlayerReload : MonoBehaviour
 
             audioManager.PlaySFX("Reload");
             
-            if (gameManager.activeWeapon.reserveAmmo > magSize) {
+            if (gameManager.activeWeapon.reserveAmmo >= magSize) {
                 gameManager.activeWeapon.bulletsInMag = magSize;
                 gameManager.activeWeapon.reserveAmmo -= (magSize - shotsInMag);
             } else {
-                gameManager.activeWeapon.bulletsInMag = gameManager.activeWeapon.reserveAmmo;
-                gameManager.activeWeapon.reserveAmmo = 0;
+                // If current shots in mag + reserve amma > magsize
+                if ((gameManager.activeWeapon.bulletsInMag + gameManager.activeWeapon.reserveAmmo) >= magSize) {
+                    // subtract from reserves
+                    gameManager.activeWeapon.reserveAmmo -= (magSize - gameManager.activeWeapon.bulletsInMag);
+                    gameManager.activeWeapon.bulletsInMag = magSize;
+                } else {
+                    gameManager.activeWeapon.bulletsInMag = (gameManager.activeWeapon.bulletsInMag) + gameManager.activeWeapon.reserveAmmo;
+                    gameManager.activeWeapon.reserveAmmo = 0;
+                }
             }
-            saveManager.Save(); // Might not need save here
         } 
     }
 }

@@ -60,6 +60,28 @@ public class GameOverUIManager : MonoBehaviour
         adManager.LoadRewardedAd(false);
     }
 
+    public void BackToMenuStoryWon() {
+        saveManager.saveData.coins += 25;
+
+        saveManager.saveData.levelsCompleted = saveManager.saveData.storyLevelSelected;
+
+        saveManager.Save();
+
+        Time.timeScale = 1; // So animation in main menu runs still
+
+        // Need to play ad now before changing scenes
+        adManager.LoadRewardedAd(false);
+    }
+
+    public void BackToMenuStoryLost() {
+
+        saveManager.Save();
+
+        Time.timeScale = 1; // So animation in main menu runs still
+
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void Replay() {
         // Updates how many coins the user has
         saveManager.saveData.coins += gameManager.RoundNum;

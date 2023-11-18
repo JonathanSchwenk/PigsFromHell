@@ -90,7 +90,7 @@ public class InitWeaponData : MonoBehaviour
         saveManager.saveData.totalNormalWeapons[1].impact = 1;
         saveManager.saveData.totalNormalWeapons[1].damage = 0.5f;
         saveManager.saveData.totalNormalWeapons[1].bulletsInMag = 12;
-        saveManager.saveData.totalNormalWeapons[1].reserveAmmo = 120;
+        saveManager.saveData.totalNormalWeapons[1].reserveAmmo = 12;
         saveManager.saveData.totalNormalWeapons[1].starValue = 1;
 
         saveManager.saveData.totalNormalWeapons[2] = new WeaponData();

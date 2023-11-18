@@ -84,6 +84,18 @@ public class AdManager : MonoBehaviour , IAdManager
 
                 rewardedAd.OnUserEarnedReward += (object sender, Reward reward) => {
 
+                    print("Should play music");
+                    if (saveManager.saveData.musicOn == true) {
+                        audioManager.PlayMusic("MenuBackgroundMusic");
+                    }
+                    if (isMenu != true) {
+                        SceneManager.LoadScene("MainMenu");
+                    }
+                    saveManager.saveData.numVidsWatchedToday += 1;
+                    saveManager.saveData.coins += 10;
+                    saveManager.saveData.vidAdDate = DateTime.Now;
+                    saveManager.Save();
+
                     // Need to destroy the rewardedAd
                     rewardedAd.Destroy();
                 };
@@ -137,6 +149,14 @@ public class AdManager : MonoBehaviour , IAdManager
 
                 // Need to destroy the rewardedAd
                 rewardedAd.Destroy();
+
+                print("Should play music");
+                if (saveManager.saveData.musicOn == true) {
+                    audioManager.PlayMusic("MenuBackgroundMusic");
+                }
+                if (isMenu != true) {
+                    SceneManager.LoadScene("MainMenu");
+                }
             };
             rewardedAd.OnAdOpening += (object sender, EventArgs eventArgs) => {
                 // Pause music
@@ -150,7 +170,7 @@ public class AdManager : MonoBehaviour , IAdManager
                     audioManager.PlayMusic("MenuBackgroundMusic");
                 }
 
-                saveManager.saveData.numVidsWatchedToday += 1;
+                // saveManager.saveData.numVidsWatchedToday += 1;
 
                 // Since isMenu is false that means its coming from the story or survival and it shouldn't give coins but should bring you to the main menu
                 if (isMenu != true) {
