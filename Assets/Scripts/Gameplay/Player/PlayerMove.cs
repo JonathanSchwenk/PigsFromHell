@@ -35,7 +35,7 @@ public class PlayerMove : MonoBehaviour
         // Sets speed based off speedDrop
         // This will changeg to the speed value from thte weapon date for thte active gun from the game manager.
         if (gameManager.dropsList.Contains("Speed")) {
-            speed = gameManager.activeWeapon.movementSpeed + 1;
+            speed = gameManager.activeWeapon.movementSpeed + 0.5f;
         } else {
             speed = gameManager.activeWeapon.movementSpeed;
         }

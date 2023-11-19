@@ -22,7 +22,7 @@ public class Task_HoldPosition : MonoBehaviour
         gameManager = ServiceLocator.Resolve<IGameManager>();
         audioManager = ServiceLocator.Resolve<IAudioManager>();
 
-        totalCounterNeeded = 15.0f;
+        totalCounterNeeded = 10.0f;
         playersCurrentCounter = 0;
     }
 
@@ -37,19 +37,19 @@ public class Task_HoldPosition : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             playersCurrentCounter += (1 * Time.deltaTime);
 
-            if (playersCurrentCounter >= 3 && particleBeam1.activeSelf == false) {
+            if (playersCurrentCounter >= 2 && particleBeam1.activeSelf == false) {
                 particleBeam1.SetActive(true);
                 audioManager.PlaySFX("HoldPosThreshold");
             }
-            if (playersCurrentCounter >= 6 && particleBeam2.activeSelf == false) {
+            if (playersCurrentCounter >= 4 && particleBeam2.activeSelf == false) {
                 particleBeam2.SetActive(true);
                 audioManager.PlaySFX("HoldPosThreshold");
             }
-            if (playersCurrentCounter >= 9 && particleBeam3.activeSelf == false) {
+            if (playersCurrentCounter >= 6 && particleBeam3.activeSelf == false) {
                 particleBeam3.SetActive(true);
                 audioManager.PlaySFX("HoldPosThreshold");
             }
-            if (playersCurrentCounter >= 12 && particleBeam4.activeSelf == false) {
+            if (playersCurrentCounter >= 8 && particleBeam4.activeSelf == false) {
                 particleBeam4.SetActive(true);
                 audioManager.PlaySFX("HoldPosThreshold");
             }

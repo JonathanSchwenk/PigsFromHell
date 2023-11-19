@@ -9453,6 +9453,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1470061865}
     m_Modifications:
+    - target: {fileID: 38539504244455817, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 140665606774726775, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -9493,6 +9497,10 @@ PrefabInstance:
       propertyPath: buttonParentObject
       value: 
       objectReference: {fileID: 1723725997}
+    - target: {fileID: 964474114218054337, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1242626346950443451, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -107.3
@@ -9529,6 +9537,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 553.8
       objectReference: {fileID: 0}
+    - target: {fileID: 1949393737730173092, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120315202395032289, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890474395223483891, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2895029155235759749, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -9537,6 +9557,10 @@ PrefabInstance:
       propertyPath: buyButton
       value: 
       objectReference: {fileID: 1688736253}
+    - target: {fileID: 2972456265628086745, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3026877810221805967, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -120.7
@@ -9577,6 +9601,10 @@ PrefabInstance:
       propertyPath: buttonParentObject
       value: 
       objectReference: {fileID: 1723725997}
+    - target: {fileID: 3917449257909183221, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4466541679588650114, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -9605,6 +9633,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 543.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5552557675738360549, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5877694660481187955, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -9621,6 +9653,22 @@ PrefabInstance:
       propertyPath: buttonParentObject
       value: 
       objectReference: {fileID: 1723725997}
+    - target: {fileID: 5948333154025853294, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334312708877536843, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6494528837993804717, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6901357867284330334, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7456034913360162824, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
@@ -9629,6 +9677,10 @@ PrefabInstance:
       propertyPath: buyButton
       value: 
       objectReference: {fileID: 1688736253}
+    - target: {fileID: 7650240373138299314, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7692117890261831150, guid: f2d4ca7fa220144838e47fe99975a84c, type: 3}
       propertyPath: target
       value: 
