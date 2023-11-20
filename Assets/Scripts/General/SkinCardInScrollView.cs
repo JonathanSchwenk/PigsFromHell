@@ -77,6 +77,7 @@ public class SkinCardInScrollView : MonoBehaviour
             GameObject go;
             go = Instantiate(skinCardPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
             go.transform.SetParent(scrollViewContents.transform);
+            go.transform.localScale = new Vector3(1, 1, 1);
             
             UpdateSkinCards(go, i);
         }

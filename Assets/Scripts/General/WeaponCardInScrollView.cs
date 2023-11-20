@@ -15,7 +15,6 @@ public class WeaponCardInScrollView : MonoBehaviour
     private RectTransform scrollViewRectTransfrom;
     private bool cardsAlreadySpawned;
 
-
     private ISaveManager saveManager;
 
 
@@ -90,6 +89,8 @@ public class WeaponCardInScrollView : MonoBehaviour
                 go = Instantiate(weaponCardPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
                 go.transform.SetParent(scrollViewContents.transform);
                 
+                go.transform.localScale = new Vector3(1, 1, 1);
+                
                 UpdateWeaponCards(true, go, i);
             }
         } else {
@@ -99,6 +100,8 @@ public class WeaponCardInScrollView : MonoBehaviour
                 GameObject go;
                 go = Instantiate(weaponCardPrefab, new Vector3(0,0,0), Quaternion.identity) as GameObject;
                 go.transform.SetParent(scrollViewContents.transform);
+
+                go.transform.localScale = new Vector3(1, 1, 1);
 
                 UpdateWeaponCards(false, go, i);
             }

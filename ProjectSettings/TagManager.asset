@@ -24,6 +24,7 @@ TagManager:
   - SawBlade
   - IceBullet
   - Knife
+  - DontScaleOrMove
   layers:
   - Default
   - TransparentFX
