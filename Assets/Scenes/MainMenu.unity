@@ -2552,7 +2552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: -280}
+  m_AnchoredPosition: {x: -500, y: -280}
   m_SizeDelta: {x: 250, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285860473
@@ -5901,7 +5901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: -95}
+  m_AnchoredPosition: {x: -500, y: -95}
   m_SizeDelta: {x: 250, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &539227108
@@ -12938,8 +12938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 0}
-  m_SizeDelta: {x: 260, y: 750}
+  m_AnchoredPosition: {x: -520, y: 0}
+  m_SizeDelta: {x: 300, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238524183
 MonoBehaviour:
@@ -18691,7 +18691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 400, y: 0}
+  m_AnchoredPosition: {x: 400.00018, y: 0}
   m_SizeDelta: {x: 1500, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1859608789
@@ -19778,7 +19778,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 275}
+  m_AnchoredPosition: {x: -500, y: 275}
   m_SizeDelta: {x: 250, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960189246
@@ -20117,7 +20117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540, y: 90}
+  m_AnchoredPosition: {x: -500, y: 90}
   m_SizeDelta: {x: 250, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1999031915
@@ -21342,8 +21342,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1253510473}
   m_HandleRect: {fileID: 1253510472}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.46666667
+  m_Value: -0.00000030517577
+  m_Size: 0.46666408
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
