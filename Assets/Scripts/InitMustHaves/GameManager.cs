@@ -71,8 +71,16 @@ public class GameManager : MonoBehaviour, IGameManager
 
             // for level 1 could make it like round 5ish to make it much easier.
             if (saveManager.saveData.storyLevelSelected == 1) {
-                RoundNum = 20; // 0 for survival
+                RoundNum = 5; // 0 for survival
                 enemySpeed = 1.5f;
+                UpdateRound();
+            } else if (saveManager.saveData.storyLevelSelected == 2) {
+                RoundNum = 10; // 0 for survival
+                enemySpeed = 1.6f;
+                UpdateRound();
+            } else if (saveManager.saveData.storyLevelSelected == 3) {
+                RoundNum = 15; // 0 for survival
+                enemySpeed = 1.7f;
                 UpdateRound();
             } else {
                 RoundNum = 20; // 0 for survival
