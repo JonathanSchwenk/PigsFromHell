@@ -68,9 +68,18 @@ public class GameManager : MonoBehaviour, IGameManager
 
         // If the game mode is story mode then I set the round to 15 so it updates to 16 and it will stay there the whole level
         if (saveManager.saveData.gameMode == "Story") {
-            RoundNum = 20; // 0 for survival
-            enemySpeed = 1.8f;
-            UpdateRound();
+
+            // for level 1 could make it like round 5ish to make it much easier.
+            if (saveManager.saveData.storyLevelSelected == 1) {
+                RoundNum = 20; // 0 for survival
+                enemySpeed = 1.5f;
+                UpdateRound();
+            } else {
+                RoundNum = 20; // 0 for survival
+                enemySpeed = 1.8f;
+                UpdateRound();
+            }
+
         } else {
             // RoundNum gets set to 0 and then the round gets updated which increases the round number and invokes all subscribed actions
             RoundNum = 0; // 0 for survival
