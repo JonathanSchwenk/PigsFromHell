@@ -42,7 +42,7 @@ public class BuySkinInMenu : MonoBehaviour
         // Putting cost here but we can take it in as a parameter
         int cost = 10;
 
-        if (saveManager.saveData.coins <= cost) { // Change back to >=
+        if (saveManager.saveData.coins >= cost) { // Change back to >=
             // Disable buttons so you cant spam it
             buyButton.SetActive(false);
             cancelButton.SetActive(false);

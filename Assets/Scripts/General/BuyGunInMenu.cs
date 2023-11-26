@@ -34,7 +34,7 @@ public class BuyGunInMenu : MonoBehaviour
 
 
     public void BuyGun(int cost) {
-        if (saveManager.saveData.coins <= cost) { // change back to >=
+        if (saveManager.saveData.coins >= cost) { // change back to >=
 
             // Loops through normal weapons to set the correct weapon to the current one
             for (int i = 0; i < saveManager.saveData.totalNormalWeapons.Length; i++) {

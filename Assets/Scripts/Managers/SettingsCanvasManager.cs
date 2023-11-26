@@ -73,4 +73,12 @@ public class SettingsCanvasManager : MonoBehaviour
 
         saveManager.Save();
     }
+
+    public void OpenSchwenkStudios() {
+        Application.OpenURL("https://schwenkstudios.com");
+    }
+
+    public void OpenSchwenkStudiosPrivacy() {
+        Application.OpenURL("https://schwenkstudios.com/privacy-policy/privacy-policy.html");
+    }
 }
