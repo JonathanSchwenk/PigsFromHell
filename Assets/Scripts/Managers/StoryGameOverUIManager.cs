@@ -40,7 +40,8 @@ public class StoryGameOverUIManager : MonoBehaviour
         Time.timeScale = 1; // So animation in main menu runs still
 
         // Need to play ad now before changing scenes
-        adManager.LoadRewardedAd(false);
+        // adManager.LoadRewardedAd(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Replay() {

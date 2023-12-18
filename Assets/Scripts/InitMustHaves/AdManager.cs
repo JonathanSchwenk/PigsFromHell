@@ -112,12 +112,12 @@ public class AdManager : MonoBehaviour , IAdManager
                     }
 
                     // Since isMenu is true that means its coming from the menu and it should give you coins but not go to the main menu
-                    saveManager.saveData.numVidsWatchedToday += 1;
-                    saveManager.saveData.coins += 10;
+                    // saveManager.saveData.numVidsWatchedToday += 1;
+                    // saveManager.saveData.coins += 10;
                     
                     // Sets so you have watched a video today
-                    saveManager.saveData.vidAdDate = DateTime.Now;
-                    saveManager.Save();
+                    // saveManager.saveData.vidAdDate = DateTime.Now;
+                    // saveManager.Save();
                 };
                 rewardedAd.OnAdLoaded += (object sender, EventArgs eventArgs) => {
                     print("On ad loaded");
@@ -126,6 +126,7 @@ public class AdManager : MonoBehaviour , IAdManager
 
                 rewardedAd.OnAdFailedToLoad += (object sender, AdFailedToLoadEventArgs failedEventArgs) => {
                     print("On ad failed to load");
+                    SceneManager.LoadScene("MainMenu");
                 };
 
                 // Load request
@@ -173,9 +174,9 @@ public class AdManager : MonoBehaviour , IAdManager
                 // saveManager.saveData.numVidsWatchedToday += 1;
 
                 // Since isMenu is false that means its coming from the story or survival and it shouldn't give coins but should bring you to the main menu
-                if (isMenu != true) {
-                    SceneManager.LoadScene("MainMenu");
-                }
+                // if (isMenu != true) {
+                //     SceneManager.LoadScene("MainMenu");
+                // }
             };
             rewardedAd.OnAdLoaded += (object sender, EventArgs eventArgs) => {
                 print("On ad loaded");
@@ -184,6 +185,7 @@ public class AdManager : MonoBehaviour , IAdManager
 
             rewardedAd.OnAdFailedToLoad += (object sender, AdFailedToLoadEventArgs failedEventArgs) => {
                 print("On ad failed to load");
+                SceneManager.LoadScene("MainMenu");
             };
 
             // Load request

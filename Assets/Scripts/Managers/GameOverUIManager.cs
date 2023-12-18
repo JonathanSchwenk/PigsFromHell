@@ -44,6 +44,7 @@ public class GameOverUIManager : MonoBehaviour
 
 
     public void BackToMenu() {
+        // Pretty sure I dont need this conditional because the story game over calls a different function below
         if (saveManager.saveData.gameMode == "Story") {
             // Updates how many coins the user has
             saveManager.saveData.coins += 25;
@@ -56,8 +57,10 @@ public class GameOverUIManager : MonoBehaviour
 
         Time.timeScale = 1; // So animation in main menu runs still
 
+        // Not loading ad and just returning because ads arent working yet.
         // Need to play ad now before changing scenes
         adManager.LoadRewardedAd(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void BackToMenuStoryWon() {
@@ -70,7 +73,10 @@ public class GameOverUIManager : MonoBehaviour
         Time.timeScale = 1; // So animation in main menu runs still
 
         // Need to play ad now before changing scenes
+
+        // Not loading ad and just returning because ads arent working yet.
         adManager.LoadRewardedAd(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void BackToMenuStoryLost() {
