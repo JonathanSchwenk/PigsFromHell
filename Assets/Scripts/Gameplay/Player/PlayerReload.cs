@@ -81,7 +81,9 @@ public class PlayerReload : MonoBehaviour
     public void Reload() {
         // if the current weapon isn't a knife then reload the gun, else do nothing
         // And check to make sure that the mag isnt full before reloading
-        if (activeWeapon.name != "Knife" && gameManager.activeWeapon.bulletsInMag < magSize && gameManager.activeWeapon.reserveAmmo > 1) {
+        if (activeWeapon.name == "Cross Bow") {
+            gameManager.activeWeapon.bulletsInMag = magSize;
+        } else if (activeWeapon.name != "Knife" && gameManager.activeWeapon.bulletsInMag < magSize && gameManager.activeWeapon.reserveAmmo > 1) {
 
             audioManager.PlaySFX("Reload");
             

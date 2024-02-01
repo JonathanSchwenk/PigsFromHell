@@ -79,6 +79,8 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().health = 1;
                         enemy.GetComponent<EnemyPig>().pointValue = 5;
 
+                        enemy.gameObject.GetComponent<NavMeshAgent>().speed = gameManager.enemySpeed;
+
                         spawnManager.numEnemies += 1;
                         if (saveManager.saveData.gameMode == "Survival") {
                             spawnManager.bankValue -= 1;
@@ -96,6 +98,8 @@ public class EnemySpawner : MonoBehaviour
 
                         enemy.GetComponent<EnemyPig>().health = 2;
                         enemy.GetComponent<EnemyPig>().pointValue = 10;
+
+                        enemy.gameObject.GetComponent<NavMeshAgent>().speed = gameManager.enemySpeed;
 
                         spawnManager.numEnemies += 1;
                         if (saveManager.saveData.gameMode == "Survival") {
@@ -117,6 +121,8 @@ public class EnemySpawner : MonoBehaviour
                         enemy.GetComponent<EnemyPig>().health = 3;
                         enemy.GetComponent<EnemyPig>().pointValue = 15;
 
+                        enemy.gameObject.GetComponent<NavMeshAgent>().speed = gameManager.enemySpeed;
+
                         spawnManager.numEnemies += 1;
                         if (saveManager.saveData.gameMode == "Survival") {
                             spawnManager.bankValue -= 3;
@@ -136,6 +142,8 @@ public class EnemySpawner : MonoBehaviour
 
                         enemy.GetComponent<EnemyPig>().health = 4;
                         enemy.GetComponent<EnemyPig>().pointValue = 20;
+
+                        enemy.gameObject.GetComponent<NavMeshAgent>().speed = gameManager.enemySpeed;
 
                         spawnManager.numEnemies += 1;
                         if (saveManager.saveData.gameMode == "Survival") {

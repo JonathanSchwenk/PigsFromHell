@@ -22,7 +22,6 @@ public class EnemyPig : MonoBehaviour
 
 
     private float groundFireDamange;
-    private float poisonDamage;
 
     // Start is called before the first frame update
     void Start()
@@ -119,7 +118,6 @@ public class EnemyPig : MonoBehaviour
             }
         }
         if (other.tag == "PoisonShot") {
-            poisonDamage = other.GetComponent<PoisonShot>().damage;
             health -= other.GetComponent<PoisonShot>().damage;
             if (health <= 0) {
                 Drop();
@@ -130,15 +128,6 @@ public class EnemyPig : MonoBehaviour
         }
         if (other.tag == "ElectricBullet") {
             health -= other.GetComponent<ElectricBullet>().damage; // Need separate value / tag
-            if (health <= 0) {
-                Drop();
-                gameObject.SetActive(false);
-                spawnManager.numEnemies -= 1;
-                gameManager.points += pointValue;
-            }
-        }
-        if (other.tag == "ElectricBlast") {
-            health -= other.GetComponent<ElectricBlast>().damage; // Need separate value / tag
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);
@@ -166,7 +155,8 @@ public class EnemyPig : MonoBehaviour
         }
         if (other.tag == "IceBullet") {
             health -= other.GetComponent<IceBullet>().damage;
-            navMeshAgent.speed -= 1.5f;
+            float localSpeed = gameManager.enemySpeed;
+            navMeshAgent.speed = localSpeed -= 0.5f;
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);
@@ -193,7 +183,20 @@ public class EnemyPig : MonoBehaviour
             }
         }
         if (other.tag == "PoisonSmoke") {
-            health -= poisonDamage;
+            // If you shoot this and then switch then it will damage equal to that new weapon. Theres no super easy way to
+            // fix this so going with it. Doesn't really matter tho bc it shreds anyway.
+            health -= gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
+            if (health <= 0) {
+                Drop();
+                gameObject.SetActive(false);
+                spawnManager.numEnemies -= 1;
+                gameManager.points += pointValue;
+            }
+        }
+        if (other.tag == "ElectricBlast") {
+            // If you shoot this and then switch then it will damage equal to that new weapon. Theres no super easy way to
+            // fix this so going with it. Doesn't really matter tho bc it shreds anyway.
+            health -= gameManager.activeWeapon.damage * gameManager.activeWeapon.starValue;
             if (health <= 0) {
                 Drop();
                 gameObject.SetActive(false);
